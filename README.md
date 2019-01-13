@@ -14,6 +14,7 @@ Utilisez la commande : git clone https://github.com/Milawy/Projet42
 
 Modifiez le projet puis assurez vous qu'il n'y a pas de bug, ensuite fait un : 
 git add nomDuFichier
+
 pour chaque fichier que vous avez ajouté ou modifié.
 
 Puis utilisez la commande : git commit -m "Brève explication de la modif"
