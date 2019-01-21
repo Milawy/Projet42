@@ -12,6 +12,7 @@ Game.Game= function(){
     }, 
  
     create : function(){
+
         this.game.renderer.renderSession.roundPixels = true;
 
         this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -38,16 +39,16 @@ Game.Game= function(){
         //check collisions
         this.game.physics.arcade.collide(this.player, this.wallLayer);
 
-        if (key.isDown(90)){
+        if (key.isDown(90) && !key.isDown(81) && !key.isDown(83) && !key.isDown(68)){
             this.player.move("up");
         }
-        if (key.isDown(83)){
+        if (key.isDown(83) && !key.isDown(90) && !key.isDown(81) && !key.isDown(68)){
             this.player.move("down");
         }
-        if (key.isDown(68)){
+        if (key.isDown(68) && !key.isDown(90) && !key.isDown(83) && !key.isDown(81)){
             this.player.move("right");
         }
-        if (key.isDown(81)){
+        if (key.isDown(81) && !key.isDown(90) && !key.isDown(83) && !key.isDown(68)){
             this.player.move("left");
         }
         if (key.isDown(81) && key.isDown(90)){
