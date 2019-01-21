@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+
+<html lang="fr">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel='stylesheet' href='main.css' type='text/css'>
+    <link rel='icon' type='image/png' href='favicon.png' />
+
+    <title>42</title>
+
+        <script src="js/phaser.js"></script>
+        <script src="js/states/boot.js"></script>
+        <script src="js/states/preload.js"></script>
+        <script src="js/states/menu.js"></script>
+        <script src="js/entites/player.js"></script>
+        <script src="js/states/game.js"></script>
+
+
+    </head>
+
+
+    <body>
+
+        <script>
+
+              Game.game = new Phaser.Game(256, 256, '');
+              
+              Game.game.state.add('Boot', Game.Boot);
+              Game.game.state.add('Preload', Game.Preload);
+              Game.game.state.add('Menu', Game.Menu);
+              Game.game.state.add('Game', Game.Game);
+              Game.game.state.add('GameOver', Game.GameOver);
+         
+              Game.game.state.start('Boot');
+ 
+        </script>
+
+    </body>
+
+</html>
