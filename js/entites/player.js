@@ -5,7 +5,7 @@ Game.Player = function (game, x, y) {
 	this.name = 'player';
 	this.game = game;
 
-	this.animations.add('side',[0,1,2],20,true);
+	this.animations.add('side',[0,1,2],20,false);
 	 
 	/*this.animations.add('gauche',[7,8,9,10],10,true);
 	this.animations.add('droite',[1,2,3,4],10,true);
@@ -39,11 +39,29 @@ Game.Player.prototype.update=function(){
 
 Game.Player.prototype.move = function(direction){
    	
-   	if(direction == 'left')
-    this.body.velocity.y = -150;
-	console.log("2");
-    //this.body.velocity.x = 150*this.dirx;
-
-    this.animations.play("side");
-
+   	if(direction == 'up'){
+   		this.body.velocity.y = -150;
+		this.body.velocity.x = 0;
+	    this.animations.play("side");
+   	}
+   	if(direction == 'down'){
+   		this.body.velocity.y = 150;
+		this.body.velocity.x = 0;
+	    this.animations.play("side");
+   	}
+   	if(direction == 'right'){
+   		this.body.velocity.y = 0;
+		this.body.velocity.x = 150;
+	    this.animations.play("side");
+   	}
+   	if(direction == 'left'){
+   		this.body.velocity.y = 0;
+		this.body.velocity.x = -150;
+	    this.animations.play("side");
+   	}
+   	if(direction == 'stand'){
+   		this.body.velocity.x = 0;
+   		this.body.velocity.y = 0;
+   	}
+    
 };
