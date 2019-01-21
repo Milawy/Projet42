@@ -1,4 +1,4 @@
-
+var key;
 
 Game.Game= function(){
  
@@ -19,21 +19,25 @@ Game.Game= function(){
         this.map.addTilesetImage('sci-fi-tiles','tiles_16x16');
 
         this.backgroundLayer = this.map.createLayer('Ground');
-        this.calqueCol = this.map.createLayer('Wall');
+        this.wallLayer = this.map.createLayer('Wall');
 
-        //this.player = this.game.add.sprite(100, 100, 'player');
-        this.player= new Game.Player(this.game, 100, 100);
-        console.log(this.player);
+        this.map.setCollisionBetween(0, 999, true, this.wallLayer);
+
+        this.player = new Game.Player(this.game, 100, 100);
 
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
+
+        key = this.game.input.keyboard;
 
     }, 
  
     update : function(){ 
 
-        if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
-            console.log(this.player)
+        //check collisions
+        this.game.physics.arcade.collide(this.player, this.wallLayer);
+
+        if (!key.isDown(90)){
             this.player.move("left");
         }  
     }
