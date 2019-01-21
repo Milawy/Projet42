@@ -12,7 +12,8 @@ Game.Game= function(){
     }, 
  
     create : function(){
-        
+        this.game.renderer.renderSession.roundPixels = true;
+
         this.physics.startSystem(Phaser.Physics.ARCADE);
         this.map = this.add.tilemap('room1');
 
@@ -48,6 +49,18 @@ Game.Game= function(){
         }
         if (key.isDown(81)){
             this.player.move("left");
+        }
+        if (key.isDown(81) && key.isDown(90)){
+            this.player.move("upLeft");
+        }
+        if (key.isDown(81) && key.isDown(83)){
+            this.player.move("downLeft");
+        }
+        if (key.isDown(68) && key.isDown(90)){
+            this.player.move("upRight");
+        }
+        if (key.isDown(68) && key.isDown(83)){
+            this.player.move("downRight");
         }
         if (!key.isDown(81) && !key.isDown(68) && !key.isDown(83) && !key.isDown(90)){
             this.player.move("stand");
