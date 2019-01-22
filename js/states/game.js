@@ -48,34 +48,6 @@ Game.Game= function(){
         this.game.physics.arcade.collide(this.player, this.wallLayer);
 
 
-        /////////////////////////////////Movements/////////////////////////////////
 
-        if (key.isDown(90) && !key.isDown(81) && !key.isDown(83) && !key.isDown(68)){
-            this.player.move("up");
-        }
-        if (key.isDown(83) && !key.isDown(90) && !key.isDown(81) && !key.isDown(68)){
-            this.player.move("down");
-        }
-        if (key.isDown(68) && !key.isDown(90) && !key.isDown(83) && !key.isDown(81)){
-            this.player.move("right");
-        }
-        if (key.isDown(81) && !key.isDown(90) && !key.isDown(83) && !key.isDown(68)){
-            this.player.move("left");
-        }
-        if (key.isDown(81) && key.isDown(90)){
-            this.player.move("upLeft");
-        }
-        if (key.isDown(81) && key.isDown(83)){
-            this.player.move("downLeft");
-        }
-        if (key.isDown(68) && key.isDown(90)){
-            this.player.move("upRight");
-        }
-        if (key.isDown(68) && key.isDown(83)){
-            this.player.move("downRight");
-        }
-        if (!key.isDown(81) && !key.isDown(68) && !key.isDown(83) && !key.isDown(90)){
-            this.player.move("stand");
-        }
     }
 }

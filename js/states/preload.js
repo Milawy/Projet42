@@ -11,11 +11,11 @@ Game.Preload = {
   },
  
   create : function(){
-   //nous ajoutons au départ le texte "chargement", à la position x 10 et y 100, et de couleur #fff i.e blanc
+
+   /////////////////////////////////Loading screen/////////////////////////////////
+
    this.loadText = this.add.text(10, 100, 'Chargement', { fill: '#ffffff' });
-   //A chaque chargement de fichier nous appelons la fonction fileComplete que nous allons définir plus loin
    this.load.onFileComplete.add(this.fileComplete, this);
-   //lorsque toutes les fichiers seront chargés, nous appelons la fonction loadComplete
    this.load.onLoadComplete.add(this.loadComplete, this);
  
    //on appelle la fonction qui va définir le chargement des fichiers
@@ -24,12 +24,12 @@ Game.Preload = {
   },
  
  startLoad: function(){
-  //ici nous indiquons tous les fichiers que nous souhaitons charger pour notre jeu
-  //et leur assignons à chacun un nom unique par lequel nous allons les référencer pour les utiliser
+  
   this.load.tilemap('room1', '/assets/map/room1.json', null, Phaser.Tilemap.TILED_JSON);
-  this.load.image('tiles_16x16', 'assets/img/sci-fi-tiles.png');
   this.load.spritesheet('player', 'assets/sprites/hero.png', 16, 16);
-  //on lance le chargement
+  this.load.image('tiles_16x16', 'assets/img/sci-fi-tiles.png');
+    this.load.image('bullet', 'assets/img/bullet1.png');
+
   this.load.start();
  
  },

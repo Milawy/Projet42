@@ -25,6 +25,35 @@ Game.Player.prototype.constructor = Game.Player;
 	 
 Game.Player.prototype.update = function(){
 	
+        /////////////////////////////////Movements/////////////////////////////////
+
+        if (key.isDown(90) && !key.isDown(81) && !key.isDown(83) && !key.isDown(68)){
+            this.move("up");
+        }
+        if (key.isDown(83) && !key.isDown(90) && !key.isDown(81) && !key.isDown(68)){
+            this.move("down");
+        }
+        if (key.isDown(68) && !key.isDown(90) && !key.isDown(83) && !key.isDown(81)){
+            this.move("right");
+        }
+        if (key.isDown(81) && !key.isDown(90) && !key.isDown(83) && !key.isDown(68)){
+            this.move("left");
+        }
+        if (key.isDown(81) && key.isDown(90)){
+            this.move("upLeft");
+        }
+        if (key.isDown(81) && key.isDown(83)){
+            this.move("downLeft");
+        }
+        if (key.isDown(68) && key.isDown(90)){
+            this.move("upRight");
+        }
+        if (key.isDown(68) && key.isDown(83)){
+            this.move("downRight");
+        }
+        if (!key.isDown(81) && !key.isDown(68) && !key.isDown(83) && !key.isDown(90)){
+            this.move("stand");
+        }
 };
 
 Game.Player.prototype.move = function(direction){
