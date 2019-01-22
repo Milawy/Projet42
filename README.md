@@ -20,3 +20,11 @@ pour chaque fichier que vous avez ajouté ou modifié.
 Puis utilisez la commande : git commit -m "Brève explication de la modif"
 
 Et enfin : git push
+
+### Si vous avez besoin de forcer un git pull
+
+Utilisez la commande : git fetch --all
+
+Puis : git reset --hard origin/master
+
+GG !
