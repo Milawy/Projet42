@@ -5,6 +5,8 @@ Game.Player = function (game, x, y) {
 	this.name = 'player';
 	this.game = game;
 
+	/////////////////////////////////Animations/////////////////////////////////
+
 	this.animations.add('leftSide',[0,1,2],20,false);
 	this.animations.add('rightSide',[0,1,2],20,false);
 	this.animations.add('up',[3,4,5],20,false);
@@ -27,6 +29,8 @@ Game.Player.prototype.update = function(){
 
 Game.Player.prototype.move = function(direction){
    	
+	 /////////////////////////////////Players' movements/////////////////////////////////
+
    	if(direction == 'up'){
    		this.body.velocity.y = -150;
 		this.body.velocity.x = 0;
