@@ -1,3 +1,7 @@
+
+
+/////////////////////////////////Global Var/////////////////////////////////
+
 var key;
 
 Game.Game= function(){
@@ -13,23 +17,27 @@ Game.Game= function(){
  
     create : function(){
 
-        this.game.renderer.renderSession.roundPixels = true;
+        this.game.renderer.renderSession.roundPixels = true; //allow pixel art
 
         this.physics.startSystem(Phaser.Physics.ARCADE);
-        this.map = this.add.tilemap('room1');
 
+        //load the map
+        this.map = this.add.tilemap('room1');
         this.map.addTilesetImage('sci-fi-tiles','tiles_16x16');
 
+        //create layers
         this.backgroundLayer = this.map.createLayer('Ground');
         this.wallLayer = this.map.createLayer('Wall');
 
+        //allow collision with walls
         this.map.setCollisionBetween(0, 999, true, this.wallLayer);
 
+        //create the player
         this.player = new Game.Player(this.game, 100, 100);
-
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
 
+        //add the keyboard
         key = this.game.input.keyboard;
 
     }, 
@@ -38,6 +46,9 @@ Game.Game= function(){
 
         //check collisions
         this.game.physics.arcade.collide(this.player, this.wallLayer);
+
+
+        /////////////////////////////////Movements/////////////////////////////////
 
         if (key.isDown(90) && !key.isDown(81) && !key.isDown(83) && !key.isDown(68)){
             this.player.move("up");
@@ -68,24 +79,3 @@ Game.Game= function(){
         }
     }
 }
-
-
-////////////////////////////Phaser 3 version////////////////////////////
-/*var config = {
-    type: Phaser.AUTO,
-    width: 256,
-    height: 256,
-    zoom: 3,
-    pixelArt: true,
-    scene: [ room1 ],
-    physics: {
-        default: "arcade",
-        arcade: {
-            gravity: { y: 0 }, // Top down game, so no gravity
-            debug: false
-        }
-    }
-};
-
-let game = new Phaser.Game(config);*/
-
