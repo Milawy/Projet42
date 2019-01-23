@@ -40,6 +40,10 @@ Game.Game= function(){
         //add the keyboard
         key = this.game.input.keyboard;
 
+        this.weapon = new Weapon.SingleBullet(this.game);
+
+        this.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
+
     }, 
  
     update : function(){ 
@@ -47,7 +51,10 @@ Game.Game= function(){
         //check collisions
         this.game.physics.arcade.collide(this.player, this.wallLayer);
 
+        if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)){
 
+            this.weapon.fire(this.player, this.game.input.mousePointer);
+        }
 
     }
 }
