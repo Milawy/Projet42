@@ -29,6 +29,7 @@ Game.Preload = {
   this.load.spritesheet('player', 'assets/sprites/hero.png', 16, 16);
   this.load.image('tiles_16x16', 'assets/img/sci-fi-tiles.png');
   this.load.image('bullet', 'assets/img/bullet1.png');
+  this.load.image('basicFont', 'assets/font/willFont42.png');
 
   this.load.start();
  

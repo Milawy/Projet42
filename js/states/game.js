@@ -45,9 +45,8 @@ Game.Game= function(){
         this.weapon = new Weapon.SingleBullet(this.game);
 
         //add text
-        font = this.game.add.text(35, 35);
-        font.fontSize = 10;
-
+        basicFont = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
+        this.game.add.image(15, 150, basicFont);
     }, 
  
     update : function(){ 
@@ -61,11 +60,14 @@ Game.Game= function(){
         if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)){
 
             this.weapon.fire(this.player, this.game.input.mousePointer);
+            
+            basicFont.text = "wow 42";    
+            basicFont.text = "";
         }
 
-        //Test get position, useful to place things at a certain place
-        font.text = "Mouse position : x = " + this.game.input.x + " y = " + this.game.input.y;        
+        //Test get position, useful to place things at a certain place  
 
+        //text.setText('Bitmap Fonts!\nx: ' + Math.round(this.game.input.x) + ' y: ' + Math.round(this.game.input.y));
     }
 }
 
