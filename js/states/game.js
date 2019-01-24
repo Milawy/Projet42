@@ -39,22 +39,32 @@ Game.Game= function(){
 
         //add the keyboard
         key = this.game.input.keyboard;
-
-        this.weapon = new Weapon.SingleBullet(this.game);
-
         this.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
+
+        //add weapons
+        this.weapon = new Weapon.SingleBullet(this.game);
 
     }, 
  
     update : function(){ 
 
-        //check collisions
+        //check collisions between the player and walls
         this.game.physics.arcade.collide(this.player, this.wallLayer);
+
+        //if a bullet collide a wall the callback function collisionHandler is triggered
+        this.game.physics.arcade.collide(this.weapon, this.wallLayer, collisionHandler, null, this);
 
         if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)){
 
             this.weapon.fire(this.player, this.game.input.mousePointer);
         }
 
+        
+
     }
+}
+
+function collisionHandler(weapon, wallLayer){
+
+    weapon.kill();
 }

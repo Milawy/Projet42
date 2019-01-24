@@ -47,7 +47,6 @@ Bullet.prototype.update = function () {
         this.scale.y += this.scaleSpeed;
     }
 
-
 };
 
 
