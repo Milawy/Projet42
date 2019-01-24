@@ -4,12 +4,12 @@ Game.Boot = function(){};
 Game.Boot.prototype = {
  
   preload : function(){
-      //aucune ressource à précharger pour cet état
+      //Nothing to preload now
   },
  
   create : function(){
  
-   	//Mise à l'échelle
+   	//Scaling time !
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.game.input.maxPointers = 1;
     this.scale.minWidth = 256;
@@ -17,7 +17,7 @@ Game.Boot.prototype = {
      
     this.scale.pageAlignHorizontally = true;
 		
-    //on passe au State Preloader
+    //Preload everything
     this.state.start('Preload');
  
   },

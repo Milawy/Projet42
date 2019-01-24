@@ -1,13 +1,13 @@
 Game.Preloader = function(){
-  // ici les variables que nous allons utiliser dans cet groupe de code
-  // nous allons afficher la progression du chargement des données du jeu
-  this.loadtext; // variable de texte
+  //Here are the variables that we'll use in that group code
+  //We'll display the loading progression of game data
+  this.loadtext; //Text variable
 };
  
 Game.Preload = {
  
   preload : function(){
-   // aucune ressource à précharger pour cet état
+   //Nothing to preload now
   },
  
   create : function(){
@@ -18,7 +18,7 @@ Game.Preload = {
    this.load.onFileComplete.add(this.fileComplete, this);
    this.load.onLoadComplete.add(this.loadComplete, this);
  
-   //on appelle la fonction qui va définir le chargement des fichiers
+   //We call the loading function to load files
    this.startLoad();
  
   },
@@ -37,22 +37,22 @@ Game.Preload = {
  
  update : function(){
    
-    //n'est pas utile pour cet état, nous la definissons à titre didactique mais elle n'est pas nécessaire
+    //Useless for now
  
  },
  
  
-  //Maintenant, définissons nos fonctions!
+  //Now define functions
   
   fileComplete: function ( progress, cacheKey, success, totalLoaded, totalFiles) {
   
-     //à chaque nouveau fichier chargé nous mettons à jour notre variable loadText
-     this.loadText.setText("Fichiers chargés : " + progress + "% - " + totalLoaded + " sur " + totalFiles);
+     //Everytime we load a new file, we update the "loadText" variable
+     this.loadText.setText("Fichiers chargés : " + progress + "% - " + totalLoaded + " / " + totalFiles);
  
   },
  
   loadComplete : function(){
-     // tous les fichiers sont chargés, on peut donc lancer l'état suivant : le jeu!
+     //Everything's loaded, launch the game
      this.state.start('Game');
   }
 }
