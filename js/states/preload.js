@@ -28,7 +28,7 @@ Game.Preload = {
   this.load.tilemap('room1', '/assets/map/room1.json', null, Phaser.Tilemap.TILED_JSON);
   this.load.spritesheet('player', 'assets/sprites/hero.png', 16, 16);
   this.load.image('tiles_16x16', 'assets/img/sci-fi-tiles.png');
-    this.load.image('bullet', 'assets/img/bullet1.png');
+  this.load.image('bullet', 'assets/img/bullet1.png');
 
   this.load.start();
  

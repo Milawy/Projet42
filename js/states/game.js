@@ -2,7 +2,7 @@
 
 /////////////////////////////////Global Var/////////////////////////////////
 
-var key;
+var key, font;
 
 Game.Game= function(){
  
@@ -44,6 +44,10 @@ Game.Game= function(){
         //add weapons
         this.weapon = new Weapon.SingleBullet(this.game);
 
+        //add text
+        font = this.game.add.text(35, 35);
+        font.fontSize = 10;
+
     }, 
  
     update : function(){ 
@@ -59,7 +63,8 @@ Game.Game= function(){
             this.weapon.fire(this.player, this.game.input.mousePointer);
         }
 
-        
+        //Test get position, useful to place things at a certain place
+        font.text = "Mouse position : x = " + this.game.input.x + " y = " + this.game.input.y;        
 
     }
 }
