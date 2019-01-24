@@ -1,7 +1,7 @@
 
 /////////////////////////////////Global Var/////////////////////////////////
 
-var key;
+var key, pauseButton, fireButton;
 
 Game.Game= function(){
  
@@ -36,19 +36,21 @@ Game.Game= function(){
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
 
-        //Add the keyboard
+        //add the keyboard and inputs
         key = this.game.input.keyboard;
+        fireButton = this.game.input.activePointer.leftButton;
         this.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
-        
-        //Add mouse buttons
-        this.game.input.mouse.capture = true;
 
-        //Add weapons
+        //add weapons
         this.weapon = new Weapon.SingleBullet(this.game);
 
-        //Add text
+        //add text
         basicFont = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.game.add.image(15, 150, basicFont);
+        this.game.add.image(this.game.world.centerX - 40, this.game.world.centerY - 8, basicFont);
+
+        //set event listner to pause/unpause the game
+        pauseButton = this.game.input.keyboard.addKey(27);
+        pauseButton.onDown.add(unpause , this);
     }, 
  
     update : function(){ 
@@ -59,23 +61,28 @@ Game.Game= function(){
         //If a bullet collide a wall the callback function collisionHandler is triggered
         this.game.physics.arcade.collide(this.weapon, this.wallLayer, collisionHandler, null, this);
 
-        //If input is left click
-        console.log(this.game.input.activePointer.leftButton.isDown);
-        if (this.game.input.activePointer.leftButton.isDown === true){
-            console.log(this.game.input.activePointer.leftButton.isDown);
-            //Shoot
-            this.weapon.fire(this.player, this.game.input.mousePointer);
-            //Write things
-            basicFont.text = "wow 42";
-            basicFont.text = "";
-        }
+        if (fireButton.isDown){
 
-        //Get mouse position, useful to place things at a certain place  
-        basicFont.text("Mouse position\nx = " + Math.round(this.game.input.x) + "; y = " + Math.round(this.game.input.y));
+            this.weapon.fire(this.player, this.game.input.mousePointer);
+        }
     }
 }
 
 function collisionHandler(weapon, wallLayer){
-    //Destroy the projectile after a collision
+
     weapon.kill();
+}
+
+function unpause(){
+    
+    if(this.game.paused == true){
+
+        this.game.paused = false;
+        basicFont.text = "";
+    }
+    else {
+
+        this.game.paused = true;
+        basicFont.text = "Pause";
+    }
 }
