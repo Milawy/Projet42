@@ -7,15 +7,17 @@ Game.Preloader = function(){
 Game.Preload = {
  
   preload : function(){
-   //Nothing to preload now
+
+    this.load.image('loading', 'assets/img/loading.png');
   },
  
   create : function(){
 
    /////////////////////////////////Loading screen/////////////////////////////////
 
-   this.loadText = this.add.text(10, 100, 'Chargement', { fill: '#ffffff' });
-   this.load.onFileComplete.add(this.fileComplete, this);
+   var loadingBar = this.add.sprite(0, 0, "loading");
+   this.load.setPreloadSprite(loadingBar);
+
    this.load.onLoadComplete.add(this.loadComplete, this);
  
    //We call the loading function to load files
@@ -30,6 +32,8 @@ Game.Preload = {
   this.load.image('tiles_16x16', 'assets/img/sci-fi-tiles.png');
   this.load.image('bullet', 'assets/img/bullet1.png');
   this.load.image('basicFont', 'assets/font/willFont42.png');
+  this.load.image('menuBackground', 'assets/img/startScreen.png');
+  this.load.audio('discours', 'assets/sound/discoursInquietant.mp3');
 
   this.load.start();
  
@@ -41,18 +45,8 @@ Game.Preload = {
  
  },
  
- 
-  //Now define functions
-  
-  fileComplete: function ( progress, cacheKey, success, totalLoaded, totalFiles) {
-  
-     //Everytime we load a new file, we update the "loadText" variable
-     this.loadText.setText("Fichiers chargés : " + progress + "% - " + totalLoaded + " / " + totalFiles);
- 
-  },
- 
   loadComplete : function(){
      //Everything's loaded, launch the game
-     this.state.start('Game');
+     this.state.start('Menu');
   }
 }
