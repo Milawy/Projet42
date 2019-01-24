@@ -33,6 +33,7 @@ Game.Preload = {
   this.load.image('bullet', 'assets/img/bullet1.png');
   this.load.image('basicFont', 'assets/font/willFont42.png');
   this.load.image('menuBackground', 'assets/img/startScreen.png');
+  this.load.image('playButton', 'assets/img/playButton.png');
   this.load.audio('discours', 'assets/sound/discoursInquietant.mp3');
 
   this.load.start();
