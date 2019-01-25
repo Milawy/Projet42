@@ -36,7 +36,7 @@ Game.Game= function(){
 
         /////////////////////////////////Player/////////////////////////////////
         //Create the player
-        this.player = new Game.Player(this.game, 112, 240);
+        this.player = new Game.Player(this.game, 112, 224);
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
 

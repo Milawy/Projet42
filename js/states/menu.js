@@ -1,4 +1,4 @@
-
+var isPressed = false;
 
 Game.Menu=function(){
  
@@ -24,7 +24,8 @@ Game.Menu.prototype = {
         playButton.inputEnabled = true;
         playButton.events.onInputOver.add(overPlayButton, this);
     	playButton.events.onInputDown.add(launchGame, this);
-        playButton.animations.add('hoover', [0,1,2,3,4,5], 20, false);
+        playButton.animations.add('hoover', [0,1], 10, false);
+        playButton.animations.add('notHoover', [1,0], 10, false);
 
         // Press enter to play
         this.playKey = this.game.input.keyboard.addKey(13);
@@ -46,6 +47,14 @@ Game.Menu.prototype = {
         this.textBox.inputEnabled = true;
         this.textBox.events.onInputDown.add(launchGame, this);
     }, 
+
+    update : function(){
+
+        if(isPressed == true && playButton.input.pointerOver() == false){
+            isPressed = false;
+            playButton.animations.play('notHoover');
+        }
+    }
  
  
 }
@@ -59,4 +68,5 @@ function launchGame(){
 function overPlayButton(){
 
     playButton.animations.play('hoover');
+    isPressed = true;
 }
