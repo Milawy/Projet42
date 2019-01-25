@@ -36,6 +36,11 @@ Game.Game= function(){
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
 
+        /*//Create medusa
+        this.medusa = new Game.Medusa(this.game, 150, 150);
+        this.game.physics.arcade.enable(this.medusa);
+        this.game.add.existing(this.medusa);*/
+
         //add the keyboard and inputs
         key = this.game.input.keyboard;
         fireButton = this.game.input.activePointer.leftButton;
@@ -48,7 +53,7 @@ Game.Game= function(){
         basicFont = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
         this.game.add.image(this.game.world.centerX - 40, this.game.world.centerY - 8, basicFont);
 
-        //set event listner to pause/unpause the game
+        //set event listener to pause/unpause the game
         pauseButton = this.game.input.keyboard.addKey(27);
         pauseButton.onDown.add(unpause , this);
     }, 

@@ -25,7 +25,7 @@ Bullet.prototype.constructor = Bullet;
 
 Bullet.prototype.fire = function (player, angle, speed, pointer) {
 
-    this.reset(player.x + 8, player.y - 8);
+    this.reset(player.x, player.y);
     this.scale.set(1);
 
     var vecX = (pointer.x - player.x);
