@@ -28,13 +28,16 @@ Game.Preload = {
  startLoad: function(){
   
   this.load.tilemap('room1', '/assets/map/room1.json', null, Phaser.Tilemap.TILED_JSON);
+
   this.load.spritesheet('player', 'assets/sprites/hero.png', 16, 16);
   this.load.spritesheet('medusa', 'assets/sprites/medusa.png', 46, 64);
+  this.load.spritesheet('playButton', 'assets/img/playButton.png', 48, 21);
+
   this.load.image('tiles_16x16', 'assets/img/sci-fi-tiles.png');
   this.load.image('bullet', 'assets/img/bullet1.png');
   this.load.image('basicFont', 'assets/font/willFont42.png');
   this.load.image('menuBackground', 'assets/img/startScreen.png');
-  this.load.image('playButton', 'assets/img/playButtons.png');
+
   this.load.audio('mainTheme', 'assets/sound/comeAndGetYourLove.mp3');
 
   this.load.start();
