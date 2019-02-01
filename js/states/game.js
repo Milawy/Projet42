@@ -30,6 +30,9 @@ Game.Game= function(){
         this.backgroundLayer = this.map.createLayer('Ground');
         this.wallLayer = this.map.createLayer('Wall');
 
+        this.door = this.game.add.sprite(50, 10, 'door');
+
+
         //Allow collisions with walls
         this.map.setCollisionBetween(0, 999, true, this.wallLayer);
 
@@ -73,6 +76,15 @@ Game.Game= function(){
 
         //Check collisions between the player and walls
         this.game.physics.arcade.collide(this.player, this.wallLayer);
+
+        if (checkOverlap(this.player, this.door))
+        {
+            text.text = 'Drag the sprites. Overlapping: true';
+        }
+        else
+        {
+            text.text = 'Drag the sprites. Overlapping: false';
+        }
 
         //If a bullet collide a wall the callback function collisionHandler is triggered
         this.game.physics.arcade.collide(this.weapon, this.wallLayer, collisionHandler, null, this);
