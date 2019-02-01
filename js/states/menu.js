@@ -17,17 +17,19 @@ Game.Menu.prototype = {
     	//mainTheme.play();
     	
         // Add background
-    	this.game.add.image(0 , 0, 'menuBackground');
+    	bg = this.game.add.image(0 , 0, 'menuBackground');
+        bg.scale.x = 1.15;
+        bg.scale.y = 1.15;
 
         // Fullscreen Button
-        this.fullscreenButton = this.game.add.image(237, 3, 'fullscreenButton');
+        this.fullscreenButton = this.game.add.image(267, 3, 'fullscreenButton');
         this.fullscreenButton.inputEnabled = true;
         this.fullscreenButton.events.onInputDown.add(fullscreenButtonEnable, this);
         this.fullscreenButton.scale.x = 0.5;
         this.fullscreenButton.scale.y = 0.5;
 
         // FullscreenOff Button
-        this.fullscreenOffButton = this.game.add.image(237, 3, 'fullscreenOffButton');
+        this.fullscreenOffButton = this.game.add.image(267, 3, 'fullscreenOffButton');
         this.fullscreenOffButton.inputEnabled = true;
         this.fullscreenOffButton.events.onInputDown.add(fullscreenButtonEnable, this);
         this.fullscreenOffButton.scale.x = 0.5;
@@ -37,9 +39,9 @@ Game.Menu.prototype = {
         // Fullscreen key
         this.fullscreenKey = this.game.input.keyboard.addKey(70);
         this.fullscreenKey.onDown.add(fullscreenButtonEnable , this);
-        
+
         // Play Button
-        playButton = this.game.add.sprite(100, 100, 'playButton');
+        playButton = this.game.add.sprite(120, 110, 'playButton');
         playButton.inputEnabled = true;
         playButton.events.onInputOver.add(overPlayButton, this);
     	playButton.events.onInputDown.add(launchGame, this);
@@ -52,7 +54,7 @@ Game.Menu.prototype = {
 
         // Main Title
         pressEnterToPlay = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.textBox = this.game.add.image(6, 25, pressEnterToPlay);
+        this.textBox = this.game.add.image(20, 25, pressEnterToPlay);
         this.textBox.scale.x = 0.77;
         this.textBox.scale.y = 0.77;
         pressEnterToPlay.text = "For the Greater Good";
