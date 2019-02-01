@@ -11,7 +11,7 @@ Game.Menu.prototype = {
     }, 
  
     create : function(){
-
+        
         // Add audio theme
     	mainTheme = this.game.add.audio('mainTheme');
     	//mainTheme.play();
@@ -46,6 +46,7 @@ Game.Menu.prototype = {
         pressEnterToPlay.text = "Press Enter To Play";
         this.textBox.inputEnabled = true;
         this.textBox.events.onInputDown.add(launchGame, this);
+
     }, 
 
     update : function(){
@@ -62,6 +63,7 @@ Game.Menu.prototype = {
 function launchGame(){
 
 	//mainTheme.stop();
+    this.game.scale.startFullScreen();
 	this.state.start('Game');
 }
 
@@ -69,4 +71,8 @@ function overPlayButton(){
 
     playButton.animations.play('hoover');
     isPressed = true;
+}
+
+function enableFullScreen(t){
+    t.game.scale.startFullScreen();
 }
