@@ -20,13 +20,24 @@ Game.Menu.prototype = {
     	this.game.add.image(0 , 0, 'menuBackground');
 
         // Fullscreen Button
-        fullscreenButton = this.game.add.sprite(237, 3, 'fullscreenButton');
-        fullscreenButton.inputEnabled = true;
-        fullscreenButton.events.onInputDown.add(fullscreenButtonEnable, this);
-        fullscreenButton.scale.x = 0.5;
-        fullscreenButton.scale.y = 0.5;
+        this.fullscreenButton = this.game.add.image(237, 3, 'fullscreenButton');
+        this.fullscreenButton.inputEnabled = true;
+        this.fullscreenButton.events.onInputDown.add(fullscreenButtonEnable, this);
+        this.fullscreenButton.scale.x = 0.5;
+        this.fullscreenButton.scale.y = 0.5;
 
+        // FullscreenOff Button
+        this.fullscreenOffButton = this.game.add.image(237, 3, 'fullscreenOffButton');
+        this.fullscreenOffButton.inputEnabled = true;
+        this.fullscreenOffButton.events.onInputDown.add(fullscreenButtonEnable, this);
+        this.fullscreenOffButton.scale.x = 0.5;
+        this.fullscreenOffButton.scale.y = 0.5;
+        this.fullscreenOffButton.visible = false;
 
+        // Fullscreen key
+        this.fullscreenKey = this.game.input.keyboard.addKey(70);
+        this.fullscreenKey.onDown.add(fullscreenButtonEnable , this);
+        
         // Play Button
         playButton = this.game.add.sprite(100, 100, 'playButton');
         playButton.inputEnabled = true;
@@ -72,9 +83,13 @@ function fullscreenButtonEnable(){
 
     if(!this.scale.isFullScreen){
         this.game.scale.startFullScreen();
+        this.fullscreenButton.visible = false;
+        this.fullscreenOffButton.visible = true;
     }
     else{
         this.game.scale.stopFullScreen();
+        this.fullscreenOffButton.visible = false;
+        this.fullscreenButton.visible = true;
     }
 }
 

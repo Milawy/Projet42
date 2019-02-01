@@ -44,6 +44,7 @@ Game.Preload = {
   this.load.image('basicFont', 'assets/font/willFont42.png');
   this.load.image('menuBackground', 'assets/img/startScreen.png');
   this.load.image('fullscreenButton', 'assets/img/fullscreenButton.png');
+  this.load.image('fullscreenOffButton', 'assets/img/fullscreenOffButton.png');
 
 
   // Audio
