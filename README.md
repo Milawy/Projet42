@@ -12,14 +12,16 @@ Allez dans le fichier où vous voulez placer le projet à l'aide de votre termin
 
 Utilisez la commande : git clone https://github.com/Milawy/Projet42
 
-Modifiez le projet puis assurez vous qu'il n'y a pas de bug, ensuite fait un : 
+### Pour push votre travail
+
+Modifiez le projet puis assurez vous qu'il n'y a pas de bug, ensuite faire un : 
 git add nomDuFichier
 
 pour chaque fichier que vous avez ajouté ou modifié.
 
 Puis utilisez la commande : git commit -m "Brève explication de la modif"
 
-Et enfin : git push
+Et enfin : git push origin master
 
 ### Si vous avez besoin de forcer un git pull
 
