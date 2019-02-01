@@ -19,6 +19,14 @@ Game.Menu.prototype = {
         // Add background
     	this.game.add.image(0 , 0, 'menuBackground');
 
+        // Fullscreen Button
+        fullscreenButton = this.game.add.sprite(237, 3, 'fullscreenButton');
+        fullscreenButton.inputEnabled = true;
+        fullscreenButton.events.onInputDown.add(fullscreenButtonEnable, this);
+        fullscreenButton.scale.x = 0.5;
+        fullscreenButton.scale.y = 0.5;
+
+
         // Play Button
         playButton = this.game.add.sprite(100, 100, 'playButton');
         playButton.inputEnabled = true;
@@ -60,19 +68,24 @@ Game.Menu.prototype = {
  
 }
 
+function fullscreenButtonEnable(){
+
+    if(!this.scale.isFullScreen){
+        this.game.scale.startFullScreen();
+    }
+    else{
+        this.game.scale.stopFullScreen();
+    }
+}
+
 function launchGame(){
 
-	//mainTheme.stop();
-    this.game.scale.startFullScreen();
-	this.state.start('Game');
+    //mainTheme.stop();
+    this.state.start('Game');
 }
 
 function overPlayButton(){
 
     playButton.animations.play('hoover');
     isPressed = true;
-}
-
-function enableFullScreen(t){
-    t.game.scale.startFullScreen();
 }
