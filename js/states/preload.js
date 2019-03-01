@@ -35,7 +35,7 @@ Game.Preload = {
   // SpriteSheet
   this.load.spritesheet('player', 'assets/sprites/hero.png', 16, 16);
   this.load.spritesheet('medusa', 'assets/sprites/medusa.png', 46, 64);
-  this.load.spritesheet('playButton', 'assets/img/playButtonV2.png', 48, 21);
+  //this.load.spritesheet('playButton', 'assets/img/playButtonV2.png', 48, 21);
   this.load.spritesheet('door', 'assets/img/door.png', 16, 16);
 
 
