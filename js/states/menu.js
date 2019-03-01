@@ -101,9 +101,10 @@ function launchGame(){
     //mainTheme.stop();
     this.state.start('Game');
 }
-
+/*
 function overPlayButton(){
 
     playButton.animations.play('hoover');
     isPressed = true;
 }
+*/
