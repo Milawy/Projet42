@@ -43,7 +43,7 @@ Game.Preload = {
   this.load.image('tiles_16x16', 'assets/img/sci-fi-tiles.png');
   this.load.image('bullet', 'assets/img/bullet1.png');
   this.load.image('basicFont', 'assets/font/willFont42.png');
-  this.load.image('menuBackground', 'assets/img/startScreen.png');
+  this.load.image('mainTitle', 'assets/img/mainTitle.png');
   this.load.image('fullscreenButton', 'assets/img/fullscreenButton.png');
   this.load.image('fullscreenOffButton', 'assets/img/fullscreenOffButton.png');
 

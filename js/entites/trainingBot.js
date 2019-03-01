@@ -6,18 +6,16 @@ Game.Medusa = function (game, x, y) {
 	Phaser.Sprite.call(this, game, x, y, 'medusa');
 	 
 	this.name = 'medusa';
-	this.scale.x = 0.5;
-    this.scale.y = 0.5;
+  this.scale.setTo(0.5, 0.5);
+  console.log(this)
 
 	/////////////////////////////////Animations/////////////////////////////////
 
 	this.animations.add('leftSide',[3,4,5],20,false);
 	this.animations.add('rightSide',[6,7,8],20,false);
 	this.animations.add('up',[9,10,11],20,false);
-	A = this.animations.add('down',[0,1,2],20,false);
+	this.animations.add('down',[0,1,2],20,false);
 	this.animations.add('stand',[1],20,false);
-
-	console.log(A.frame(1));
 	 
 	this.game.physics.enable(this, Phaser.Physics.ARCADE);
 

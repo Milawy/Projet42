@@ -17,23 +17,23 @@ Game.Menu.prototype = {
     	//mainTheme.play();
     	
         // Add background
-    	bg = this.game.add.image(0 , 0, 'menuBackground');
-        bg.scale.x = 1.15;
-        bg.scale.y = 1.15;
+    	bg = this.game.add.image(0 , 0, 'mainTitle');
+        bg.scale.x = 0.71;
+        bg.scale.y = 0.52;
 
         // Fullscreen Button
-        this.fullscreenButton = this.game.add.image(267, 3, 'fullscreenButton');
+        this.fullscreenButton = this.game.add.image(this.game.width - 40, 10, 'fullscreenButton');
         this.fullscreenButton.inputEnabled = true;
         this.fullscreenButton.events.onInputDown.add(fullscreenButtonEnable, this);
-        this.fullscreenButton.scale.x = 0.5;
-        this.fullscreenButton.scale.y = 0.5;
+        this.fullscreenButton.scale.x = 1;
+        this.fullscreenButton.scale.y = 1;
 
         // FullscreenOff Button
-        this.fullscreenOffButton = this.game.add.image(267, 3, 'fullscreenOffButton');
+        this.fullscreenOffButton = this.game.add.image(this.game.width - 40, 10, 'fullscreenOffButton');
         this.fullscreenOffButton.inputEnabled = true;
         this.fullscreenOffButton.events.onInputDown.add(fullscreenButtonEnable, this);
-        this.fullscreenOffButton.scale.x = 0.5;
-        this.fullscreenOffButton.scale.y = 0.5;
+        this.fullscreenOffButton.scale.x = 1;
+        this.fullscreenOffButton.scale.y = 1;
         this.fullscreenOffButton.visible = false;
 
         // Fullscreen key
@@ -41,7 +41,9 @@ Game.Menu.prototype = {
         this.fullscreenKey.onDown.add(fullscreenButtonEnable , this);
 
         // Play Button
-        playButton = this.game.add.sprite(120, 110, 'playButton');
+        playButton = this.game.add.sprite(this.game.width/2 - 20, this.game.height/2 - 40, 'playButton');
+        playButton.scale.x = 2;
+        playButton.scale.y = 2;
         playButton.inputEnabled = true;
         playButton.events.onInputOver.add(overPlayButton, this);
     	playButton.events.onInputDown.add(launchGame, this);
@@ -54,19 +56,10 @@ Game.Menu.prototype = {
 
         // Main Title
         pressEnterToPlay = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.textBox = this.game.add.image(20, 25, pressEnterToPlay);
-        this.textBox.scale.x = 0.77;
-        this.textBox.scale.y = 0.77;
+        this.textBox = this.game.add.image(350, 100, pressEnterToPlay);
+        this.textBox.scale.x = 2;
+        this.textBox.scale.y = 2;
         pressEnterToPlay.text = "For the Greater Good";
-
-        // Clickable TextBox
-        pressEnterToPlay = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.textBox = this.game.add.image(50, 220, pressEnterToPlay);
-        this.textBox.scale.x = 0.5;
-        this.textBox.scale.y = 0.5;
-        pressEnterToPlay.text = "Press Enter To Play";
-        this.textBox.inputEnabled = true;
-        this.textBox.events.onInputDown.add(launchGame, this);
 
     }, 
 

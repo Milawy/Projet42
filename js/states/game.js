@@ -44,10 +44,10 @@ Game.Game= function(){
         this.game.add.existing(this.player);
 
         //WORK IN PROGRESS
-        /*//Create medusa
+        //Create medusa
         this.medusa = new Game.Medusa(this.game, 150, 150);
         this.game.physics.arcade.enable(this.medusa);
-        this.game.add.existing(this.medusa);*/
+        this.game.add.existing(this.medusa);
 
 
         /////////////////////////////////Weapon/////////////////////////////////
@@ -77,14 +77,14 @@ Game.Game= function(){
         //Check collisions between the player and walls
         this.game.physics.arcade.collide(this.player, this.wallLayer);
 
-        if (checkOverlap(this.player, this.door))
+        /*if (checkOverlap(this.player, this.door))
         {
             text.text = 'Drag the sprites. Overlapping: true';
         }
         else
         {
             text.text = 'Drag the sprites. Overlapping: false';
-        }
+        }*/
 
         //If a bullet collide a wall the callback function collisionHandler is triggered
         this.game.physics.arcade.collide(this.weapon, this.wallLayer, collisionHandler, null, this);
