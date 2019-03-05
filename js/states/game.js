@@ -10,14 +10,21 @@ Game.Game= function(){
  
  
     preload : function(){ 
-      
         
     }, 
  
     create : function(){
 
 
+        /////////////////////////////////Scaling & Render/////////////////////////////////
+        //Scaling time
+        this.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
+        this.game.scale.setGameSize(291, 291);
+        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+
+        //Render time
         this.game.renderer.renderSession.roundPixels = true; //allow pixel art
+        Phaser.Canvas.setImageRenderingCrisp(this.game.canvas);
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
 
@@ -30,9 +37,6 @@ Game.Game= function(){
         this.backgroundLayer = this.map.createLayer('Ground');
         this.wallLayer = this.map.createLayer('Wall');
 
-        this.door = this.game.add.sprite(50, 10, 'door');
-
-
         //Allow collisions with walls
         this.map.setCollisionBetween(0, 999, true, this.wallLayer);
 
@@ -43,11 +47,12 @@ Game.Game= function(){
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
 
-        //WORK IN PROGRESS
-        //Create medusa
-        this.medusa = new Game.Medusa(this.game, 150, 150);
-        this.game.physics.arcade.enable(this.medusa);
-        this.game.add.existing(this.medusa);
+        
+        /////////////////////////////////Camera/////////////////////////////////
+        this.world.camera = new Phaser.Camera(this.game, 1, 42, 42, 100, 100);
+        this.world.camera.position.x = 42;
+        //this.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+        console.log(this.world.camera)
 
 
         /////////////////////////////////Weapon/////////////////////////////////
@@ -58,6 +63,7 @@ Game.Game= function(){
 
         //add weapons
         this.weapon = new Weapon.SingleBullet(this.game);
+
 
         /////////////////////////////////Dialogue/////////////////////////////////
         //add text
@@ -76,15 +82,6 @@ Game.Game= function(){
 
         //Check collisions between the player and walls
         this.game.physics.arcade.collide(this.player, this.wallLayer);
-
-        /*if (checkOverlap(this.player, this.door))
-        {
-            text.text = 'Drag the sprites. Overlapping: true';
-        }
-        else
-        {
-            text.text = 'Drag the sprites. Overlapping: false';
-        }*/
 
         //If a bullet collide a wall the callback function collisionHandler is triggered
         this.game.physics.arcade.collide(this.weapon, this.wallLayer, collisionHandler, null, this);

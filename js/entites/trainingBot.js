@@ -7,7 +7,6 @@ Game.Medusa = function (game, x, y) {
 	 
 	this.name = 'medusa';
   this.scale.setTo(0.5, 0.5);
-  console.log(this)
 
 	/////////////////////////////////Animations/////////////////////////////////
 

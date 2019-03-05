@@ -11,7 +11,7 @@ Game.Boot.prototype = {
  
    	//Scaling time !
     this.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
-    this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
+    //this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
     this.game.input.maxPointers = 1;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
