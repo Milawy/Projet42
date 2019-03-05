@@ -6,11 +6,11 @@ text.setText('Bitmap Fonts!\nx: ' + Math.round(game.input.x) + ' y: ' + Math.rou
 var transparent = false;
 var antialias = false;
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', this, transparent, antialias);
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-testotests', this, transparent, antialias);
 
 function preload() {
 
-    game.load.image('girl', 'assets/pics/manga-girl.png');
+    game.load.image('grill', 'assets/pics/grillSausageTest.png');
 
 }
 
@@ -18,7 +18,7 @@ function create() {
 
     game.stage.backgroundColor = '#0076a3';
 
-    var sprite = game.add.sprite(32, -100, 'girl');
+    var sprite = game.add.sprite(32, -100, 'grill');
     sprite.scale.set(4);
 
 }

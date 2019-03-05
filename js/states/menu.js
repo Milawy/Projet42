@@ -41,7 +41,7 @@ Game.Menu.prototype = {
         this.fullscreenKey.onDown.add(fullscreenButtonEnable , this);
 
         // Play Button
-        playButton = this.game.add.sprite(this.game.width/2 - 20, this.game.height/2 - 40, 'playButton');
+  /*    playButton = this.game.add.sprite(this.game.width/2 - 20, this.game.height/2 - 40, 'playButton');
         playButton.scale.x = 2;
         playButton.scale.y = 2;
         playButton.inputEnabled = true;
@@ -49,17 +49,25 @@ Game.Menu.prototype = {
     	playButton.events.onInputDown.add(launchGame, this);
         playButton.animations.add('hoover', [0,1], 10, false);
         playButton.animations.add('notHoover', [1,0], 10, false);
+*/
+        playButton = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
+        this.textBox = this.game.add.image(this.game.width/2 - 59, 200, playButton);
+        this.textBox.scale.x = 2;
+        this.textBox.scale.y = 2;
+        this.textBox.inputEnabled = true;
+        this.textBox.events.onInputDown.add(launchGame, this);
+        playButton.text = "Play";
 
         // Press enter to play
         this.playKey = this.game.input.keyboard.addKey(13);
         this.playKey.onDown.add(launchGame , this);
 
         // Main Title
-        pressEnterToPlay = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.textBox = this.game.add.image(350, 100, pressEnterToPlay);
+        mainTitle = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
+        this.textBox = this.game.add.image(this.game.width/2 - 315, 50, mainTitle);
         this.textBox.scale.x = 2;
         this.textBox.scale.y = 2;
-        pressEnterToPlay.text = "For the Greater Good";
+        mainTitle.text = "For the Greater Good";
 
     }, 
 
@@ -93,9 +101,10 @@ function launchGame(){
     //mainTheme.stop();
     this.state.start('Game');
 }
-
+/*
 function overPlayButton(){
 
     playButton.animations.play('hoover');
     isPressed = true;
 }
+*/
