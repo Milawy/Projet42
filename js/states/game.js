@@ -30,7 +30,7 @@ Game.Game= function(){
 
         /////////////////////////////////Map/////////////////////////////////
         //Load the map
-        this.map = this.add.tilemap('room1');
+        this.map = this.add.tilemap('mapTest');
         this.map.addTilesetImage('sci-fi-tiles','tiles_16x16');
 
         //Create layers
@@ -49,10 +49,9 @@ Game.Game= function(){
 
         
         /////////////////////////////////Camera/////////////////////////////////
-        this.world.camera = new Phaser.Camera(this.game, 1, 42, 42, 100, 100);
-        this.world.camera.position.x = 42;
-        //this.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
-        console.log(this.world.camera)
+        this.game.world.resize(900, 300); // create offset limits
+        Game.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+        console.log(Game.game.camera);
 
 
         /////////////////////////////////Weapon/////////////////////////////////

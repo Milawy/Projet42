@@ -44,19 +44,20 @@ Game.Menu.prototype = {
   /*    playButton = this.game.add.sprite(this.game.width/2 - 20, this.game.height/2 - 40, 'playButton');
         playButton.scale.x = 2;
         playButton.scale.y = 2;
-        playButton.inputEnabled = true;
-        playButton.events.onInputOver.add(overPlayButton, this);
     	playButton.events.onInputDown.add(launchGame, this);
         playButton.animations.add('hoover', [0,1], 10, false);
         playButton.animations.add('notHoover', [1,0], 10, false);
 */
         playButton = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.textBox = this.game.add.image(this.game.width/2 - 59, 200, playButton);
-        this.textBox.scale.x = 2;
-        this.textBox.scale.y = 2;
-        this.textBox.inputEnabled = true;
-        this.textBox.events.onInputDown.add(launchGame, this);
+        this.playTextBox = this.game.add.image(this.game.width/2, 220, playButton);
+        this.playTextBox.scale.x = 2;
+        this.playTextBox.scale.y = 2;
+        this.playTextBox.anchor.x = 0.5;
+        this.playTextBox.anchor.y = 0.5;
+        this.playTextBox.inputEnabled = true;
+        this.playTextBox.events.onInputDown.add(launchGame, this);
         playButton.text = "Play";
+        this.playTextBox.events.onInputOver.add(overPlayButton, this);
 
         // Press enter to play
         this.playKey = this.game.input.keyboard.addKey(13);
@@ -64,18 +65,19 @@ Game.Menu.prototype = {
 
         // Main Title
         mainTitle = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.textBox = this.game.add.image(this.game.width/2 - 315, 50, mainTitle);
-        this.textBox.scale.x = 2;
-        this.textBox.scale.y = 2;
+        this.mainTittleText = this.game.add.image(this.game.width/2 - 315, 50, mainTitle);
+        this.mainTittleText.scale.x = 2;
+        this.mainTittleText.scale.y = 2;
         mainTitle.text = "For the Greater Good";
 
     }, 
 
     update : function(){
 
-        if(isPressed == true && playButton.input.pointerOver() == false){
+        if(isPressed == true && this.playTextBox.input.pointerOver() == false){
             isPressed = false;
-            playButton.animations.play('notHoover');
+            this.playTextBox.scale.x = 2;
+            this.playTextBox.scale.y = 2;
         }
     }
  
@@ -101,10 +103,11 @@ function launchGame(){
     //mainTheme.stop();
     this.state.start('Game');
 }
-/*
+
 function overPlayButton(){
 
-    playButton.animations.play('hoover');
+    this.playTextBox.scale.x = 2.5;
+    this.playTextBox.scale.y = 2.5;
     isPressed = true;
 }
-*/
+

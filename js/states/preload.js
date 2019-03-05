@@ -30,6 +30,7 @@ Game.Preload = {
 
   // Tilemap
   this.load.tilemap('room1', '/assets/map/room1.json', null, Phaser.Tilemap.TILED_JSON);
+  this.load.tilemap('mapTest', '/assets/map/maptest.json', null, Phaser.Tilemap.TILED_JSON);
   this.load.tilemap('map1', '/assets/map/map1.json', null, Phaser.Tilemap.TILED_JSON);
 
   // SpriteSheet
