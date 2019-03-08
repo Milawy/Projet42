@@ -19,7 +19,7 @@ Game.Game= function(){
         /////////////////////////////////Scaling & Render/////////////////////
         //Scaling time
         this.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
-        this.game.scale.setGameSize(291, 170);
+        this.game.scale.setGameSize(350, 205);
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
 
         //Render time
@@ -30,7 +30,7 @@ Game.Game= function(){
 
         /////////////////////////////////Map/////////////////////////////////
         //Load the map
-        this.map = this.add.tilemap('bigRoom1');
+        this.map = this.add.tilemap('couloir');
         this.map.addTilesetImage('sci-fi-tiles','tiles_16x16');
 
         //Create layers
@@ -43,7 +43,7 @@ Game.Game= function(){
 
         /////////////////////////////////Player/////////////////////////////////
         //Create the player
-        this.player = new Game.Player(this.game, 112, 224);
+        this.player = new Game.Player(this.game, 22, 22);
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
 
