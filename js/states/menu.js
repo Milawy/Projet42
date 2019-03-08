@@ -59,8 +59,8 @@ Game.Menu.prototype = {
         playButton.text = "Play";
         this.playTextBox.events.onInputOver.add(overPlayButton, this);
 
-        // Press enter to play
-        this.playKey = this.game.input.keyboard.addKey(13);
+        // Press space to play
+        this.playKey = this.game.input.keyboard.addKey(32);
         this.playKey.onDown.add(launchGame , this);
 
         // Main Title

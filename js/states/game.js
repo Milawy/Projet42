@@ -30,7 +30,7 @@ Game.Game= function(){
 
         /////////////////////////////////Map/////////////////////////////////
         //Load the map
-        this.map = this.add.tilemap('mapTest');
+        this.map = this.add.tilemap('bigRoom1');
         this.map.addTilesetImage('sci-fi-tiles','tiles_16x16');
 
         //Create layers
@@ -72,14 +72,18 @@ Game.Game= function(){
 
         /////////////////////////////////Pause Menu/////////////////////////////////
         //set event listener to pause/unpause the game
+        
+        pauseMessage = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
         pauseButton = this.game.input.keyboard.addKey(27);
-        pauseButton.onDown.add(unpause , this);
+        pauseButton.onDown.add(pause , this);
+        //pauseButton.anchor.x = 0.5;
+        //pauseButton.anchor.y = 0.5;
         
     }, 
 
  
     update : function(){ 
-
+        
         //Check collisions between the player and walls
         this.game.physics.arcade.collide(this.player, this.wallLayer);
 
@@ -101,16 +105,20 @@ function collisionHandler(weapon, wallLayer){
 }
 
 
-function unpause(){
+function pause(){
     
     if(this.game.paused == true){
 
         this.game.paused = false;
-        basicFont.text = "";
+        //pauseMessage.text = "";
+        message.destroy();
+
     }
     else {
 
         this.game.paused = true;
-        basicFont.text = "Pause";
+        message = this.game.add.image(this.player.x - 50, this.player.y - 50, pauseMessage);
+        pauseMessage.text = "Pause";
+
     }
 }
