@@ -29,9 +29,10 @@ Game.Preload = {
   
 
   // Tilemap
+  this.load.tilemap('testRoom', '/assets/map/testRoom.json', null, Phaser.Tilemap.TILED_JSON);
   this.load.tilemap('room1', '/assets/map/room1.json', null, Phaser.Tilemap.TILED_JSON);
-  this.load.tilemap('mapTest', '/assets/map/maptest.json', null, Phaser.Tilemap.TILED_JSON);
-  this.load.tilemap('map1', '/assets/map/map1.json', null, Phaser.Tilemap.TILED_JSON);
+  this.load.tilemap('bigRoom1', '/assets/map/bigRoom1.json', null, Phaser.Tilemap.TILED_JSON);
+  this.load.tilemap('bigRoom2', '/assets/map/map4.json', null, Phaser.Tilemap.TILED_JSON);
 
   // SpriteSheet
   this.load.spritesheet('player', 'assets/sprites/hero.png', 16, 16);
