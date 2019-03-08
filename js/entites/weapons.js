@@ -28,9 +28,9 @@ Bullet.prototype.fire = function (player, angle, speed, pointer) {
     this.reset(player.x, player.y);
     this.scale.set(1);
 
-    var vecX = (pointer.x - player.x);
-	var vecY = (pointer.y - player.y);
-    var vecAngle = this.game.physics.arcade.angleBetween(player, pointer);
+    var vecX = (pointer.clientX - player.x);
+	var vecY = (pointer.clientY - player.y);
+    var vecAngle = this.game.physics.arcade.angleBetween(player, new Phaser.Point(pointer.worldX, pointer.worldY));
 
     this.rotation = vecAngle;
 
@@ -77,8 +77,8 @@ Weapon.SingleBullet.prototype.fire = function (source, pointer) {
 
     if (this.game.time.time < this.nextFire) { return; }
 
-    var x = source.x + 10;
-    var y = source.y + 10;
+    var x = source.worldX + 10;
+    var y = source.worldY + 10;
 
     this.getFirstExists(false).fire(source, 0, this.bulletSpeed, pointer);
 

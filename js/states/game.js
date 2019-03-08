@@ -16,11 +16,11 @@ Game.Game= function(){
     create : function(){
 
 
-        /////////////////////////////////Scaling & Render/////////////////////////////////
+        /////////////////////////////////Scaling & Render/////////////////////
         //Scaling time
         this.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
-        this.game.scale.setGameSize(291, 291);
-        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.game.scale.setGameSize(291, 170);
+        this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
 
         //Render time
         this.game.renderer.renderSession.roundPixels = true; //allow pixel art
@@ -74,6 +74,7 @@ Game.Game= function(){
         //set event listener to pause/unpause the game
         pauseButton = this.game.input.keyboard.addKey(27);
         pauseButton.onDown.add(unpause , this);
+        
     }, 
 
  
@@ -88,7 +89,12 @@ Game.Game= function(){
         if (fireButton.isDown){
 
             this.weapon.fire(this.player, this.game.input.mousePointer);
+            console.log(this.player.x) //max x : 456
+            console.log(this.game.input.activePointer) //max x : 152
         }
+
+        this.game.debug.pointer( this.game.input.activePointer );
+        this.player.debug
     }
 }
 
