@@ -89,12 +89,8 @@ Game.Game= function(){
         if (fireButton.isDown){
 
             this.weapon.fire(this.player, this.game.input.mousePointer);
-            console.log(this.player.x) //max x : 456
-            console.log(this.game.input.activePointer) //max x : 152
         }
 
-        this.game.debug.pointer( this.game.input.activePointer );
-        this.player.debug
     }
 }
 
