@@ -30,15 +30,13 @@ Game.Preload = {
 
   // Tilemap
   this.load.tilemap('testRoom', '/assets/map/testRoom.json', null, Phaser.Tilemap.TILED_JSON);
-  this.load.tilemap('room1', '/assets/map/room1.json', null, Phaser.Tilemap.TILED_JSON);
   this.load.tilemap('bigRoom1', '/assets/map/bigRoom1.json', null, Phaser.Tilemap.TILED_JSON);
   this.load.tilemap('bigRoom2', '/assets/map/map4.json', null, Phaser.Tilemap.TILED_JSON);
   this.load.tilemap('couloir', '/assets/map/couloir.json', null, Phaser.Tilemap.TILED_JSON);
 
+
   // SpriteSheet
   this.load.spritesheet('player', 'assets/sprites/hero.png', 16, 16);
-  this.load.spritesheet('medusa', 'assets/sprites/medusa.png', 46, 64);
-  //this.load.spritesheet('playButton', 'assets/img/playButtonV2.png', 48, 21);
   this.load.spritesheet('door', 'assets/img/door.png', 16, 16);
 
 
@@ -49,6 +47,11 @@ Game.Preload = {
   this.load.image('mainTitle', 'assets/img/mainTitle.png');
   this.load.image('fullscreenButton', 'assets/img/fullscreenButton.png');
   this.load.image('fullscreenOffButton', 'assets/img/fullscreenOffButton.png');
+  this.load.image('upArrow', 'assets/img/upArrow.png');
+  this.load.image('downArrow', 'assets/img/downArrow.png');
+  this.load.image('leftArrow', 'assets/img/leftArrow.png');
+  this.load.image('rightArrow', 'assets/img/rightArrow.png');
+  this.load.image('fontGreenRect', 'assets/img/fontGreenRect.png');
 
 
   // Audio
