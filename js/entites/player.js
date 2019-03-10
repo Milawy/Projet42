@@ -7,51 +7,41 @@ Game.Player = function (game, x, y) {
 
 	/////////////////////////////////Animations/////////////////////////////////
 
-	this.animations.add('leftSide',[0,1,2],20,false);
-	this.animations.add('rightSide',[0,1,2],20,false);
-	this.animations.add('up',[3,4,5],20,false);
-	this.animations.add('down',[6,7,8],20,false);
+	this.animations.add('leftSide',[0,1,2],20,true);
+	this.animations.add('rightSide',[0,1,2],20,true);
+	this.animations.add('up',[3,4,5],20,true);
+	this.animations.add('down',[6,7,8],20,true);
 	this.animations.add('stand',[6],20,false);
 	 
 	this.game.physics.enable(this, Phaser.Physics.ARCADE);
 
 	this.anchor.setTo(.5,.5);
-	 
+	
+  startTheBot = 0;
+
+  T = this.game.time.time;
 };
  
 Game.Player.prototype = Object.create(Phaser.Sprite.prototype);
 	 
 Game.Player.prototype.update = function(){
 	
-    /////////////////////////////////Movements/////////////////////////////////
+    if(key.isDown(32) && startTheBot == 0 && this.game.time.time - T > 1000){
 
-    if (key.isDown(90) && !key.isDown(81) && !key.isDown(83) && !key.isDown(68)){
-        this.move("up");
+      startTheBot = 1;
+
+      timer = this.game.time.create(false);
+      timer.loop(1500, this.markovBot, this);
+      timer.start();
     }
-    if (key.isDown(83) && !key.isDown(90) && !key.isDown(81) && !key.isDown(68)){
-        this.move("down");
+
+    if(key.isDown(32) && startTheBot == 2){
+
+      startTheBot = 0;
+      timer.destroy();
+      T = this.game.time.time;
     }
-    if (key.isDown(68) && !key.isDown(90) && !key.isDown(83) && !key.isDown(81)){
-        this.move("right");
-    }
-    if (key.isDown(81) && !key.isDown(90) && !key.isDown(83) && !key.isDown(68)){
-        this.move("left");
-    }
-    if (key.isDown(81) && key.isDown(90)){
-        this.move("upLeft");
-    }
-    if (key.isDown(81) && key.isDown(83)){
-        this.move("downLeft");
-    }
-    if (key.isDown(68) && key.isDown(90)){
-        this.move("upRight");
-    }
-    if (key.isDown(68) && key.isDown(83)){
-        this.move("downRight");
-    }
-    if (!key.isDown(81) && !key.isDown(68) && !key.isDown(83) && !key.isDown(90)){
-        this.move("stand");
-    }
+
 };
 
 Game.Player.prototype.move = function(direction){
@@ -59,55 +49,92 @@ Game.Player.prototype.move = function(direction){
 	 /////////////////////////////////Players' movements/////////////////////////////////
 
    	if(direction == 'up'){
-   		this.body.velocity.y = -100;
+   		this.body.velocity.y = -33;
 		  this.body.velocity.x = 0;
 	    this.animations.play("up");
    	}
    	if(direction == 'down'){
-   		this.body.velocity.y = 100;
+   		this.body.velocity.y = 33;
 		  this.body.velocity.x = 0;
 	    this.animations.play("down");
    	}
    	if(direction == 'right'){
    		this.body.velocity.y = 0;
-		  this.body.velocity.x = 100;
+		  this.body.velocity.x = 33;
 		  // Flip the x axis
 		  this.scale.x = -1;
 	    this.animations.play("rightSide");
    	}
    	if(direction == 'left'){
    		this.body.velocity.y = 0;
-		  this.body.velocity.x = -100;
+		  this.body.velocity.x = -33;
 		  this.scale.x = 1;
 	    this.animations.play("leftSide");
-   	}
-   	if(direction == 'upLeft'){
-   		// The sqrt(2)/2 factors' aim is to normalize the velocity in diagonal
-   		this.body.velocity.y = -100*(Math.sqrt(2)/2);
-		  this.body.velocity.x = -100*(Math.sqrt(2)/2);
-		  this.scale.x = 1;
-	    this.animations.play("up");	
-   	}
-   	if(direction == 'downLeft'){
-   		this.body.velocity.y = 100*(Math.sqrt(2)/2);
-		  this.body.velocity.x = -100*(Math.sqrt(2)/2);
-		  this.scale.x = 1;
-	    this.animations.play("down");
-   	}
-   	if(direction == 'upRight'){
-   		this.body.velocity.y = -100*(Math.sqrt(2)/2);
-		  this.body.velocity.x = 100*(Math.sqrt(2)/2);
-	    this.animations.play("up");
-   	}
-   	if(direction == 'downRight'){
-   		this.body.velocity.y = 100*(Math.sqrt(2)/2);
-		  this.body.velocity.x = 100*(Math.sqrt(2)/2);
-	    this.animations.play("down");
    	}
    	if(direction == 'stand'){
    		this.body.velocity.x = 0;
    		this.body.velocity.y = 0;
    		this.animations.play("stand");
    	}
-    
+}
+
+
+Game.Player.prototype.markovBot = function(){
+
+  startTheBot = 2;
+  
+  brain = [parseInt(upCounter.text), parseInt(downCounter.text), parseInt(leftCounter.text), parseInt(rightCounter.text)]
+
+  up = 25 + brain[0]*5 - (1/3)*(brain[1]*5) - (1/3)*(brain[2]*5) - (1/3)*(brain[3]*5);
+  down = 25 + brain[1]*5 - (1/3)*(brain[0]*5) - (1/3)*(brain[2]*5) - (1/3)*(brain[3]*5);
+  left = 25 + brain[2]*5 - (1/3)*(brain[0]*5) - (1/3)*(brain[1]*5) - (1/3)*(brain[3]*5);
+  right = 25 + brain[3]*5 - (1/3)*(brain[0]*5) - (1/3)*(brain[1]*5) - (1/3)*(brain[2]*5);
+
+  moveProb = [up, down, left, right];
+
+  dice = getRandomInt(99) + 1;
+
+  //console.log(dice)
+  //console.log(moveProb)
+
+  if(up > dice){
+
+    this.move("up")
+
+    this.game.time.events.add(1000, function (){
+
+      this.move("stand")
+    }, this);
+  }
+  if(up + down > dice && up < dice){
+     
+    this.move("down")
+
+    this.game.time.events.add(1000, function (){
+
+      this.move("stand")
+    }, this);
+  }
+  if(up + down + left > dice && up + down < dice){
+
+    this.move("left")
+
+    this.game.time.events.add(1000, function (){
+
+      this.move("stand")
+    }, this);
+  }
+  if(up + down + left < dice){
+
+    this.move("right")
+
+    this.game.time.events.add(1000, function (){
+
+      this.move("stand")
+    }, this);
+  }
 };
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}

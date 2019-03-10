@@ -29,7 +29,6 @@ Game.Game= function(){
         this.game.renderer.renderSession.roundPixels = true; //allow pixel art
 
         //this.world.renderer.renderSession.roundPixels = true;
-        console.log(this.game.world)
         Phaser.Canvas.setImageRenderingCrisp(this.game.canvas);
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -89,6 +88,7 @@ Game.Game= function(){
         fontMenu.anchor.x = 0.5;
         fontMenu.anchor.y = 0.5;
         fontMenu.scale.y = 1.2
+        fontMenu.fixedToCamera = true;
 
 
         /////////////////////////////////Control Inputs/////////////////////////////////
@@ -175,8 +175,8 @@ Game.Game= function(){
         this.game.physics.arcade.collide(this.weapon, this.wallLayer, collisionHandler, null, this);
 
         if (fireButton.isDown){
+            this.player.start = true;
 
-            this.weapon.fire(this.player, this.game.input.mousePointer);
         }
 
     }
