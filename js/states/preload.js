@@ -38,6 +38,7 @@ Game.Preload = {
   // SpriteSheet
   this.load.spritesheet('player', 'assets/sprites/hero.png', 16, 16);
   this.load.spritesheet('door', 'assets/img/door.png', 16, 16);
+  this.load.spritesheet('greenButton', 'assets/sprites/greenButton.png', 190, 49);
 
 
   // Image

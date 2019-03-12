@@ -48,16 +48,23 @@ Game.Menu.prototype = {
         playButton.animations.add('hoover', [0,1], 10, false);
         playButton.animations.add('notHoover', [1,0], 10, false);
 */
-        playButton = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.playTextBox = this.game.add.image(this.game.width/2, 220, playButton);
-        this.playTextBox.scale.x = 2;
-        this.playTextBox.scale.y = 2;
+        playButton = this.game.add.sprite(this.game.width/2, 220, 'greenButton');
+        playButton.anchor.setTo(0.5,0.5);
+        playButton.animations.add('hoover',[0,1],20,false);
+        playButton.animations.add('notHoover',[1,0,2],20,false);
+        playButton.animations.add('frame3',[2],20,false);
+        playButton.inputEnabled = true;
+        playButton.smoothed = false;
+        playButton.events.onInputDown.add(launchGame, this);
+        playButton.events.onInputOver.add(overPlayButton, this);
+        playButton.animations.play("frame3");
+
+        playText = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
+        this.playTextBox = this.game.add.image(this.game.width/2, 218, playText);
+        this.playTextBox.scale.setTo(1.2,1.2);
         this.playTextBox.anchor.x = 0.5;
         this.playTextBox.anchor.y = 0.5;
-        this.playTextBox.inputEnabled = true;
-        this.playTextBox.events.onInputDown.add(launchGame, this);
-        playButton.text = "Play";
-        this.playTextBox.events.onInputOver.add(overPlayButton, this);
+        playText.text = "Play";
 
         // Press space to play
         this.playKey = this.game.input.keyboard.addKey(32);
@@ -74,10 +81,10 @@ Game.Menu.prototype = {
 
     update : function(){
 
-        if(isPressed == true && this.playTextBox.input.pointerOver() == false){
+        if(isPressed == true && playButton.input.pointerOver() == false){
             isPressed = false;
-            this.playTextBox.scale.x = 2;
-            this.playTextBox.scale.y = 2;
+            this.playTextBox.position.y = 218;
+            playButton.animations.play("notHoover");
         }
     }
  
@@ -106,8 +113,9 @@ function launchGame(){
 
 function overPlayButton(){
 
-    this.playTextBox.scale.x = 2.5;
-    this.playTextBox.scale.y = 2.5;
+    playButton.animations.play("hoover");
+    this.playTextBox.position.y = 221;
+    console.log(this.playTextBox);
     isPressed = true;
 }
 
