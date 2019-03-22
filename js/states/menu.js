@@ -115,7 +115,6 @@ function overPlayButton(){
 
     playButton.animations.play("hoover");
     this.playTextBox.position.y = 221;
-    console.log(this.playTextBox);
     isPressed = true;
 }
 

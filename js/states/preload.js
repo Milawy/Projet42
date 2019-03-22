@@ -33,6 +33,7 @@ Game.Preload = {
   this.load.tilemap('bigRoom1', '/assets/map/bigRoom1.json', null, Phaser.Tilemap.TILED_JSON);
   this.load.tilemap('bigRoom2', '/assets/map/map4.json', null, Phaser.Tilemap.TILED_JSON);
   this.load.tilemap('couloir', '/assets/map/couloir.json', null, Phaser.Tilemap.TILED_JSON);
+  this.load.tilemap('room1newTile', '/assets/map/Room1newTile.json', null, Phaser.Tilemap.TILED_JSON);
 
 
   // SpriteSheet
@@ -43,6 +44,7 @@ Game.Preload = {
 
   // Image
   this.load.image('tiles_16x16', 'assets/img/sci-fi-tiles.png');
+  this.load.image('tiles_32x32', 'assets/img/tileset.png');
   this.load.image('bullet', 'assets/img/bullet1.png');
   this.load.image('basicFont', 'assets/font/willFont42.png');
   this.load.image('mainTitle', 'assets/img/mainTitle.png');

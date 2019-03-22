@@ -3,8 +3,8 @@
 
 var key, pauseButton, fireButton, cameraSizeX, cameraSizeY;
 
-cameraSizeX = 450;
-cameraSizeY = 264;
+cameraSizeX = 700;
+cameraSizeY = 411;
 
 Game.Game= function(){
  
@@ -38,8 +38,8 @@ Game.Game= function(){
 
         /////////////////////////////////Map/////////////////////////////////
         //Load the map
-        this.map = this.add.tilemap('couloir');
-        this.map.addTilesetImage('sci-fi-tiles','tiles_16x16');
+        this.map = this.add.tilemap('room1newTile');
+        this.map.addTilesetImage('tile_32x32','tiles_32x32');
         this.map.smoothed = false;
 
 
