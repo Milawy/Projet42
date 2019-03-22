@@ -49,25 +49,25 @@ Game.Player.prototype.move = function(direction){
 	 /////////////////////////////////Players' movements/////////////////////////////////
 
    	if(direction == 'up'){
-   		this.body.velocity.y = -33;
+   		this.body.velocity.y = -100;
 		  this.body.velocity.x = 0;
 	    this.animations.play("up");
    	}
    	if(direction == 'down'){
-   		this.body.velocity.y = 33;
+   		this.body.velocity.y = 100;
 		  this.body.velocity.x = 0;
 	    this.animations.play("down");
    	}
    	if(direction == 'right'){
    		this.body.velocity.y = 0;
-		  this.body.velocity.x = 33;
+		  this.body.velocity.x = 100;
 		  // Flip the x axis
 		  this.scale.x = -1;
 	    this.animations.play("rightSide");
    	}
    	if(direction == 'left'){
    		this.body.velocity.y = 0;
-		  this.body.velocity.x = -33;
+		  this.body.velocity.x = -100;
 		  this.scale.x = 1;
 	    this.animations.play("leftSide");
    	}
@@ -101,7 +101,7 @@ Game.Player.prototype.markovBot = function(){
 
     this.move("up")
 
-    this.game.time.events.add(1000, function (){
+    this.game.time.events.add(450, function (){
 
       this.move("stand")
     }, this);
@@ -110,7 +110,7 @@ Game.Player.prototype.markovBot = function(){
      
     this.move("down")
 
-    this.game.time.events.add(1000, function (){
+    this.game.time.events.add(450, function (){
 
       this.move("stand")
     }, this);
@@ -119,7 +119,7 @@ Game.Player.prototype.markovBot = function(){
 
     this.move("left")
 
-    this.game.time.events.add(1000, function (){
+    this.game.time.events.add(450, function (){
 
       this.move("stand")
     }, this);
@@ -128,7 +128,7 @@ Game.Player.prototype.markovBot = function(){
 
     this.move("right")
 
-    this.game.time.events.add(1000, function (){
+    this.game.time.events.add(450, function (){
 
       this.move("stand")
     }, this);

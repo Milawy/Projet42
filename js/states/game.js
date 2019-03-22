@@ -55,13 +55,13 @@ Game.Game= function(){
 
         /////////////////////////////////Player/////////////////////////////////
         //Create the player
-        this.player = new Game.Player(this.game, 22, 22);
+        this.player = new Game.Player(this.game, 65, 65);
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
         this.player.smoothed = false;
         
         /////////////////////////////////Camera/////////////////////////////////
-        this.game.world.resize(900, 300); // create offset limits
+        this.game.world.resize(4000, 4000); // create offset limits
         Game.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
 
 
