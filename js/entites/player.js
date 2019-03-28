@@ -1,23 +1,27 @@
 
 Game.Player = function (game, x, y) {
  
-	Phaser.Sprite.call(this, game, x, y, 'player');
+	Phaser.Sprite.call(this, game, x, y, 'bot');
 	 
 	this.name = 'player';
+  this.isOnGreenZone = false;
 
 	/////////////////////////////////Animations/////////////////////////////////
 
-	this.animations.add('leftSide',[0,1,2],20,true);
-	this.animations.add('rightSide',[0,1,2],20,true);
-	this.animations.add('up',[3,4,5],20,true);
-	this.animations.add('down',[6,7,8],20,true);
-	this.animations.add('stand',[6],20,false);
+	this.animations.add('rightSide',[0,1,2,3,4,5],25,false);
+	this.animations.add('leftSide',[0,1,2,3,4,5],25,false);
+	this.animations.add('up',[6,7,8,9],25,false);
+	this.animations.add('down',[12,13,14,15],25,false);
+	this.animations.add('stand',[12],25,false);
 	 
 	this.game.physics.enable(this, Phaser.Physics.ARCADE);
 
 	this.anchor.setTo(.5,.5);
+
+  spaceBar = this.game.input.keyboard.addKey(32);
 	
-  startTheBot = 0;
+  stop = 1;
+  running = 0;
 
   T = this.game.time.time;
 };
@@ -26,20 +30,13 @@ Game.Player.prototype = Object.create(Phaser.Sprite.prototype);
 	 
 Game.Player.prototype.update = function(){
 	
-    if(key.isDown(32) && startTheBot == 0 && this.game.time.time - T > 1000){
-
-      startTheBot = 1;
-
-      timer = this.game.time.create(false);
-      timer.loop(1500, this.markovBot, this);
-      timer.start();
+    if(spaceBar.justPressed() && this.isOnGreenZone == true) {
+      stop = !stop;
     }
 
-    if(key.isDown(32) && startTheBot == 2){
-
-      startTheBot = 0;
-      timer.destroy();
-      T = this.game.time.time;
+    if(!stop && !running){
+      running = 1;
+      this.markovBot();
     }
 
 };
@@ -62,13 +59,13 @@ Game.Player.prototype.move = function(direction){
    		this.body.velocity.y = 0;
 		  this.body.velocity.x = 100;
 		  // Flip the x axis
-		  this.scale.x = -1;
+      this.scale.x = 1;
 	    this.animations.play("rightSide");
    	}
    	if(direction == 'left'){
    		this.body.velocity.y = 0;
 		  this.body.velocity.x = -100;
-		  this.scale.x = 1;
+      this.scale.x = -1;
 	    this.animations.play("leftSide");
    	}
    	if(direction == 'stand'){
@@ -81,7 +78,11 @@ Game.Player.prototype.move = function(direction){
 
 Game.Player.prototype.markovBot = function(){
 
-  startTheBot = 2;
+  if(stop){ 
+    this.move("stand");
+    running = 0;
+    return; 
+  }
   
   brain = [parseInt(upCounter.text), parseInt(downCounter.text), parseInt(leftCounter.text), parseInt(rightCounter.text)]
 
@@ -100,39 +101,24 @@ Game.Player.prototype.markovBot = function(){
   if(up > dice){
 
     this.move("up")
-
-    this.game.time.events.add(450, function (){
-
-      this.move("stand")
-    }, this);
   }
+
   if(up + down > dice && up < dice){
      
     this.move("down")
-
-    this.game.time.events.add(450, function (){
-
-      this.move("stand")
-    }, this);
   }
+
   if(up + down + left > dice && up + down < dice){
 
     this.move("left")
-
-    this.game.time.events.add(450, function (){
-
-      this.move("stand")
-    }, this);
   }
   if(up + down + left < dice){
 
     this.move("right")
-
-    this.game.time.events.add(450, function (){
-
-      this.move("stand")
-    }, this);
   }
+
+  this.game.time.events.add(150, this.markovBot, this);
+
 };
 
 function getRandomInt(max) {

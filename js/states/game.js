@@ -53,13 +53,19 @@ Game.Game= function(){
         this.map.setCollisionBetween(0, 999, true, this.wallLayer);
 
 
+        /////////////////////////////////Green zones/////////////////////////////////
+        z1 = this.game.add.sprite(180, 100, "fontGreenRect");
+        z1.alpha = 0.4;
+
+
         /////////////////////////////////Player/////////////////////////////////
         //Create the player
-        this.player = new Game.Player(this.game, 65, 65);
+        this.player = new Game.Player(this.game, 220, 110);
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
         this.player.smoothed = false;
         
+
         /////////////////////////////////Camera/////////////////////////////////
         this.game.world.resize(4000, 4000); // create offset limits
         Game.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
@@ -70,9 +76,6 @@ Game.Game= function(){
         key = this.game.input.keyboard;
         fireButton = this.game.input.activePointer.leftButton;
         this.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
-
-        //add weapons
-        this.weapon = new Weapon.SingleBullet(this.game);
 
 
         /////////////////////////////////Pause Menu/////////////////////////////////
@@ -129,6 +132,8 @@ Game.Game= function(){
         rightCounterBox.fixedToCamera = true;
 
         altKey = this.game.input.keyboard.addKey(18);
+        rKey = this.game.input.keyboard.addKey(82);
+        rKey.onDown.add(restart, this);
 
 
         /////////////////////////////////Arrow Images/////////////////////////////////
@@ -171,21 +176,20 @@ Game.Game= function(){
         //Check collisions between the player and walls
         this.game.physics.arcade.collide(this.player, this.wallLayer);
 
-        //If a bullet collide a wall the callback function collisionHandler is triggered
-        this.game.physics.arcade.collide(this.weapon, this.wallLayer, collisionHandler, null, this);
+        //this.game.physics.arcade.overlap(this.player, z1, onGreenZone, null, this);
+
+        if(this.player.overlap(z1)){
+            this.player.isOnGreenZone = true;
+        }
+        else{
+            this.player.isOnGreenZone = false;;
+        }
 
         if (fireButton.isDown){
             this.player.start = true;
-
         }
 
     }
-}
-
-
-function collisionHandler(weapon, wallLayer){
-
-    weapon.kill();
 }
 
 
@@ -208,60 +212,72 @@ function pause(){
     }
 }
 
+function restart(){
+    this.game.state.start(this.game.state.current);
+}
+
 
 function upPressed(){
 
-    upArrow.scale.x = 0.6;
-    upArrow.scale.y = 0.6;
-    this.game.time.events.add(200, upArrowScale);
+    if(this.player.isOnGreenZone){
+        upArrow.scale.x = 0.6;
+        upArrow.scale.y = 0.6;
+        this.game.time.events.add(200, upArrowScale);
 
-    if(altKey.isDown){
-        upCounter.text = (parseInt(upCounter.text) - 1).toString();
-    }
-    else{
-        upCounter.text = (parseInt(upCounter.text) + 1).toString();
+        if(altKey.isDown && parseInt(upCounter.text) != 0){
+            upCounter.text = (parseInt(upCounter.text) - 1).toString();
+        }
+        else if(parseInt(upCounter.text) < 15 && !altKey.isDown){
+            upCounter.text = (parseInt(upCounter.text) + 1).toString();
+        }
     }
 }
 
 function downPressed(){
 
-    downArrow.scale.x = 0.6;
-    downArrow.scale.y = 0.6;
-    this.game.time.events.add(200, downArrowScale);
+    if(this.player.isOnGreenZone){
+        downArrow.scale.x = 0.6;
+        downArrow.scale.y = 0.6;
+        this.game.time.events.add(200, downArrowScale);
 
-    if(altKey.isDown){
-        downCounter.text = (parseInt(downCounter.text) - 1).toString();
+        if(altKey.isDown && parseInt(downCounter.text) != 0){
+            downCounter.text = (parseInt(downCounter.text) - 1).toString();
+        }
+        else if(parseInt(downCounter.text) < 15 && !altKey.isDown){
+            downCounter.text = (parseInt(downCounter.text) + 1).toString();
     }
-    else{
-        downCounter.text = (parseInt(downCounter.text) + 1).toString();
     }
 }
 
 function leftPressed(){
 
-    leftArrow.scale.x = 0.6;
-    leftArrow.scale.y = 0.6;
-    this.game.time.events.add(200, leftArrowScale);
+    if(this.player.isOnGreenZone){
+        leftArrow.scale.x = 0.6;
+        leftArrow.scale.y = 0.6;
+        this.game.time.events.add(200, leftArrowScale);
 
-    if(altKey.isDown){
-        leftCounter.text = (parseInt(leftCounter.text) - 1).toString();
-    }
-    else{
-        leftCounter.text = (parseInt(leftCounter.text) + 1).toString();
+        if(altKey.isDown && parseInt(leftCounter.text) != 0){
+            leftCounter.text = (parseInt(leftCounter.text) - 1).toString();
+        }
+        else if(parseInt(leftCounter.text) < 15 && !altKey.isDown){
+            leftCounter.text = (parseInt(leftCounter.text) + 1).toString();
+        }
     }
 }
 
 function rightPressed(){
 
-    rightArrow.scale.x = 0.6;
-    rightArrow.scale.y = 0.6;
-    this.game.time.events.add(200, rightArrowScale);
+    if(this.player.isOnGreenZone){
+        rightArrow.scale.x = 0.6;
+        rightArrow.scale.y = 0.6;
+        this.game.time.events.add(200, rightArrowScale);
 
-    if(altKey.isDown){
-        rightCounter.text = (parseInt(rightCounter.text) - 1).toString();
-    }
-    else{
-        rightCounter.text = (parseInt(rightCounter.text) + 1).toString();
+        if(altKey.isDown && parseInt(rightCounter.text) != 0){
+            rightCounter.text = (parseInt(rightCounter.text) - 1).toString();
+        }
+        else if(parseInt(rightCounter.text) < 15 && !altKey.isDown){
+            rightCounter.text = (parseInt(rightCounter.text) + 1).toString();
+        }
     }
 }
 
