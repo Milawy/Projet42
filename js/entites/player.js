@@ -24,6 +24,8 @@ Game.Player = function (game, x, y) {
   running = 0;
 
   T = this.game.time.time;
+
+  this.animations.play("stand");
 };
  
 Game.Player.prototype = Object.create(Phaser.Sprite.prototype);

@@ -11,7 +11,7 @@ Game.Menu.prototype = {
     }, 
  
     create : function(){
-        
+
         // Add audio theme
     	mainTheme = this.game.add.audio('mainTheme');
     	//mainTheme.play();
@@ -22,6 +22,7 @@ Game.Menu.prototype = {
         bg.scale.y = 0.52;
 
         // Fullscreen Button
+        this.game.scale.startFullScreen();
         this.fullscreenButton = this.game.add.image(this.game.width - 40, 10, 'fullscreenButton');
         this.fullscreenButton.inputEnabled = true;
         this.fullscreenButton.events.onInputDown.add(fullscreenButtonEnable, this);
