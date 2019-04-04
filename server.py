@@ -1,5 +1,6 @@
 import sys
 import BaseHTTPServer
+import os
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 
 
@@ -18,4 +19,7 @@ httpd = ServerClass(server_address, HandlerClass)
 
 sa = httpd.socket.getsockname()
 print "Serving HTTP on", sa[0], "port", sa[1], "..."
+
+os.system("sh launcher.sh")
+
 httpd.serve_forever()

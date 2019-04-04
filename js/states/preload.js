@@ -40,7 +40,7 @@ Game.Preload = {
   this.load.spritesheet('player', 'assets/sprites/hero.png', 16, 16);
   this.load.spritesheet('door', 'assets/img/door.png', 16, 16);
   this.load.spritesheet('greenButton', 'assets/sprites/greenButton.png', 190, 49);
-  this.load.spritesheet('bot', 'assets/sprites/robot_full.png', 36, 38);
+  this.load.spritesheet('bot', 'assets/sprites/robot_full.png', 36, 39);
 
 
 

@@ -10,11 +10,8 @@ Game.Boot.prototype = {
   create : function(){
  
    	//Scaling time !
-    this.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
-    //this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
-    this.game.input.maxPointers = 1;
-    this.scale.pageAlignHorizontally = true;
-    this.scale.pageAlignVertically = true;
+    //this.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+    this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
 
     //Preload everything
     this.state.start('Preload');

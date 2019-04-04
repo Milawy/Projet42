@@ -18,11 +18,9 @@ Game.Menu.prototype = {
     	
         // Add background
     	bg = this.game.add.image(0 , 0, 'mainTitle');
-        bg.scale.x = 0.71;
-        bg.scale.y = 0.52;
 
         // Fullscreen Button
-        this.game.scale.startFullScreen();
+        //this.game.scale.startFullScreen();
         this.fullscreenButton = this.game.add.image(this.game.width - 40, 10, 'fullscreenButton');
         this.fullscreenButton.inputEnabled = true;
         this.fullscreenButton.events.onInputDown.add(fullscreenButtonEnable, this);
@@ -42,15 +40,9 @@ Game.Menu.prototype = {
         this.fullscreenKey.onDown.add(fullscreenButtonEnable , this);
 
         // Play Button
-  /*    playButton = this.game.add.sprite(this.game.width/2 - 20, this.game.height/2 - 40, 'playButton');
-        playButton.scale.x = 2;
-        playButton.scale.y = 2;
-    	playButton.events.onInputDown.add(launchGame, this);
-        playButton.animations.add('hoover', [0,1], 10, false);
-        playButton.animations.add('notHoover', [1,0], 10, false);
-*/
-        playButton = this.game.add.sprite(this.game.width/2, 220, 'greenButton');
+        playButton = this.game.add.sprite(this.game.width/2, this.game.height/2, 'greenButton');
         playButton.anchor.setTo(0.5,0.5);
+        playButton.scale.setTo(1.2,1.2);
         playButton.animations.add('hoover',[0,1],20,false);
         playButton.animations.add('notHoover',[1,0,2],20,false);
         playButton.animations.add('frame3',[2],20,false);
@@ -61,8 +53,8 @@ Game.Menu.prototype = {
         playButton.animations.play("frame3");
 
         playText = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.playTextBox = this.game.add.image(this.game.width/2, 218, playText);
-        this.playTextBox.scale.setTo(1.2,1.2);
+        this.playTextBox = this.game.add.image(this.game.width/2, this.game.height/2, playText);
+        this.playTextBox.scale.setTo(1.5,1.5);
         this.playTextBox.anchor.x = 0.5;
         this.playTextBox.anchor.y = 0.5;
         playText.text = "Play";
@@ -73,9 +65,13 @@ Game.Menu.prototype = {
 
         // Main Title
         mainTitle = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.mainTittleText = this.game.add.image(this.game.width/2 - 315, 50, mainTitle);
-        this.mainTittleText.scale.x = 2;
-        this.mainTittleText.scale.y = 2;
+        this.mainTittleText = this.game.add.image(this.game.width/2 - 400, 120, mainTitle);
+        this.mainTittleText.scale.x = 2.5;
+        this.mainTittleText.scale.y = 2.5;
+        this.mainTittleText.anchor.x = 0.5;
+        this.mainTittleText.anchor.y = 0.5;
+        this.mainTittleText.x = this.game.width/2;
+        this.mainTittleText.y = 120;
         mainTitle.text = "For the Greater Good";
 
     }, 
@@ -84,7 +80,7 @@ Game.Menu.prototype = {
 
         if(isPressed == true && playButton.input.pointerOver() == false){
             isPressed = false;
-            this.playTextBox.position.y = 218;
+            this.playTextBox.position.y = this.game.height/2;
             playButton.animations.play("notHoover");
         }
     }
@@ -115,7 +111,7 @@ function launchGame(){
 function overPlayButton(){
 
     playButton.animations.play("hoover");
-    this.playTextBox.position.y = 221;
+    this.playTextBox.position.y = this.game.height/2;
     isPressed = true;
 }
 

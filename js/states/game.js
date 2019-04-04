@@ -3,8 +3,9 @@
 
 var key, pauseButton, fireButton, cameraSizeX, cameraSizeY;
 
-cameraSizeX = 700;
-cameraSizeY = 411;
+cameraZoom = 1.1;
+cameraSizeX = 700*cameraZoom;
+cameraSizeY = 411*cameraZoom;
 
 Game.Game= function(){
  
@@ -54,13 +55,20 @@ Game.Game= function(){
 
 
         /////////////////////////////////Green zones/////////////////////////////////
-        z1 = this.game.add.sprite(180, 100, "fontGreenRect");
+        z1 = this.game.add.sprite(125, 180, "fontGreenRect");
+        z1.anchor.setTo(0.5,0.5);
         z1.alpha = 0.4;
+        z2 = this.game.add.sprite(650, 450, "fontGreenRect");
+        z2.anchor.setTo(0.5,0.5);
+        z2.alpha = 0.4;
+        z3 = this.game.add.sprite(125, 450, "fontGreenRect");
+        z3.anchor.setTo(0.5,0.5);
+        z3.alpha = 0.4;
 
 
         /////////////////////////////////Player/////////////////////////////////
         //Create the player
-        this.player = new Game.Player(this.game, 220, 110);
+        this.player = new Game.Player(this.game, 125, 180);
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
         this.player.smoothed = false;
@@ -176,13 +184,11 @@ Game.Game= function(){
         //Check collisions between the player and walls
         this.game.physics.arcade.collide(this.player, this.wallLayer);
 
-        //this.game.physics.arcade.overlap(this.player, z1, onGreenZone, null, this);
-
-        if(this.player.overlap(z1)){
+        if(this.player.overlap(z1) || this.player.overlap(z2) || this.player.overlap(z3)){
             this.player.isOnGreenZone = true;
         }
         else{
-            this.player.isOnGreenZone = false;;
+            this.player.isOnGreenZone = false;
         }
 
         if (fireButton.isDown){
