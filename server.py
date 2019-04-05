@@ -1,8 +1,11 @@
 import sys
 import BaseHTTPServer
-import os
+import os, time
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 
+from signal import signal, SIGPIPE, SIG_DFL
+
+signal(SIGPIPE,SIG_DFL) 
 
 HandlerClass = SimpleHTTPRequestHandler
 ServerClass  = BaseHTTPServer.HTTPServer
@@ -19,7 +22,5 @@ httpd = ServerClass(server_address, HandlerClass)
 
 sa = httpd.socket.getsockname()
 print "Serving HTTP on", sa[0], "port", sa[1], "..."
-
-os.system("sh launcher.sh")
 
 httpd.serve_forever()

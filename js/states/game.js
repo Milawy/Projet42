@@ -66,6 +66,11 @@ Game.Game= function(){
         z3.alpha = 0.4;
 
 
+        /////////////////////////////////Exit///////////////////////////////////
+        exit = this.game.add.sprite(125, 450, "blueLight");
+        exit.anchor.setTo(0.5,0.5);
+
+
         /////////////////////////////////Player/////////////////////////////////
         //Create the player
         this.player = new Game.Player(this.game, 125, 180);
@@ -94,7 +99,7 @@ Game.Game= function(){
 
 
         /////////////////////////////////Menu Font/////////////////////////////////
-        fontMenu = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 65) , Game.game.camera.view.y + (cameraSizeY - 115), "fontGreenRect");
+        fontMenu = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 65) , Game.game.camera.view.y + (cameraSizeY - 85), "fontGreenRect");
         fontMenu.smoothed = false;
         fontMenu.anchor.x = 0.5;
         fontMenu.anchor.y = 0.5;
@@ -106,7 +111,7 @@ Game.Game= function(){
         upCounter = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
         upButton = this.game.input.keyboard.addKey(90);
         upButton.onDown.add(upPressed , this);
-        upCounterBox = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 49) , Game.game.camera.view.y + (cameraSizeY - 150), upCounter);
+        upCounterBox = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 49) , Game.game.camera.view.y + (cameraSizeY - 120), upCounter);
         upCounterBox.anchor.x = 0.5;
         upCounterBox.anchor.y = 0.5;
         upCounter.text = "0";
@@ -115,7 +120,7 @@ Game.Game= function(){
         downCounter = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
         downButton = this.game.input.keyboard.addKey(83);
         downButton.onDown.add(downPressed , this);
-        downCounterBox = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 49) , Game.game.camera.view.y + (cameraSizeY - 125), downCounter);
+        downCounterBox = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 49) , Game.game.camera.view.y + (cameraSizeY - 95), downCounter);
         downCounterBox.anchor.x = 0.5;
         downCounterBox.anchor.y = 0.5;
         downCounter.text = "0";
@@ -124,7 +129,7 @@ Game.Game= function(){
         leftCounter = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
         leftButton = this.game.input.keyboard.addKey(81);
         leftButton.onDown.add(leftPressed , this);
-        leftCounterBox = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 49) , Game.game.camera.view.y + (cameraSizeY - 100), leftCounter);
+        leftCounterBox = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 49) , Game.game.camera.view.y + (cameraSizeY - 70), leftCounter);
         leftCounterBox.anchor.x = 0.5;
         leftCounterBox.anchor.y = 0.5;
         leftCounter.text = "0";
@@ -133,7 +138,7 @@ Game.Game= function(){
         rightCounter = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
         rightButton = this.game.input.keyboard.addKey(68);
         rightButton.onDown.add(rightPressed , this);
-        rightCounterBox = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 49) , Game.game.camera.view.y + (cameraSizeY - 75), rightCounter);
+        rightCounterBox = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 49) , Game.game.camera.view.y + (cameraSizeY - 45), rightCounter);
         rightCounterBox.anchor.x = 0.5;
         rightCounterBox.anchor.y = 0.5;
         rightCounter.text = "0";
@@ -145,7 +150,7 @@ Game.Game= function(){
 
 
         /////////////////////////////////Arrow Images/////////////////////////////////
-        upArrow = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 73) , Game.game.camera.view.y + (cameraSizeY - 152), "upArrow")
+        upArrow = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 73) , Game.game.camera.view.y + (cameraSizeY - 122), "upArrow")
         upArrow.anchor.x = 0.5;
         upArrow.anchor.y = 0.5;
         upArrow.scale.x = 0.5;
@@ -153,7 +158,7 @@ Game.Game= function(){
         upArrow.fixedToCamera = true;
         upArrow.smoothed = false;
 
-        downArrow = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 73) , Game.game.camera.view.y + (cameraSizeY - 127), "downArrow")
+        downArrow = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 73) , Game.game.camera.view.y + (cameraSizeY - 97), "downArrow")
         downArrow.anchor.x = 0.5;
         downArrow.anchor.y = 0.5;
         downArrow.scale.x = 0.5;
@@ -161,7 +166,7 @@ Game.Game= function(){
         downArrow.fixedToCamera = true;
         downArrow.smoothed = false;
 
-        leftArrow = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 73) , Game.game.camera.view.y + (cameraSizeY - 102), "leftArrow")
+        leftArrow = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 73) , Game.game.camera.view.y + (cameraSizeY - 72), "leftArrow")
         leftArrow.anchor.x = 0.5;
         leftArrow.anchor.y = 0.5;
         leftArrow.scale.x = 0.5;
@@ -169,7 +174,7 @@ Game.Game= function(){
         leftArrow.fixedToCamera = true;
         leftArrow.smoothed = false;
 
-        rightArrow = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 73) , Game.game.camera.view.y + (cameraSizeY - 77), "rightArrow")
+        rightArrow = this.game.add.image(Game.game.camera.view.x + (cameraSizeX - 73) , Game.game.camera.view.y + (cameraSizeY - 47), "rightArrow")
         rightArrow.anchor.x = 0.5;
         rightArrow.anchor.y = 0.5;
         rightArrow.scale.x = 0.5;

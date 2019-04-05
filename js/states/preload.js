@@ -57,6 +57,8 @@ Game.Preload = {
   this.load.image('leftArrow', 'assets/img/leftArrow.png');
   this.load.image('rightArrow', 'assets/img/rightArrow.png');
   this.load.image('fontGreenRect', 'assets/img/fontGreenRect.png');
+  this.load.image('blueLight', 'assets/img/blueLight.png');
+  
 
 
   // Audio
