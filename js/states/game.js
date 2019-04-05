@@ -40,7 +40,7 @@ Game.Game= function(){
         /////////////////////////////////Map/////////////////////////////////
         //Load the map
         this.map = this.add.tilemap('room1newTile');
-        this.map.addTilesetImage('tile_32x32','tiles_32x32');
+        this.map.addTilesetImage('tileset','tileset');
         this.map.smoothed = false;
 
 
@@ -55,26 +55,26 @@ Game.Game= function(){
 
 
         /////////////////////////////////Green zones/////////////////////////////////
-        z1 = this.game.add.sprite(125, 180, "fontGreenRect");
+        z1 = this.game.add.sprite(135, 140, "fontGreenRect");
         z1.anchor.setTo(0.5,0.5);
         z1.alpha = 0.4;
-        z2 = this.game.add.sprite(650, 450, "fontGreenRect");
+        z2 = this.game.add.sprite(710, 365, "fontGreenRect");
         z2.anchor.setTo(0.5,0.5);
         z2.alpha = 0.4;
-        z3 = this.game.add.sprite(125, 450, "fontGreenRect");
+        z3 = this.game.add.sprite(135, 365, "fontGreenRect");
         z3.anchor.setTo(0.5,0.5);
         z3.alpha = 0.4;
 
 
         /////////////////////////////////Exit///////////////////////////////////
-        exit = this.game.add.sprite(125, 450, "blueLight");
+        exit = this.game.add.sprite(135, 365, "blueLight");
         exit.anchor.setTo(0.5,0.5);
         exit.alpha = 0.5;
 
 
         /////////////////////////////////Player/////////////////////////////////
         //Create the player
-        this.player = new Game.Player(this.game, 125, 180);
+        this.player = new Game.Player(this.game, 135, 140);
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
         this.player.smoothed = false;
