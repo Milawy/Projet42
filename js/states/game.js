@@ -34,7 +34,7 @@ Game.Game= function(){
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
         //Bg color
-        this.game.stage.backgroundColor = "#FFE29C";
+        //this.game.stage.backgroundColor = "#FFE29C";
 
 
         /////////////////////////////////Map/////////////////////////////////
@@ -69,6 +69,7 @@ Game.Game= function(){
         /////////////////////////////////Exit///////////////////////////////////
         exit = this.game.add.sprite(125, 450, "blueLight");
         exit.anchor.setTo(0.5,0.5);
+        exit.alpha = 0.5;
 
 
         /////////////////////////////////Player/////////////////////////////////
@@ -194,6 +195,10 @@ Game.Game= function(){
         }
         else{
             this.player.isOnGreenZone = false;
+        }
+
+        if(this.player.overlap(exit)){
+            this.game.state.start(this.game.state.current);
         }
 
         if (fireButton.isDown){

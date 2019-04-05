@@ -1,6 +1,5 @@
 import sys
 import BaseHTTPServer
-import os, time
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 
 from signal import signal, SIGPIPE, SIG_DFL
