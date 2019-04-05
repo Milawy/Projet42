@@ -3,7 +3,7 @@
 
 var key, pauseButton, fireButton, cameraSizeX, cameraSizeY;
 
-cameraZoom = 1.1;
+cameraZoom = 1.2;
 cameraSizeX = 700*cameraZoom;
 cameraSizeY = 411*cameraZoom;
 
