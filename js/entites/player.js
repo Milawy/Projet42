@@ -10,6 +10,11 @@ Game.Player = function (game, x, y) {
   this.red = false;
   this.stop = true;
 
+  this.upVal = 0;
+  this.downVal = 0;
+  this.leftVal = 0;
+  this.rightVal = 0;
+
 	/////////////////////////////////Animations/////////////////////////////////
 
 	this.animations.add('rightSide',[0,1,2,3,4,5],25,false);
@@ -34,6 +39,31 @@ Game.Player.prototype.update = function(){
     if(spaceBar.justPressed() && this.stop === true) {
       this.stop = false;
       this.markovBot();
+    }
+
+    if(this.green === true){
+      this.upVal = parseInt(greenUpCounter.text);
+      this.downVal = parseInt(greenDownCounter.text);
+      this.leftVal = parseInt(greenLeftCounter.text);
+      this.rightVal = parseInt(greenRightCounter.text);
+    }
+    else if(this.yellow === true){
+      this.upVal = parseInt(yellowUpCounter.text);
+      this.downVal = parseInt(yellowDownCounter.text);
+      this.leftVal = parseInt(yellowLeftCounter.text);
+      this.rightVal = parseInt(yellowRightCounter.text);
+    }
+    else if(this.red === true){
+      this.upVal = parseInt(redUpCounter.text);
+      this.downVal = parseInt(redDownCounter.text);
+      this.leftVal = parseInt(redLeftCounter.text);
+      this.rightVal = parseInt(redRightCounter.text);
+    }
+    else if(this.blue === true){
+      this.upVal = parseInt(blueUpCounter.text);
+      this.downVal = parseInt(blueDownCounter.text);
+      this.leftVal = parseInt(blueLeftCounter.text);
+      this.rightVal = parseInt(blueRightCounter.text);
     }
 
 };
@@ -74,8 +104,9 @@ Game.Player.prototype.move = function(direction){
 
 
 Game.Player.prototype.markovBot = function(){
-  
-  brain = [parseInt(greenUpCounter.text), parseInt(greenDownCounter.text), parseInt(greenLeftCounter.text), parseInt(greenRightCounter.text)]
+
+  brain = [this.upVal, this.downVal, this.leftVal, this.rightVal];
+  console.log(brain)
 
   up = 25 + brain[0]*5 - (1/3)*(brain[1]*5) - (1/3)*(brain[2]*5) - (1/3)*(brain[3]*5);
   down = 25 + brain[1]*5 - (1/3)*(brain[0]*5) - (1/3)*(brain[2]*5) - (1/3)*(brain[3]*5);

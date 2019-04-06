@@ -9,5 +9,6 @@ else
 	}&
 fi
 if [ $# = 0 ]; then
-	chromium-browser --kiosk --app=http://127.0.0.1:4242/ --window-size=1366,768 --start-fullscreen --user-data-dir=/tmp
+	export DISPLAY=:0.0
+	chromium-browser --kiosk --app=http://127.0.0.1:4242/ --window-size=1366,768 --start-fullscreen  --disable-infobars --disable-session-crashed-bubble
 fi
