@@ -47,7 +47,12 @@ Game.Preload = {
   this.load.image('downArrow', 'assets/img/downArrow.png');
   this.load.image('leftArrow', 'assets/img/leftArrow.png');
   this.load.image('rightArrow', 'assets/img/rightArrow.png');
-  this.load.image('fontGreenRect', 'assets/img/fontGreenRect.png');
+  this.load.image('greenMenu', 'assets/img/green_panel.png');
+  this.load.image('yellowMenu', 'assets/img/yellow_panel.png');
+  this.load.image('redMenu', 'assets/img/red_panel.png');
+  this.load.image('blueMenu', 'assets/img/blue_panel.png');
+  this.load.image('greenZone', 'assets/img/greenZone.png');
+  this.load.image('greyContour', 'assets/img/grey_contour.png');
   this.load.image('blueLight', 'assets/img/blueLight.png');
 
 

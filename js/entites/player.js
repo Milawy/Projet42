@@ -4,7 +4,11 @@ Game.Player = function (game, x, y) {
 	Phaser.Sprite.call(this, game, x, y, 'bot');
 	 
 	this.name = 'player';
-  this.isOnGreenZone = false;
+  this.green = false;
+  this.yellow = false;
+  this.blue = false;
+  this.red = false;
+  this.stop = true;
 
 	/////////////////////////////////Animations/////////////////////////////////
 
@@ -19,11 +23,6 @@ Game.Player = function (game, x, y) {
 	this.anchor.setTo(.5,.5);
 
   spaceBar = this.game.input.keyboard.addKey(32);
-	
-  stop = 1;
-  running = 0;
-
-  T = this.game.time.time;
 
   this.animations.play("stand");
 };
@@ -32,12 +31,8 @@ Game.Player.prototype = Object.create(Phaser.Sprite.prototype);
 	 
 Game.Player.prototype.update = function(){
 	
-    if(spaceBar.justPressed() && this.isOnGreenZone == true) {
-      stop = !stop;
-    }
-
-    if(!stop && !running){
-      running = 1;
+    if(spaceBar.justPressed() && this.stop === true) {
+      this.stop = false;
       this.markovBot();
     }
 
@@ -79,14 +74,8 @@ Game.Player.prototype.move = function(direction){
 
 
 Game.Player.prototype.markovBot = function(){
-
-  if(stop){ 
-    this.move("stand");
-    running = 0;
-    return; 
-  }
   
-  brain = [parseInt(upCounter.text), parseInt(downCounter.text), parseInt(leftCounter.text), parseInt(rightCounter.text)]
+  brain = [parseInt(greenUpCounter.text), parseInt(greenDownCounter.text), parseInt(greenLeftCounter.text), parseInt(greenRightCounter.text)]
 
   up = 25 + brain[0]*5 - (1/3)*(brain[1]*5) - (1/3)*(brain[2]*5) - (1/3)*(brain[3]*5);
   down = 25 + brain[1]*5 - (1/3)*(brain[0]*5) - (1/3)*(brain[2]*5) - (1/3)*(brain[3]*5);

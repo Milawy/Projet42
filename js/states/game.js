@@ -54,13 +54,13 @@ Game.Game= function(){
 
 
         /////////////////////////////////Green zones/////////////////////////////////
-        z1 = this.game.add.sprite(135, 140, "fontGreenRect");
+        z1 = this.game.add.sprite(135, 140, "greenZone");
         z1.anchor.setTo(0.5,0.5);
         z1.alpha = 0.4;
-        z2 = this.game.add.sprite(710, 365, "fontGreenRect");
+        z2 = this.game.add.sprite(710, 365, "greenZone");
         z2.anchor.setTo(0.5,0.5);
         z2.alpha = 0.4;
-        z3 = this.game.add.sprite(135, 365, "fontGreenRect");
+        z3 = this.game.add.sprite(135, 365, "greenZone");
         z3.anchor.setTo(0.5,0.5);
         z3.alpha = 0.4;
 
@@ -108,10 +108,10 @@ Game.Game= function(){
         this.game.physics.arcade.collide(this.player, this.wallLayer);
 
         if(this.player.overlap(z1) || this.player.overlap(z2) || this.player.overlap(z3)){
-            this.player.isOnGreenZone = true;
+            this.player.green = true;
         }
         else{
-            this.player.isOnGreenZone = false;
+            this.player.green = false;
         }
 
         if(this.player.overlap(exit)){
