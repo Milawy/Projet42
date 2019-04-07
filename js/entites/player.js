@@ -2,7 +2,6 @@
 Game.Player = function (game, x, y) {
  
 	Phaser.Sprite.call(this, game, x, y, 'bot');
-	 
 	this.name = 'player';
   this.green = false;
   this.yellow = false;
@@ -106,7 +105,6 @@ Game.Player.prototype.move = function(direction){
 Game.Player.prototype.markovBot = function(){
 
   brain = [this.upVal, this.downVal, this.leftVal, this.rightVal];
-  console.log(brain)
 
   up = 25 + brain[0]*5 - (1/3)*(brain[1]*5) - (1/3)*(brain[2]*5) - (1/3)*(brain[3]*5);
   down = 25 + brain[1]*5 - (1/3)*(brain[0]*5) - (1/3)*(brain[2]*5) - (1/3)*(brain[3]*5);

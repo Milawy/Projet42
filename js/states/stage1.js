@@ -1,16 +1,10 @@
 
 /////////////////////////////////Global Var/////////////////////////////////
 
-var key, pauseButton, fireButton, cameraSizeX, cameraSizeY;
-
-cameraZoom = 1.2;
-cameraSizeX = 700*cameraZoom;
-cameraSizeY = 411*cameraZoom;
-
-Game.Game= function(){
+Game.Stage1= function(){
  
 };
- Game.Game.prototype = { 
+ Game.Stage1.prototype = { 
  
  
     preload : function(){ 
@@ -23,7 +17,6 @@ Game.Game= function(){
         /////////////////////////////////Scaling & Render/////////////////////
         //Scaling time
         this.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
-        this.game.scale.setGameSize(cameraSizeX, cameraSizeY);
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
 
         //Render time
@@ -33,13 +26,17 @@ Game.Game= function(){
         Phaser.Canvas.setImageRenderingCrisp(this.game.canvas);
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
+        //here the camera size (adapt it for each stage)
+        this.scale.setGameSize(974, 550);
+        this.game.stage.disableVisibilityChange = true;
+
         //Bg color
         //this.game.stage.backgroundColor = "#FFE29C";
 
 
         /////////////////////////////////Map/////////////////////////////////
         //Load the map
-        this.map = this.add.tilemap('room1newTile');
+        this.map = this.add.tilemap('stage1');
         this.map.addTilesetImage('tileset','tileset');
         this.map.smoothed = false;
 
@@ -55,7 +52,7 @@ Game.Game= function(){
 
         /////////////////////////////////Zones/////////////////////////////////
         greenZone = new Game.colorZones(this, "green", 135, 140, 0.5, 0.5);
-        blueZone = new Game.colorZones(this, "blue", 735, 150, 0.5, 1);
+        yellowZone = new Game.colorZones(this, "yellow", 735, 150, 0.5, 1);
         redZone = new Game.colorZones(this, "red", 735, 370, 0.5, 1);
 
 
@@ -74,7 +71,7 @@ Game.Game= function(){
         
 
         /////////////////////////////////Camera/////////////////////////////////
-        this.game.world.resize(4000, 4000); // create offset limits
+        this.game.world.resize(2000, 2000); // create offset limits
         Game.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
 
 
@@ -109,11 +106,11 @@ Game.Game= function(){
             this.player.green = false;
         }
 
-        if(this.player.overlap(blueZone.zone)){
-            this.player.blue = true;
+        if(this.player.overlap(yellowZone.zone)){
+            this.player.yellow = true;
         }
         else{
-            this.player.blue = false;
+            this.player.yellow = false;
         }
 
         if(this.player.overlap(redZone.zone)){

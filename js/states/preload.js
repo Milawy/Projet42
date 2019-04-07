@@ -1,7 +1,5 @@
 Game.Preloader = function(){
-  //Here are the variables that we'll use in that group code
-  //We'll display the loading progression of game data
-  this.loadtext; //Text variable
+  this.loadtext;
 };
  
 Game.Preload = {
@@ -29,7 +27,8 @@ Game.Preload = {
 
 
   // Tilemap
-  this.load.tilemap('room1newTile', '/assets/map/Room1newTile2.json', null, Phaser.Tilemap.TILED_JSON);
+  this.load.tilemap('tutorial1', '/assets/map/tutorial1.json', null, Phaser.Tilemap.TILED_JSON);
+  this.load.tilemap('stage1', '/assets/map/stage1.json', null, Phaser.Tilemap.TILED_JSON);
 
 
   // SpriteSheet
@@ -57,7 +56,6 @@ Game.Preload = {
 
 
   // Audio
-
 
   this.load.start();
  

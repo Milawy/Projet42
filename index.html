@@ -18,7 +18,8 @@
         <script src="js/entites/player.js"></script>
         <script src="js/entites/controlMenu.js"></script>
         <script src="js/entites/colorZones.js"></script>
-        <script src="js/states/game.js"></script>
+        <script src="js/states/tutorial.js"></script>
+        <script src="js/states/stage1.js"></script>
 
 
     </head>
@@ -33,8 +34,8 @@
               Game.game.state.add('Boot', Game.Boot);
               Game.game.state.add('Preload', Game.Preload);
               Game.game.state.add('Menu', Game.Menu);
-              Game.game.state.add('Game', Game.Game);
-              Game.game.state.add('GameOver', Game.GameOver);
+              Game.game.state.add('Tutorial', Game.Tutorial);
+              Game.game.state.add('Stage1', Game.Stage1);
          
               Game.game.state.start('Boot');
  
