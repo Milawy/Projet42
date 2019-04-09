@@ -11,10 +11,6 @@ Game.Menu.prototype = {
     }, 
  
     create : function(){
-
-        // Add audio theme
-    	mainTheme = this.game.add.audio('mainTheme');
-    	//mainTheme.play();
     	
         // Add background
     	bg = this.game.add.image(0 , 0, 'mainTitle');

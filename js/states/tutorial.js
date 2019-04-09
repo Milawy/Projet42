@@ -27,7 +27,7 @@ Game.Tutorial= function(){
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
         //here the camera size (adapt it for each stage)
-        this.scale.setGameSize(885, 500);
+        this.scale.setGameSize(940, 550);
         this.game.stage.disableVisibilityChange = true;
 
         //Bg color
@@ -46,46 +46,51 @@ Game.Tutorial= function(){
         this.backgroundLayer.smoothed = false;
         this.wallLayer.smoothed = false;
 
+        //Center the map
+        this.wallLayer.fixedToCamera = false;
+        this.backgroundLayer.fixedToCamera = false;
+        this.wallLayer.scrollFactorX = 0;
+        this.wallLayer.scrollFactorY = 0;
+        this.backgroundLayer.scrollFactorX = 0;
+        this.backgroundLayer.scrollFactorY = 0
+
         //Allow collisions with walls
         this.map.setCollisionBetween(0, 999, true, this.wallLayer);
 
 
         /////////////////////////////////Zones/////////////////////////////////
-        greenZone = new Game.colorZones(this, "green", 135, 140, 0.5, 0.5);
-        yellowZone = new Game.colorZones(this, "yellow", 130, 355, 1, 1);
-        redZone = new Game.colorZones(this, "red", 640, 355, 1, 1);
+        greenZone = new Game.colorZones(this, "green", 215, 140, 0.5, 0.5);
+        yellowZone = new Game.colorZones(this, "yellow", 215, 355, 1, 1);
+        redZone = new Game.colorZones(this, "red", 725, 355, 1, 1);
 
 
         /////////////////////////////////Exit///////////////////////////////////
-        exit = this.game.add.sprite(640, 125, "blueLight");
+        exit = this.game.add.sprite(725, 125, "blueLight");
         exit.anchor.setTo(0.5,0.5);
         exit.scale.setTo(1.3,1.3);
         exit.alpha = 0.5;
 
 
         /////////////////////////////////Player/////////////////////////////////
-        this.player = new Game.Player(this.game, 135, 140);
+        this.player = new Game.Player(this.game, 215, 140);
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
         this.player.smoothed = false;
         
 
         /////////////////////////////////Camera/////////////////////////////////
-        this.game.world.resize(2000, 2000); // create offset limits
+        this.game.world.resize(-1000, -1000, 1000, 1000); // create offset limits
         this.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
-
-
-        /////////////////////////////////Pause Menu/////////////////////////////////
-        //set event listener to pause/unpause the game
-        pauseMessage = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        pauseBox = this.game.input.keyboard.addKey(27);
-        pauseBox.onDown.add(pause , this);
 
 
         /////////////////////////////////Control Inputs////////////////////////////////
         altKey = this.game.input.keyboard.addKey(18);
         rKey = this.game.input.keyboard.addKey(82);
         rKey.onDown.add(restart, this);
+
+
+        /////////////////////////////////Pause Menu////////////////////////////////
+        this.pauseMenu = new Game.pauseMenu(this);
 
 
         /////////////////////////////////Control Menu/////////////////////////////////
@@ -125,26 +130,6 @@ Game.Tutorial= function(){
 
         //mouse pointer coord for placing zones
         //console.log(this.input.activePointer.x, this.input.activePointer.y);
-    }
-}
-
-
-function pause(){
-    
-    if(this.game.paused == true){
-
-        this.game.paused = false;
-        pauseBox.destroy();
-
-    }
-    else {
-
-        this.game.paused = true;
-        pauseBox = this.game.add.image(Game.game.camera.view.x + (cameraSizeX/2) , Game.game.camera.view.y + (cameraSizeY/2), pauseMessage);
-        pauseBox.anchor.x = 0.5;
-        pauseBox.anchor.y = 0.5;
-        pauseMessage.text = "Pause";
-
     }
 }
 

@@ -22,5 +22,6 @@ Game.colorZones = function (t, color, x, y, scaleX=1, scaleY=1) {
 	this.zone.anchor.setTo(0.5,0.5);
     this.zone.alpha = 0.4;
     this.zone.scale.setTo(scaleX,scaleY);
+    this.zone.fixedToCamera = false;
 
 }

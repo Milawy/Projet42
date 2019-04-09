@@ -28,7 +28,7 @@ Game.Preload = {
 
   // Tilemap
   this.load.tilemap('tutorial1', '/assets/map/tutorial1.json', null, Phaser.Tilemap.TILED_JSON);
-  this.load.tilemap('stage1', '/assets/map/stage1.json', null, Phaser.Tilemap.TILED_JSON);
+  this.load.tilemap('stage1', '/assets/map/stage2.json', null, Phaser.Tilemap.TILED_JSON);
 
 
   // SpriteSheet
@@ -53,9 +53,16 @@ Game.Preload = {
   this.load.image('greenZone', 'assets/img/greenZone.png');
   this.load.image('greyContour', 'assets/img/grey_contour.png');
   this.load.image('blueLight', 'assets/img/blueLight.png');
+  this.load.image('pauseIcon', 'assets/img/pauseIcon.png');
+  this.load.image('soundOn', 'assets/img/soundOn.png');
+  this.load.image('soundOff', 'assets/img/soundOff.png');
+  this.load.image('exit', 'assets/img/exit.png');
+  this.load.image('stoneBoard', 'assets/img/stoneBoard.png');
+  this.load.image('restartFont', 'assets/img/restartFont.png');
 
 
   // Audio
+
 
   this.load.start();
  

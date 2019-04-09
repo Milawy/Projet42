@@ -17,6 +17,7 @@
         <script src="js/states/menu.js"></script>
         <script src="js/entites/player.js"></script>
         <script src="js/entites/controlMenu.js"></script>
+        <script src="js/entites/pauseMenu.js"></script>
         <script src="js/entites/colorZones.js"></script>
         <script src="js/states/tutorial.js"></script>
         <script src="js/states/stage1.js"></script>
@@ -28,6 +29,8 @@
     <body>
 
         <script>
+
+              window.PhaserGlobal = { disableWebAudio: true };
 
               Game.game = new Phaser.Game(1366, 768, Phaser.WEBGL, ''); //"99" = 99% No more side bars
               

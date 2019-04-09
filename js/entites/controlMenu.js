@@ -4,6 +4,14 @@
 Game.controlMenu = function (t) {
 
 
+    ///////////////Restart Menu/////////////
+    restartFont = t.game.add.image(t.game.camera.view.width/2, 35, "restartFont");
+    restartFont.anchor.setTo(0.5,0.5);
+    restartFont.scale.setTo(0.5,0.5);
+    restartFont.smoothed = false;
+    restartFont.fixedToCamera = true;
+
+
 	////////////////Selected Menu/////////////
 	this.green = true;
 	this.yellow = false;
