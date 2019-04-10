@@ -101,8 +101,8 @@ function fullscreenButtonEnable(){
 function launchGame(){
 
     //mainTheme.stop();
-    this.state.start('Tutorial');
-    //this.state.start('Stage1');
+    //this.state.start('Tutorial');
+    this.state.start('Stage1');
 }
 
 function overPlayButton(){

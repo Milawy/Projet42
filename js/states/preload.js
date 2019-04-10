@@ -60,7 +60,6 @@ Game.Preload = {
   this.load.image('stoneBoard', 'assets/img/stoneBoard.png');
   this.load.image('restartFont', 'assets/img/restartFont.png');
 
-
   // Audio
 
 

@@ -7,9 +7,13 @@ Game.controlMenu = function (t) {
     ///////////////Restart Menu/////////////
     restartFont = t.game.add.image(t.game.camera.view.width/2, 35, "restartFont");
     restartFont.anchor.setTo(0.5,0.5);
-    restartFont.scale.setTo(0.5,0.5);
+    restartFont.scale.setTo(0.6,0.5);
     restartFont.smoothed = false;
     restartFont.fixedToCamera = true;
+    var style = { font: "20px Times New Roman", fill: "#fff"};
+    restartText = t.game.add.text(t.game.camera.view.width/2 - 70, 40, "Press R to Restart", style);
+    restartText.anchor.y = 0.5;
+    restartText.fixedToCamera = true;
 
 
 	////////////////Selected Menu/////////////

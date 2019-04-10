@@ -46,14 +46,6 @@ Game.Tutorial= function(){
         this.backgroundLayer.smoothed = false;
         this.wallLayer.smoothed = false;
 
-        //Center the map
-        this.wallLayer.fixedToCamera = false;
-        this.backgroundLayer.fixedToCamera = false;
-        this.wallLayer.scrollFactorX = 0;
-        this.wallLayer.scrollFactorY = 0;
-        this.backgroundLayer.scrollFactorX = 0;
-        this.backgroundLayer.scrollFactorY = 0
-
         //Allow collisions with walls
         this.map.setCollisionBetween(0, 999, true, this.wallLayer);
 
