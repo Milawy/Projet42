@@ -51,27 +51,27 @@ Game.Tutorial= function(){
 
 
         /////////////////////////////////Zones/////////////////////////////////
-        greenZone = new Game.colorZones(this, "green", 215, 140, 0.5, 0.5);
-        yellowZone = new Game.colorZones(this, "yellow", 215, 355, 1, 1);
-        redZone = new Game.colorZones(this, "red", 725, 355, 1, 1);
+        greenZone = new Game.colorZones(this, "green", 256, 140, 0.5, 0.5);
+        yellowZone = new Game.colorZones(this, "yellow", 256, 355, 1, 1);
+        redZone = new Game.colorZones(this, "red", 773, 355, 1, 1);
 
 
         /////////////////////////////////Exit///////////////////////////////////
-        exit = this.game.add.sprite(725, 125, "blueLight");
+        exit = this.game.add.sprite(773, 125, "blueLight");
         exit.anchor.setTo(0.5,0.5);
         exit.scale.setTo(1.3,1.3);
         exit.alpha = 0.5;
 
 
         /////////////////////////////////Player/////////////////////////////////
-        this.player = new Game.Player(this.game, 215, 140);
+        this.player = new Game.Player(this.game, 256, 140);
         this.game.physics.arcade.enable(this.player);
         this.game.add.existing(this.player);
         this.player.smoothed = false;
         
 
         /////////////////////////////////Camera/////////////////////////////////
-        this.game.world.resize(-1000, -1000, 1000, 1000); // create offset limits
+        this.game.world.resize(2000, 2000); // create offset limits
         this.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
 
 
@@ -121,7 +121,7 @@ Game.Tutorial= function(){
         }
 
         //mouse pointer coord for placing zones
-        //console.log(this.input.activePointer.x, this.input.activePointer.y);
+        console.log(this.input.activePointer.x, this.input.activePointer.y);
     }
 }
 

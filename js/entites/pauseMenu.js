@@ -49,7 +49,7 @@ Game.pauseMenu = function (t) {
 
 
     ////StoneBoard////
-    stoneBoard = t.game.add.image(t.game.camera.view.width/4 + 15, 3*t.game.camera.view.height/4 - 70, "stoneBoard");
+    stoneBoard = t.game.add.image(240, 305, "stoneBoard");
     stoneBoard.anchor.setTo(0.5,0.5);
     stoneBoard.scale.setTo(0.6,0.6);
     stoneBoard.visible = false;
