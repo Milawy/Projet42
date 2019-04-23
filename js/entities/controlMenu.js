@@ -25,6 +25,18 @@ Game.controlMenu = function (t) {
 	tab = t.game.input.keyboard.addKey(9);
 	tab.onDown.add(tabPressed , t);
 
+    /////////////////////J1/////////////////////
+    J1Font = t.game.add.image(t.game.camera.view.width - 65, t.game.camera.view.height - 175, "restartFont");
+    J1Font.anchor.setTo(0.5,0.5);
+    J1Font.scale.setTo(0.2,0.5);
+    J1Font.fixedToCamera = true;
+    var J1Style = { font: "20px Times New Roman", fill: "#44f"};
+    J1 = t.game.add.text(t.game.camera.view.width - 65, t.game.camera.view.height - 165, "J1", J1Style);
+    J1.anchor.setTo(0.5,0.5);
+    J1.scale.setTo(1.5,1.5);
+    J1.fixedToCamera = true;
+    J1.smoothed = false;
+
 	////////////////Menu Font////////////////
     greenMenu = t.game.add.image(t.game.camera.view.width - 65, t.game.camera.view.height - 85, "greenMenu");
     greenMenu.smoothed = false; //nota : green pos (65,85)

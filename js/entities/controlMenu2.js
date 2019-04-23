@@ -12,6 +12,18 @@ Game.controlMenu2 = function (t) {
 	switchKey = t.game.input.keyboard.addKey(107);
 	switchKey.onDown.add(switchMenu2 , t);
 
+    /////////////////////J2/////////////////////
+    J2Font = t.game.add.image(65, t.game.camera.view.height - 175, "restartFont");
+    J2Font.anchor.setTo(0.5,0.5);
+    J2Font.scale.setTo(0.2,0.5);
+    J2Font.fixedToCamera = true;
+    var J2Style = { font: "20px Times New Roman", fill: "#f11"};
+    J2 = t.game.add.text(65, t.game.camera.view.height - 165, "J2", J2Style);
+    J2.anchor.setTo(0.5,0.5);
+    J2.scale.setTo(1.5,1.5);
+    J2.fixedToCamera = true;
+    J2.smoothed = false;
+
 	////////////////Menu2 Font////////////////
     greenMenu2 = t.game.add.image(65, t.game.camera.view.height - 85, "greenMenu");
     greenMenu2.smoothed = false; //nota : green pos (65,85)

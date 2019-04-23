@@ -108,7 +108,7 @@ Game.Player.prototype.markovBot = function(){
 
   up = 25 + brain[0]*7 - (1/3)*(brain[1]*7) - (1/3)*(brain[2]*7) - (1/3)*(brain[3]*7);
   down = 25 + brain[1]*7 - (1/3)*(brain[0]*7) - (1/3)*(brain[2]*7) - (1/3)*(brain[3]*7);
-  left = 25 + brain[2]*7 - (1/3)*(brain[0]*7) - (1/3)*(brain[1]*7) - (1/3)*(brain[3]*57);
+  left = 25 + brain[2]*7 - (1/3)*(brain[0]*7) - (1/3)*(brain[1]*7) - (1/3)*(brain[3]*7);
   right = 25 + brain[3]*7 - (1/3)*(brain[0]*7) - (1/3)*(brain[1]*7) - (1/3)*(brain[2]*7);
 
   moveProb = [up, down, left, right];

@@ -70,11 +70,11 @@ Game.Tutorial= function(){
 
         /////////////////////////////////Player/////////////////////////////////
         if(multiplayer){
-            this.player = new Game.Player(this.game, 240, 140);
+            this.player = new Game.Player(this.game, 235, 140);
             this.game.physics.arcade.enable(this.player);
             this.game.add.existing(this.player);
             this.player.smoothed = false;
-            this.player2 = new Game.Player2(this.game, 270, 140);
+            this.player2 = new Game.Player2(this.game, 275, 140);
             this.game.physics.arcade.enable(this.player2);
             this.game.add.existing(this.player2);
             this.player2.smoothed = false;

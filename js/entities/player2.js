@@ -41,28 +41,28 @@ Game.Player2.prototype.update = function(){
     }
 
     if(this.green === true){
-      this.upVal = parseInt(greenUpCounter2.text);
-      this.downVal = parseInt(greenDownCounter2.text);
-      this.leftVal = parseInt(greenLeftCounter2.text);
-      this.rightVal = parseInt(greenRightCounter2.text);
+      this.upVal2 = parseInt(greenUpCounter2.text);
+      this.downVal2 = parseInt(greenDownCounter2.text);
+      this.leftVal2 = parseInt(greenLeftCounter2.text);
+      this.rightVal2 = parseInt(greenRightCounter2.text);
     }
     else if(this.yellow === true){
-      this.upVal = parseInt(yellowUpCounter2.text);
-      this.downVal = parseInt(yellowDownCounter2.text);
-      this.leftVal = parseInt(yellowLeftCounter2.text);
-      this.rightVal = parseInt(yellowRightCounter2.text);
+      this.upVal2 = parseInt(yellowUpCounter2.text);
+      this.downVal2 = parseInt(yellowDownCounter2.text);
+      this.leftVal2 = parseInt(yellowLeftCounter2.text);
+      this.rightVal2 = parseInt(yellowRightCounter2.text);
     }
     else if(this.red === true){
-      this.upVal = parseInt(redUpCounter2.text);
-      this.downVal = parseInt(redDownCounter2.text);
-      this.leftVal = parseInt(redLeftCounter2.text);
-      this.rightVal = parseInt(redRightCounter2.text);
+      this.upVal2 = parseInt(redUpCounter2.text);
+      this.downVal2 = parseInt(redDownCounter2.text);
+      this.leftVal2 = parseInt(redLeftCounter2.text);
+      this.rightVal2 = parseInt(redRightCounter2.text);
     }
     else if(this.blue === true){
-      this.upVal = parseInt(blueUpCounter2.text);
-      this.downVal = parseInt(blueDownCounter2.text);
-      this.leftVal = parseInt(blueLeftCounter2.text);
-      this.rightVal = parseInt(blueRightCounter2.text);
+      this.upVal2 = parseInt(blueUpCounter2.text);
+      this.downVal2 = parseInt(blueDownCounter2.text);
+      this.leftVal2 = parseInt(blueLeftCounter2.text);
+      this.rightVal2 = parseInt(blueRightCounter2.text);
     }
 
 };
@@ -104,7 +104,7 @@ Game.Player2.prototype.move = function(direction){
 
 Game.Player2.prototype.markovBot2 = function(){
 
-  brain2 = [this.upVal, this.downVal, this.leftVal, this.rightVal];
+  brain2 = [this.upVal2, this.downVal2, this.leftVal2, this.rightVal2];
 
   this.up2 = 25 + brain2[0]*7 - (1/3)*(brain2[1]*7) - (1/3)*(brain2[2]*7) - (1/3)*(brain2[3]*7);
   this.down2 = 25 + brain2[1]*7 - (1/3)*(brain2[0]*7) - (1/3)*(brain2[2]*7) - (1/3)*(brain2[3]*7);
