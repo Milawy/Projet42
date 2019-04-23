@@ -34,6 +34,7 @@ Game.Preload = {
   // SpriteSheet
   this.load.spritesheet('greenButton', 'assets/sprites/greenButton.png', 190, 49);
   this.load.spritesheet('bot', 'assets/sprites/robot_full.png', 36, 39);
+  this.load.spritesheet('bot2', 'assets/sprites/robot_full_red.png', 36, 39);
 
 
   // Image

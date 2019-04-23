@@ -51,7 +51,12 @@ Game.Tutorial= function(){
 
 
         /////////////////////////////////Zones/////////////////////////////////
-        greenZone = new Game.colorZones(this, "green", 256, 140, 0.5, 0.5);
+        if(multiplayer){
+            greenZone = new Game.colorZones(this, "green", 256, 140, 1, 0.5);
+        }
+        else{
+            greenZone = new Game.colorZones(this, "green", 256, 140, 0.5, 0.5);
+        }
         yellowZone = new Game.colorZones(this, "yellow", 256, 355, 1, 1);
         redZone = new Game.colorZones(this, "red", 773, 355, 1, 1);
 
@@ -64,10 +69,22 @@ Game.Tutorial= function(){
 
 
         /////////////////////////////////Player/////////////////////////////////
-        this.player = new Game.Player(this.game, 256, 140);
-        this.game.physics.arcade.enable(this.player);
-        this.game.add.existing(this.player);
-        this.player.smoothed = false;
+        if(multiplayer){
+            this.player = new Game.Player(this.game, 240, 140);
+            this.game.physics.arcade.enable(this.player);
+            this.game.add.existing(this.player);
+            this.player.smoothed = false;
+            this.player2 = new Game.Player2(this.game, 270, 140);
+            this.game.physics.arcade.enable(this.player2);
+            this.game.add.existing(this.player2);
+            this.player2.smoothed = false;
+        }
+        else{
+            this.player = new Game.Player(this.game, 256, 140);
+            this.game.physics.arcade.enable(this.player);
+            this.game.add.existing(this.player);
+            this.player.smoothed = false;
+        }
         
 
         /////////////////////////////////Camera/////////////////////////////////
@@ -77,20 +94,28 @@ Game.Tutorial= function(){
 
         /////////////////////////////////Control Inputs////////////////////////////////
         altKey = this.game.input.keyboard.addKey(18);
+        alt2Key = this.game.input.keyboard.addKey(39);
         rKey = this.game.input.keyboard.addKey(82);
         rKey.onDown.add(restart, this);
 
 
-        /////////////////////////////////Pause Menu////////////////////////////////
-        this.pauseMenu = new Game.pauseMenu(this);
-
-
         /////////////////////////////////Control Menu/////////////////////////////////
         this.controlMenu = new Game.controlMenu(this);
+        if(multiplayer){
+            this.controlMenu2 = new Game.controlMenu2(this);
+        }
+
+
+        /////////////////////////////////Pause Menu////////////////////////////////
+        this.pauseMenu = new Game.pauseMenu(this);
+        
     }, 
 
  
     update : function(){
+
+
+        ////////////////////////////////Player1/////////////////////////////////
 
         //Check collisions between the player and walls
         this.game.physics.arcade.collide(this.player, this.wallLayer);
@@ -118,6 +143,38 @@ Game.Tutorial= function(){
 
         if(this.player.overlap(exit)){
             this.game.state.start("Stage1");
+        }
+
+
+        ////////////////////////////////Player2/////////////////////////////////
+
+        if(multiplayer){
+            this.game.physics.arcade.collide(this.player2, this.wallLayer);
+
+            if(this.player2.overlap(greenZone.zone)){
+                this.player2.green = true;
+            }
+            else{
+                this.player2.green = false;
+            }
+
+            if(this.player2.overlap(yellowZone.zone)){
+                this.player2.yellow = true;
+            }
+            else{
+                this.player2.yellow = false;
+            }
+
+            if(this.player2.overlap(redZone.zone)){
+                this.player2.red = true;
+            }
+            else{
+                this.player2.red = false;
+            }
+
+            if(this.player2.overlap(exit)){
+                this.game.state.start("Stage1");
+            }
         }
 
         //mouse pointer coord for placing zones

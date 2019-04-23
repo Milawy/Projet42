@@ -1,0 +1,146 @@
+
+Game.Player2 = function (game, x, y) {
+ 
+	Phaser.Sprite.call(this, game, x, y, 'bot2'); // call the red sprite
+	this.name = 'player2';
+  this.green = false;
+  this.yellow = false;
+  this.blue = false;
+  this.red = false;
+  this.stop = true;
+
+  this.upVal = 0;
+  this.downVal = 0;
+  this.leftVal = 0;
+  this.rightVal = 0;
+
+	/////////////////////////////////Animations/////////////////////////////////
+
+	this.animations.add('rightSide',[0,1,2,3,4,5],25,false);
+	this.animations.add('leftSide',[0,1,2,3,4,5],25,false);
+	this.animations.add('up',[6,7,8,9],25,false);
+	this.animations.add('down',[12,13,14,15],25,false);
+	this.animations.add('stand',[12],25,false);
+	 
+	this.game.physics.enable(this, Phaser.Physics.ARCADE);
+
+	this.anchor.setTo(.5,.5);
+
+  this.animations.play("stand");
+};
+ 
+Game.Player2.prototype = Object.create(Phaser.Sprite.prototype);
+	 
+Game.Player2.prototype.update = function(){
+
+    launchBar = this.game.input.keyboard.addKey(96);
+	
+    if(launchBar.justPressed() && this.stop === true) {
+      this.stop = false;
+      this.markovBot2();
+    }
+
+    if(this.green === true){
+      this.upVal = parseInt(greenUpCounter2.text);
+      this.downVal = parseInt(greenDownCounter2.text);
+      this.leftVal = parseInt(greenLeftCounter2.text);
+      this.rightVal = parseInt(greenRightCounter2.text);
+    }
+    else if(this.yellow === true){
+      this.upVal = parseInt(yellowUpCounter2.text);
+      this.downVal = parseInt(yellowDownCounter2.text);
+      this.leftVal = parseInt(yellowLeftCounter2.text);
+      this.rightVal = parseInt(yellowRightCounter2.text);
+    }
+    else if(this.red === true){
+      this.upVal = parseInt(redUpCounter2.text);
+      this.downVal = parseInt(redDownCounter2.text);
+      this.leftVal = parseInt(redLeftCounter2.text);
+      this.rightVal = parseInt(redRightCounter2.text);
+    }
+    else if(this.blue === true){
+      this.upVal = parseInt(blueUpCounter2.text);
+      this.downVal = parseInt(blueDownCounter2.text);
+      this.leftVal = parseInt(blueLeftCounter2.text);
+      this.rightVal = parseInt(blueRightCounter2.text);
+    }
+
+};
+
+Game.Player2.prototype.move = function(direction){
+   	
+	 /////////////////////////////////Players' movements/////////////////////////////////
+
+   	if(direction == 'up'){
+   		this.body.velocity.y = -100;
+		  this.body.velocity.x = 0;
+	    this.animations.play("up");
+   	}
+   	if(direction == 'down'){
+   		this.body.velocity.y = 100;
+		  this.body.velocity.x = 0;
+	    this.animations.play("down");
+   	}
+   	if(direction == 'right'){
+   		this.body.velocity.y = 0;
+		  this.body.velocity.x = 100;
+		  // Flip the x axis
+      this.scale.x = 1;
+	    this.animations.play("rightSide");
+   	}
+   	if(direction == 'left'){
+   		this.body.velocity.y = 0;
+		  this.body.velocity.x = -100;
+      this.scale.x = -1;
+	    this.animations.play("leftSide");
+   	}
+   	if(direction == 'stand'){
+   		this.body.velocity.x = 0;
+   		this.body.velocity.y = 0;
+   		this.animations.play("stand");
+   	}
+}
+
+
+Game.Player2.prototype.markovBot2 = function(){
+
+  brain2 = [this.upVal, this.downVal, this.leftVal, this.rightVal];
+
+  this.up2 = 25 + brain2[0]*7 - (1/3)*(brain2[1]*7) - (1/3)*(brain2[2]*7) - (1/3)*(brain2[3]*7);
+  this.down2 = 25 + brain2[1]*7 - (1/3)*(brain2[0]*7) - (1/3)*(brain2[2]*7) - (1/3)*(brain2[3]*7);
+  this.left2 = 25 + brain2[2]*7 - (1/3)*(brain2[0]*7) - (1/3)*(brain2[1]*7) - (1/3)*(brain2[3]*7);
+  this.right2 = 25 + brain2[3]*7 - (1/3)*(brain2[0]*7) - (1/3)*(brain2[1]*7) - (1/3)*(brain2[2]*7);
+
+  this.moveProb2 = [this.up2, this.down2, this.left2, this.right2];
+
+  this.dice2 = getRandomInt(99) + 1;
+
+  //console.log(this.dice2)
+  //console.log(this.moveProb2)
+
+  if(this.up2 > this.dice2){
+
+    this.move("up")
+  }
+
+  if(this.up2 + this.down2 > this.dice2 && this.up2 < this.dice2){
+     
+    this.move("down")
+  }
+
+  if(this.up2 + this.down2 + this.left2 > this.dice2 && this.up2 + this.down2 < this.dice2){
+
+    this.move("left")
+  }
+  if(this.up2 + this.down2 + this.left2 < this.dice2){
+
+    this.move("right")
+  }
+
+  this.game.time.events.add(150, this.markovBot2, this);
+
+};
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}

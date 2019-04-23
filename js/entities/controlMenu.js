@@ -25,8 +25,6 @@ Game.controlMenu = function (t) {
 	tab = t.game.input.keyboard.addKey(9);
 	tab.onDown.add(tabPressed , t);
 
-    //WIP ABSOLUTO POS : BLUE AND GREEN FONT OK
-
 	////////////////Menu Font////////////////
     greenMenu = t.game.add.image(t.game.camera.view.width - 65, t.game.camera.view.height - 85, "greenMenu");
     greenMenu.smoothed = false; //nota : green pos (65,85)

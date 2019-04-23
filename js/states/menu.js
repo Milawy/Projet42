@@ -1,4 +1,6 @@
-var isPressed = false;
+var soloPressed = false;
+var multiPressed = false;
+var multiplayer = false;
 
 Game.Menu=function(){
  
@@ -35,29 +37,49 @@ Game.Menu.prototype = {
         this.fullscreenKey = this.game.input.keyboard.addKey(70);
         this.fullscreenKey.onDown.add(fullscreenButtonEnable , this);
 
-        // Play Button
-        playButton = this.game.add.sprite(this.game.width/2, this.game.height/2, 'greenButton');
-        playButton.anchor.setTo(0.5,0.5);
-        playButton.scale.setTo(1.2,1.2);
-        playButton.animations.add('hoover',[0,1],20,false);
-        playButton.animations.add('notHoover',[1,0,2],20,false);
-        playButton.animations.add('frame3',[2],20,false);
-        playButton.inputEnabled = true;
-        playButton.smoothed = false;
-        playButton.events.onInputDown.add(launchGame, this);
-        playButton.events.onInputOver.add(overPlayButton, this);
-        playButton.animations.play("frame3");
+        // Solo Button
+        soloButton = this.game.add.sprite(this.game.width/2, this.game.height/2, 'greenButton');
+        soloButton.anchor.setTo(0.5,0.5);
+        soloButton.scale.setTo(1.5,1.5);
+        soloButton.animations.add('hoover',[0,1],20,false);
+        soloButton.animations.add('notHoover',[1,0,2],20,false);
+        soloButton.animations.add('frame3',[2],20,false);
+        soloButton.inputEnabled = true;
+        soloButton.smoothed = false;
+        soloButton.events.onInputDown.add(launchGame, this);
+        soloButton.events.onInputOver.add(overSoloButton, this);
+        soloButton.animations.play("frame3");
 
-        playText = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.playTextBox = this.game.add.image(this.game.width/2, this.game.height/2, playText);
-        this.playTextBox.scale.setTo(1.5,1.5);
-        this.playTextBox.anchor.x = 0.5;
-        this.playTextBox.anchor.y = 0.5;
-        playText.text = "Play";
+        soloText = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
+        this.soloTextBox = this.game.add.image(this.game.width/2, this.game.height/2, soloText);
+        this.soloTextBox.scale.setTo(1.5,1.5);
+        this.soloTextBox.anchor.x = 0.5;
+        this.soloTextBox.anchor.y = 0.5;
+        soloText.text = "One Player";
+
+        // Multi Button
+        multiButton = this.game.add.sprite(this.game.width/2, this.game.height/2 + 100, 'greenButton');
+        multiButton.anchor.setTo(0.5,0.5);
+        multiButton.scale.setTo(1.5,1.5);
+        multiButton.animations.add('hoover',[0,1],20,false);
+        multiButton.animations.add('notHoover',[1,0,2],20,false);
+        multiButton.animations.add('frame3',[2],20,false);
+        multiButton.inputEnabled = true;
+        multiButton.smoothed = false;
+        multiButton.events.onInputDown.add(launchGameMulti, this);
+        multiButton.events.onInputOver.add(overMultiButton, this);
+        multiButton.animations.play("frame3");
+
+        multiText = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
+        this.multiTextBox = this.game.add.image(this.game.width/2, this.game.height/2 + 100, multiText);
+        this.multiTextBox.scale.setTo(1.5,1.5);
+        this.multiTextBox.anchor.x = 0.5;
+        this.multiTextBox.anchor.y = 0.5;
+        multiText.text = "Two Players";
 
         // Press space to play
         this.playKey = this.game.input.keyboard.addKey(32);
-        this.playKey.onDown.add(launchGame , this);
+        this.playKey.onDown.add(launchGameMulti , this);
 
         // Main Title
         mainTitle = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
@@ -74,10 +96,16 @@ Game.Menu.prototype = {
 
     update : function(){
 
-        if(isPressed == true && playButton.input.pointerOver() == false){
-            isPressed = false;
-            this.playTextBox.position.y = this.game.height/2;
-            playButton.animations.play("notHoover");
+        if(soloPressed == true && soloButton.input.pointerOver() == false){
+            soloPressed = false;
+            this.soloTextBox.position.y = this.game.height/2;
+            soloButton.animations.play("notHoover");
+        }
+
+        if(multiPressed == true && multiButton.input.pointerOver() == false){
+            multiPressed = false;
+            this.multiTextBox.position.y = this.game.height/2 + 100;
+            multiButton.animations.play("notHoover");
         }
     }
  
@@ -101,14 +129,31 @@ function fullscreenButtonEnable(){
 function launchGame(){
 
     //mainTheme.stop();
+    multiplayer = false;
     this.state.start('Tutorial');
     //this.state.start('Stage1');
 }
 
-function overPlayButton(){
+function launchGameMulti(){
 
-    playButton.animations.play("hoover");
-    this.playTextBox.position.y = this.game.height/2;
-    isPressed = true;
+    //mainTheme.stop();
+    multiplayer = true;
+    this.state.start('Tutorial');
+    //this.state.start('Stage1');
 }
+
+function overSoloButton(){
+
+    soloButton.animations.play("hoover");
+    this.soloTextBox.position.y = this.game.height/2;
+    soloPressed = true;
+}
+
+function overMultiButton(){
+
+    multiButton.animations.play("hoover");
+    this.multiTextBox.position.y = this.game.height/2 + 100;
+    multiPressed = true;
+}
+
 
