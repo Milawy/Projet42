@@ -118,6 +118,9 @@ Game.Stage1= function(){
         if(this.player.overlap(exit)){
             this.game.state.start(this.game.state.current);
         }
+
+        //mouse pointer coord for placing zones
+        //console.log(this.input.activePointer.x, this.input.activePointer.y);
     }
 }
 

@@ -121,7 +121,7 @@ Game.Tutorial= function(){
         }
 
         //mouse pointer coord for placing zones
-        console.log(this.input.activePointer.x, this.input.activePointer.y);
+        //console.log(this.input.activePointer.x, this.input.activePointer.y);
     }
 }
 

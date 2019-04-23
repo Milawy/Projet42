@@ -470,7 +470,7 @@ function greenUpPressed(t){
         if(altKey.isDown && parseInt(greenUpCounter.text) != 0){
             greenUpCounter.text = (parseInt(greenUpCounter.text) - 1).toString();
         }
-        else if(parseInt(greenUpCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(greenUpCounter.text) < 10 && !altKey.isDown){
             greenUpCounter.text = (parseInt(greenUpCounter.text) + 1).toString();
         }
     }
@@ -486,7 +486,7 @@ function greenDownPressed(t){
         if(altKey.isDown && parseInt(greenDownCounter.text) != 0){
             greenDownCounter.text = (parseInt(greenDownCounter.text) - 1).toString();
         }
-        else if(parseInt(greenDownCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(greenDownCounter.text) < 10 && !altKey.isDown){
             greenDownCounter.text = (parseInt(greenDownCounter.text) + 1).toString();
     	}
     }
@@ -502,7 +502,7 @@ function greenLeftPressed(t){
         if(altKey.isDown && parseInt(greenLeftCounter.text) != 0){
             greenLeftCounter.text = (parseInt(greenLeftCounter.text) - 1).toString();
         }
-        else if(parseInt(greenLeftCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(greenLeftCounter.text) < 10 && !altKey.isDown){
             greenLeftCounter.text = (parseInt(greenLeftCounter.text) + 1).toString();
         }
     }
@@ -518,7 +518,7 @@ function greenRightPressed(t){
         if(altKey.isDown && parseInt(greenRightCounter.text) != 0){
             greenRightCounter.text = (parseInt(greenRightCounter.text) - 1).toString();
         }
-        else if(parseInt(greenRightCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(greenRightCounter.text) < 10 && !altKey.isDown){
             greenRightCounter.text = (parseInt(greenRightCounter.text) + 1).toString();
         }
     }
@@ -535,7 +535,7 @@ function yellowUpPressed(t){
         if(altKey.isDown && parseInt(yellowUpCounter.text) != 0){
             yellowUpCounter.text = (parseInt(yellowUpCounter.text) - 1).toString();
         }
-        else if(parseInt(yellowUpCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(yellowUpCounter.text) < 10 && !altKey.isDown){
             yellowUpCounter.text = (parseInt(yellowUpCounter.text) + 1).toString();
         }
     }
@@ -551,7 +551,7 @@ function yellowDownPressed(t){
         if(altKey.isDown && parseInt(yellowDownCounter.text) != 0){
             yellowDownCounter.text = (parseInt(yellowDownCounter.text) - 1).toString();
         }
-        else if(parseInt(yellowDownCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(yellowDownCounter.text) < 10 && !altKey.isDown){
             yellowDownCounter.text = (parseInt(yellowDownCounter.text) + 1).toString();
     	}
     }
@@ -567,7 +567,7 @@ function yellowLeftPressed(t){
         if(altKey.isDown && parseInt(yellowLeftCounter.text) != 0){
             yellowLeftCounter.text = (parseInt(yellowLeftCounter.text) - 1).toString();
         }
-        else if(parseInt(yellowLeftCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(yellowLeftCounter.text) < 10 && !altKey.isDown){
             yellowLeftCounter.text = (parseInt(yellowLeftCounter.text) + 1).toString();
         }
     }
@@ -583,7 +583,7 @@ function yellowRightPressed(t){
         if(altKey.isDown && parseInt(yellowRightCounter.text) != 0){
             yellowRightCounter.text = (parseInt(yellowRightCounter.text) - 1).toString();
         }
-        else if(parseInt(yellowRightCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(yellowRightCounter.text) < 10 && !altKey.isDown){
             yellowRightCounter.text = (parseInt(yellowRightCounter.text) + 1).toString();
         }
     }
@@ -600,7 +600,7 @@ function redUpPressed(t){
         if(altKey.isDown && parseInt(redUpCounter.text) != 0){
             redUpCounter.text = (parseInt(redUpCounter.text) - 1).toString();
         }
-        else if(parseInt(redUpCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(redUpCounter.text) < 10 && !altKey.isDown){
             redUpCounter.text = (parseInt(redUpCounter.text) + 1).toString();
         }
     }
@@ -616,7 +616,7 @@ function redDownPressed(t){
         if(altKey.isDown && parseInt(redDownCounter.text) != 0){
             redDownCounter.text = (parseInt(redDownCounter.text) - 1).toString();
         }
-        else if(parseInt(redDownCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(redDownCounter.text) < 10 && !altKey.isDown){
             redDownCounter.text = (parseInt(redDownCounter.text) + 1).toString();
     	}
     }
@@ -632,7 +632,7 @@ function redLeftPressed(t){
         if(altKey.isDown && parseInt(redLeftCounter.text) != 0){
             redLeftCounter.text = (parseInt(redLeftCounter.text) - 1).toString();
         }
-        else if(parseInt(redLeftCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(redLeftCounter.text) < 10 && !altKey.isDown){
             redLeftCounter.text = (parseInt(redLeftCounter.text) + 1).toString();
         }
     }
@@ -648,7 +648,7 @@ function redRightPressed(t){
         if(altKey.isDown && parseInt(redRightCounter.text) != 0){
             redRightCounter.text = (parseInt(redRightCounter.text) - 1).toString();
         }
-        else if(parseInt(redRightCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(redRightCounter.text) < 10 && !altKey.isDown){
             redRightCounter.text = (parseInt(redRightCounter.text) + 1).toString();
         }
     }
@@ -665,7 +665,7 @@ function blueUpPressed(t){
         if(altKey.isDown && parseInt(blueUpCounter.text) != 0){
             blueUpCounter.text = (parseInt(blueUpCounter.text) - 1).toString();
         }
-        else if(parseInt(blueUpCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(blueUpCounter.text) < 10 && !altKey.isDown){
             blueUpCounter.text = (parseInt(blueUpCounter.text) + 1).toString();
         }
     }
@@ -681,7 +681,7 @@ function blueDownPressed(t){
         if(altKey.isDown && parseInt(blueDownCounter.text) != 0){
             blueDownCounter.text = (parseInt(blueDownCounter.text) - 1).toString();
         }
-        else if(parseInt(blueDownCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(blueDownCounter.text) < 10 && !altKey.isDown){
             blueDownCounter.text = (parseInt(blueDownCounter.text) + 1).toString();
     	}
     }
@@ -697,7 +697,7 @@ function blueLeftPressed(t){
         if(altKey.isDown && parseInt(blueLeftCounter.text) != 0){
             blueLeftCounter.text = (parseInt(blueLeftCounter.text) - 1).toString();
         }
-        else if(parseInt(blueLeftCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(blueLeftCounter.text) < 10 && !altKey.isDown){
             blueLeftCounter.text = (parseInt(blueLeftCounter.text) + 1).toString();
         }
     }
@@ -713,7 +713,7 @@ function blueRightPressed(t){
         if(altKey.isDown && parseInt(blueRightCounter.text) != 0){
             blueRightCounter.text = (parseInt(blueRightCounter.text) - 1).toString();
         }
-        else if(parseInt(blueRightCounter.text) < 15 && !altKey.isDown){
+        else if(parseInt(blueRightCounter.text) < 10 && !altKey.isDown){
             blueRightCounter.text = (parseInt(blueRightCounter.text) + 1).toString();
         }
     }
