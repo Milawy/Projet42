@@ -63,12 +63,14 @@ Game.Tutorial= function(){
 
         /////////////////////////////////Exit///////////////////////////////////
         exit = this.game.add.sprite(773, 125, "blueLight");
-        exit.anchor.setTo(0.5,0.5);
-        exit.scale.setTo(1.3,1.3);
+        exit.anchor.setTo(0.5, 0.5);
+        exit.scale.setTo(1.3, 1.3);
         exit.alpha = 0.5;
 
+        /////////////////////////////////Star///////////////////////////////////
+        star = new Game.star(this, 300, 200, 1, 1);
 
-        /////////////////////////////////Player/////////////////////////////////
+        ////////////////////////////////Player//////////////////////////////////
         if(multiplayer){
             this.player = new Game.Player(this.game, 235, 140);
             this.game.physics.arcade.enable(this.player);
