@@ -35,6 +35,7 @@ Game.Preload = {
   this.load.spritesheet('greenButton', 'assets/sprites/greenButton.png', 190, 49);
   this.load.spritesheet('bot', 'assets/sprites/robot_full.png', 36, 39);
   this.load.spritesheet('bot2', 'assets/sprites/robot_full_red.png', 36, 39);
+  this.load.spritesheet('star', 'assets/img/star.png', 240, 256);
 
 
   // Image
@@ -61,7 +62,6 @@ Game.Preload = {
   this.load.image('stoneBoard', 'assets/img/stoneBoard.png');
   this.load.image('restartFont', 'assets/img/restartFont.png');
   this.load.image('readyIcon', 'assets/img/ready.png');
-  this.load.image('star', 'assets/img/star.png');
 
   // Audio
 

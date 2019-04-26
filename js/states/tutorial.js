@@ -67,8 +67,6 @@ Game.Tutorial= function(){
         exit.scale.setTo(1.3, 1.3);
         exit.alpha = 0.5;
 
-        /////////////////////////////////Star///////////////////////////////////
-        star = new Game.star(this, 300, 200, 1, 1);
 
         ////////////////////////////////Player//////////////////////////////////
         if(multiplayer){
@@ -124,6 +122,11 @@ Game.Tutorial= function(){
         readyP2.visible = false;
         readyP2.fixedToCamera = true;
 
+
+        /////////////////////////////////Star///////////////////////////////////
+        star = new Game.star(this, 300, 200, 1, 1);
+        this.game.physics.arcade.enable(star);
+        this.game.add.existing(star);
     }, 
 
  
