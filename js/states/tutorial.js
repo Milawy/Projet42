@@ -105,6 +105,11 @@ Game.Tutorial= function(){
             this.controlMenu2 = new Game.controlMenu2(this);
         }
 
+        /////////////////////////////////Star///////////////////////////////////
+        star = new Game.star(this, 300, 200, 1, 1);
+        this.game.physics.arcade.enable(star);
+        this.game.add.existing(star);
+
 
         /////////////////////////////////Pause Menu////////////////////////////////
         this.pauseMenu = new Game.pauseMenu(this);
@@ -122,11 +127,6 @@ Game.Tutorial= function(){
         readyP2.visible = false;
         readyP2.fixedToCamera = true;
 
-
-        /////////////////////////////////Star///////////////////////////////////
-        star = new Game.star(this, 300, 200, 1, 1);
-        this.game.physics.arcade.enable(star);
-        this.game.add.existing(star);
     }, 
 
  
