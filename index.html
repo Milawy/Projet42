@@ -34,8 +34,8 @@
 
               window.PhaserGlobal = { disableWebAudio: true };
 
-              Game.game = new Phaser.Game(1366, 768, Phaser.WEBGL, ''); //"99" = 99% No more side bars
-              
+              Game.game = new Phaser.Game(1366, 768, Phaser.WEBGL, ''); 
+
               Game.game.state.add('Boot', Game.Boot);
               Game.game.state.add('Preload', Game.Preload);
               Game.game.state.add('Menu', Game.Menu);

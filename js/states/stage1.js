@@ -172,6 +172,16 @@ Game.Stage1= function(){
             if(this.player2.overlap(exit)){
                 this.game.state.start("Stage1");
             }
+            if(this.player.P1Ready && this.player2.P2Ready){
+                this.player.stop = false;
+                this.player.P1Ready = false;
+                this.player2.stop = false;
+                this.player2.P2Ready = false;
+            }
+        }
+        else if(this.player.P1Ready){
+            this.player.stop = false;
+            this.player.P1Ready = false;
         }
 
         //mouse pointer coord for placing zones

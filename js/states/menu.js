@@ -82,15 +82,19 @@ Game.Menu.prototype = {
         this.playKey.onDown.add(launchGameMulti , this);
 
         // Main Title
+        mainFont = { font: "50px Times New Roman", fill: "#fff"};
         mainTitle = this.game.add.retroFont('basicFont', 16, 15, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        this.mainTittleText = this.game.add.image(this.game.width/2 - 400, 120, mainTitle);
+        this.mainTittleText = this.game.add.text(this.game.width/2 - 400, 120, "PathfAInder", mainFont);
         this.mainTittleText.scale.x = 2.5;
         this.mainTittleText.scale.y = 2.5;
         this.mainTittleText.anchor.x = 0.5;
         this.mainTittleText.anchor.y = 0.5;
         this.mainTittleText.x = this.game.width/2;
         this.mainTittleText.y = 120;
-        mainTitle.text = "For the Greater Good";
+        this.mainTittleText.smoothed = false;
+        this.mainTittleText.autoRound = true;
+        this.mainTittleText.resolution = 1;
+        mainTitle.text = "PathfAInder";
 
     }, 
 

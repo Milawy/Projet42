@@ -108,7 +108,20 @@ Game.Tutorial= function(){
 
         /////////////////////////////////Pause Menu////////////////////////////////
         this.pauseMenu = new Game.pauseMenu(this);
-        
+
+
+        /////////////////////////////////Ready Icon////////////////////////////////
+        readyP1 = this.game.add.sprite(this.game.camera.view.width - 440, this.game.camera.view.height - 55, "readyIcon");
+        readyP1.scale.setTo(0.2,0.2);
+        readyP1.anchor.setTo(0.5,0.5);
+        readyP1.visible = false;
+        readyP1.fixedToCamera = true;
+        readyP2 = this.game.add.sprite(this.game.camera.view.width - 495, this.game.camera.view.height - 55, "readyIcon");
+        readyP2.scale.setTo(0.2,0.2);
+        readyP2.anchor.setTo(0.5,0.5);
+        readyP2.visible = false;
+        readyP2.fixedToCamera = true;
+
     }, 
 
  
@@ -145,7 +158,6 @@ Game.Tutorial= function(){
             this.game.state.start("Stage1");
         }
 
-
         ////////////////////////////////Player2/////////////////////////////////
 
         if(multiplayer){
@@ -175,6 +187,27 @@ Game.Tutorial= function(){
             if(this.player2.overlap(exit)){
                 this.game.state.start("Stage1");
             }
+
+            if(this.player.P1Ready && this.player2.P2Ready){
+                this.player.stop = false;
+                this.player.P1Ready = false;
+                this.player2.stop = false;
+                this.player2.P2Ready = false;
+                readyP1.visible = true;
+                readyP2.visible = true;
+            }
+
+            if(this.player.P1Ready){
+                readyP1.visible = true;
+            }
+            if(this.player2.P2Ready){
+                readyP2.visible = true;
+            }
+        }
+        else if(this.player.P1Ready){
+            this.player.stop = false;
+            this.player.P1Ready = false;
+            readyP1.visible = true;
         }
 
         //mouse pointer coord for placing zones

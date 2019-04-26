@@ -8,6 +8,7 @@ Game.Player = function (game, x, y) {
   this.blue = false;
   this.red = false;
   this.stop = true;
+  this.P1Ready = false;
 
   this.upVal = 0;
   this.downVal = 0;
@@ -35,8 +36,12 @@ Game.Player.prototype = Object.create(Phaser.Sprite.prototype);
 	 
 Game.Player.prototype.update = function(){
 	
-    if(spaceBar.justPressed() && this.stop === true) {
-      this.stop = false;
+    if(spaceBar.justPressed() && this.stop){
+      this.P1Ready = true;
+    }
+
+    if(!this.stop){
+      this.stop = true;
       this.markovBot();
     }
 
