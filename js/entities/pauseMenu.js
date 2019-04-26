@@ -75,6 +75,13 @@ Game.pauseMenu = function (t) {
     text4.visible = false;
 
 
+    ////KeyboardP1////
+    keyboardP1 = t.game.add.image(750, 150, "keyboardP1");
+    keyboardP1.anchor.setTo(0.5,0.5);
+    keyboardP1.scale.setTo(1.3,1.3);
+    keyboardP1.visible = false;    
+
+
 }
 
 function pause(){
@@ -92,6 +99,7 @@ function pause(){
         text2.visible = false;
         text3.visible = false;
         text4.visible = false;
+        keyboardP1.visible = false;  
     }
     else {
 
@@ -104,6 +112,7 @@ function pause(){
         text2.visible = true;
         text3.visible = true;
         text4.visible = true;
+        keyboardP1.visible = true; 
 
         if(!this.pauseMenu.mainTheme.paused){
 			soundOn.visible = true;
