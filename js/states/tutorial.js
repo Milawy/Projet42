@@ -116,29 +116,34 @@ Game.Tutorial= function(){
 
 
         /////////////////////////////////Ready Icon////////////////////////////////
-        readyP1 = this.game.add.sprite(this.game.camera.view.width - 440, this.game.camera.view.height - 55, "readyIcon");
+        readyP1 = this.game.add.sprite(this.game.camera.view.width - 495, this.game.camera.view.height - 55, "readyIcon");
         readyP1.scale.setTo(0.2,0.2);
         readyP1.anchor.setTo(0.5,0.5);
         readyP1.visible = false;
         readyP1.fixedToCamera = true;
-        readyP2 = this.game.add.sprite(this.game.camera.view.width - 495, this.game.camera.view.height - 55, "readyIcon");
+        readyP2 = this.game.add.sprite(this.game.camera.view.width - 440, this.game.camera.view.height - 55, "readyIcon");
         readyP2.scale.setTo(0.2,0.2);
         readyP2.anchor.setTo(0.5,0.5);
         readyP2.visible = false;
         readyP2.fixedToCamera = true;
 
+        ////////////////////////////////Timer////////////////////////////////
+        timer = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
+        timerBox = this.game.add.image(this.game.camera.view.width/2 + 42, 42, timer);
+        timerBox.anchor.setTo(0.5,0.5);
+        timerBox.scale.setTo(2.5,2.5);
+        timerBox.fixedToCamera = true;
+        timer.text = "0"
+        this.startingTime = 0;
     }, 
 
  
-    update : function(){    
+    update : function(){
 
         ////////////////////////////////Player1/////////////////////////////////
 
         //Check collisions between the player and walls
         this.game.physics.arcade.collide(this.player, this.wallLayer);
-        if(multiplayer){
-            this.game.physics.arcade.collide(this.player, this.player2);
-        }
 
         if(this.player.overlap(greenZone.zone)){
             this.player.green = true;
@@ -168,7 +173,9 @@ Game.Tutorial= function(){
         ////////////////////////////////Player2/////////////////////////////////
 
         if(multiplayer){
+
             this.game.physics.arcade.collide(this.player2, this.wallLayer);
+            this.game.physics.arcade.collide(this.player, this.player2);
 
             if(this.player2.overlap(greenZone.zone)){
                 this.player2.green = true;
@@ -202,6 +209,7 @@ Game.Tutorial= function(){
                 this.player2.P2Ready = false;
                 readyP1.visible = true;
                 readyP2.visible = true;
+                this.startingTime = this.game.time.time;
             }
 
             if(this.player.P1Ready){
@@ -215,6 +223,11 @@ Game.Tutorial= function(){
             this.player.stop = false;
             this.player.P1Ready = false;
             readyP1.visible = true;
+            this.startingTime = this.game.time.time;
+        }
+
+        if(this.startingTime != 0){
+            timer.text = ((this.game.time.time - this.startingTime)/1000).toFixed(2);
         }
 
         //mouse pointer coord for placing zones

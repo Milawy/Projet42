@@ -14,6 +14,20 @@ Game.pauseMenu = function (t) {
     pauseKey.onDown.add(pause , t);
 
 
+    ///////////////Restart Menu/////////////
+    restartFont = t.game.add.image(t.game.camera.view.width/2, 35, "restartFont");
+    restartFont.anchor.setTo(0.5,0.5);
+    restartFont.scale.setTo(0.6,0.5);
+    restartFont.smoothed = false;
+    restartFont.fixedToCamera = true;
+    var style = { font: "20px Times New Roman", fill: "#fff"};
+    restartText = t.game.add.text(t.game.camera.view.width/2 - 70, 40, "Press R to Restart", style);
+    restartText.anchor.y = 0.5;
+    restartText.fixedToCamera = true;
+    restartFont.visible = false;
+    restartText.visible = false;
+
+
 	////Exit Icon////
 	exitIcon = t.game.add.image(35, 35, "exit");
     exitIcon.anchor.x = 0.5;
@@ -99,7 +113,9 @@ function pause(){
         text2.visible = false;
         text3.visible = false;
         text4.visible = false;
-        keyboardP1.visible = false;  
+        keyboardP1.visible = false;
+        restartFont.visible = false;
+        restartText.visible = false;
     }
     else {
 
@@ -112,7 +128,9 @@ function pause(){
         text2.visible = true;
         text3.visible = true;
         text4.visible = true;
-        keyboardP1.visible = true; 
+        keyboardP1.visible = true;
+        restartFont.visible = true;
+        restartText.visible = true;
 
         if(!this.pauseMenu.mainTheme.paused){
 			soundOn.visible = true;
