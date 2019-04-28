@@ -57,8 +57,8 @@ Game.Tutorial= function(){
         else{
             greenZone = new Game.colorZones(this, "green", 256, 140, 0.5, 0.5);
         }
-        yellowZone = new Game.colorZones(this, "yellow", 256, 355, 1, 0.8);
-        redZone = new Game.colorZones(this, "red", 773, 355, 1, 0.8);
+        yellowZone = new Game.colorZones(this, "yellow", 256, 365, 1, 0.7);
+        redZone = new Game.colorZones(this, "red", 773, 365, 0.7, 1);
 
 
         /////////////////////////////////Exit///////////////////////////////////
@@ -130,7 +130,7 @@ Game.Tutorial= function(){
     }, 
 
  
-    update : function(){
+    update : function(){    
 
         ////////////////////////////////Player1/////////////////////////////////
 
