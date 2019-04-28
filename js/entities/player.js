@@ -16,10 +16,14 @@ Game.Player = function (game, x, y) {
   this.leftVal = 0;
   this.rightVal = 0;
 
+  this.gameScope = game;
+  this.collide = false;
+  this.prevDir;
+
 	/////////////////////////////////Animations/////////////////////////////////
 
-	this.animations.add('rightSide',[0,1,2,3,4,5],25,false);
-	this.animations.add('leftSide',[0,1,2,3,4,5],25,false);
+	this.animations.add('rightSide',[0,1,2,3,4,5],36,false);
+	this.animations.add('leftSide',[0,1,2,3,4,5],36,false);
 	this.animations.add('up',[6,7,8,9],25,false);
 	this.animations.add('down',[12,13,14,15],25,false);
 	this.animations.add('stand',[12],25,false);
@@ -36,7 +40,7 @@ Game.Player = function (game, x, y) {
 Game.Player.prototype = Object.create(Phaser.Sprite.prototype);
 	 
 Game.Player.prototype.update = function(){
-	
+    	
     if(spaceBar.justPressed() && this.stop){
       this.P1Ready = true;
     }
@@ -125,27 +129,99 @@ Game.Player.prototype.markovBot = function(){
   //console.log(moveProb)
 
   if(up > dice){
-
+    this.prevDir = "up"
     this.move("up")
   }
 
   if(up + down > dice && up < dice){
-     
+    this.prevDir = "down"
     this.move("down")
   }
 
   if(up + down + left > dice && up + down < dice){
-
+    this.prevDir = "left"
     this.move("left")
   }
   if(up + down + left < dice){
-
+    this.prevDir = "right"
     this.move("right")
   }
 
-  this.game.time.events.add(150, this.markovBot, this);
-
+  if(multiplayer && this.overlap(this.gameScope.state.getCurrentState().player2)){
+    this.game.time.events.add(150, this.inversion, this);
+  }
+  else{
+    this.game.time.events.add(150, this.markovBot, this);
+  }
 };
+
+
+Game.Player.prototype.inversion = function(){
+
+  if(this.prevDir == "up"){
+    this.move("down");
+    this.game.time.events.add(150, function() {
+      this.move("down")
+    }, this);
+    this.game.time.events.add(300, function() {
+      this.move("down")
+    }, this);
+    this.game.time.events.add(450, function() {
+      this.move("down")
+    }, this);
+    this.game.time.events.add(600, function() {
+      this.move("down")
+    }, this);
+  }
+  if(this.prevDir == "down"){
+    this.move("up");
+    this.game.time.events.add(150, function() {
+      this.move("up")
+    }, this);
+    this.game.time.events.add(300, function() {
+      this.move("up")
+    }, this);
+    this.game.time.events.add(450, function() {
+      this.move("up")
+    }, this);
+    this.game.time.events.add(600, function() {
+      this.move("up")
+    }, this);
+  }
+  if(this.prevDir == "right"){
+    this.move("left");
+    this.game.time.events.add(150, function() {
+      this.move("left")
+    }, this);
+    this.game.time.events.add(300, function() {
+      this.move("left")
+    }, this);
+    this.game.time.events.add(450, function() {
+      this.move("left")
+    }, this);
+    this.game.time.events.add(600, function() {
+      this.move("left")
+    }, this);
+  }
+  if(this.prevDir == "left"){
+    this.move("right");
+    this.game.time.events.add(150, function() {
+      this.move("right")
+    }, this);
+    this.game.time.events.add(300, function() {
+      this.move("right")
+    }, this);
+    this.game.time.events.add(450, function() {
+      this.move("right")
+    }, this);
+    this.game.time.events.add(600, function() {
+      this.move("right")
+    }, this);
+  }
+
+  this.game.time.events.add(750, this.markovBot, this);
+};
+
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));

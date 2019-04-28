@@ -136,6 +136,9 @@ Game.Tutorial= function(){
 
         //Check collisions between the player and walls
         this.game.physics.arcade.collide(this.player, this.wallLayer);
+        if(multiplayer){
+            this.game.physics.arcade.collide(this.player, this.player2);
+        }
 
         if(this.player.overlap(greenZone.zone)){
             this.player.green = true;
