@@ -13,61 +13,61 @@ Game.controlMenu2 = function (t) {
 	switchKey.onDown.add(switchMenu2 , t);
 
     /////////////////////J2/////////////////////
-    J2Font = t.game.add.image(65, t.game.camera.view.height - 175, "restartFont");
+    J2Font = t.game.add.image(t.game.camera.view.width - 65, t.game.camera.view.height - 175, "restartFont");
     J2Font.anchor.setTo(0.5,0.5);
     J2Font.scale.setTo(0.2,0.5);
     J2Font.fixedToCamera = true;
     var J2Style = { font: "20px Times New Roman", fill: "#f11"};
-    J2 = t.game.add.text(65, t.game.camera.view.height - 165, "J2", J2Style);
+    J2 = t.game.add.text(t.game.camera.view.width - 65, t.game.camera.view.height - 165, "J2", J2Style);
     J2.anchor.setTo(0.5,0.5);
     J2.scale.setTo(1.5,1.5);
     J2.fixedToCamera = true;
     J2.smoothed = false;
 
 	////////////////Menu2 Font////////////////
-    greenMenu2 = t.game.add.image(65, t.game.camera.view.height - 85, "greenMenu");
+    greenMenu2 = t.game.add.image(t.game.camera.view.width - 65, t.game.camera.view.height - 85, "greenMenu");
     greenMenu2.smoothed = false; //nota : green pos (65,85)
     greenMenu2.anchor.x = 0.5;
     greenMenu2.anchor.y = 0.5;
     greenMenu2.scale.y = 1.2
     greenMenu2.fixedToCamera = true;
-	this.greenMenu2Contour = t.game.add.image(65, t.game.camera.view.height - 85, "greyContour");
+	this.greenMenu2Contour = t.game.add.image(t.game.camera.view.width - 65, t.game.camera.view.height - 85, "greyContour");
     this.greenMenu2Contour.anchor.setTo(0.5,0.5);
     this.greenMenu2Contour.scale.y = 1.2
     this.greenMenu2Contour.fixedToCamera = true;
     this.greenMenu2Contour.visible = true;
 
-    yellowMenu2 = t.game.add.image(165, t.game.camera.view.height - 85, "yellowMenu");
+    yellowMenu2 = t.game.add.image(t.game.camera.view.width - 165, t.game.camera.view.height - 85, "yellowMenu");
     yellowMenu2.smoothed = false; //nota : yellow pos (165,85)
     yellowMenu2.anchor.x = 0.5;
     yellowMenu2.anchor.y = 0.5;
     yellowMenu2.scale.y = 1.2
     yellowMenu2.fixedToCamera = true;
-	this.yellowMenu2Contour = t.game.add.image(165, t.game.camera.view.height - 85, "greyContour");
+	this.yellowMenu2Contour = t.game.add.image(t.game.camera.view.width - 165, t.game.camera.view.height - 85, "greyContour");
     this.yellowMenu2Contour.anchor.setTo(0.5,0.5);
     this.yellowMenu2Contour.scale.y = 1.2
     this.yellowMenu2Contour.fixedToCamera = true;
     this.yellowMenu2Contour.visible = false;
 
-    redMenu2 = t.game.add.image(265, t.game.camera.view.height - 85, "redMenu");
+    redMenu2 = t.game.add.image(t.game.camera.view.width - 265, t.game.camera.view.height - 85, "redMenu");
     redMenu2.smoothed = false; //nota : red pos (165,85)
     redMenu2.anchor.x = 0.5;
     redMenu2.anchor.y = 0.5;
     redMenu2.scale.y = 1.2
     redMenu2.fixedToCamera = true;
-	this.redMenu2Contour = t.game.add.image(265, t.game.camera.view.height - 85, "greyContour");
+	this.redMenu2Contour = t.game.add.image(t.game.camera.view.width - 265, t.game.camera.view.height - 85, "greyContour");
     this.redMenu2Contour.anchor.setTo(0.5,0.5);
     this.redMenu2Contour.scale.y = 1.2
     this.redMenu2Contour.fixedToCamera = true;
     this.redMenu2Contour.visible = false;
 
-    blueMenu2 = t.game.add.image(365, t.game.camera.view.height - 85, "blueMenu");
+    blueMenu2 = t.game.add.image(t.game.camera.view.width - 365, t.game.camera.view.height - 85, "blueMenu");
     blueMenu2.smoothed = false; //nota : blue pos (165,85)
     blueMenu2.anchor.x = 0.5;
     blueMenu2.anchor.y = 0.5;
     blueMenu2.scale.y = 1.2
     blueMenu2.fixedToCamera = true;
-	this.blueMenu2Contour = t.game.add.image(365, t.game.camera.view.height - 85, "greyContour");
+	this.blueMenu2Contour = t.game.add.image(t.game.camera.view.width - 365, t.game.camera.view.height - 85, "greyContour");
     this.blueMenu2Contour.anchor.setTo(0.5,0.5);
     this.blueMenu2Contour.scale.y = 1.2
     this.blueMenu2Contour.fixedToCamera = true;
@@ -77,7 +77,7 @@ Game.controlMenu2 = function (t) {
     greenUpCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     upButton2 = t.game.input.keyboard.addKey(104);
     upButton2.onDown.add(upSelector2 , t);
-    greenUpCounter2Box = t.game.add.image(49, t.game.camera.view.height - 120, greenUpCounter2);
+    greenUpCounter2Box = t.game.add.image(t.game.camera.view.width - 49, t.game.camera.view.height - 120, greenUpCounter2);
     greenUpCounter2Box.anchor.x = 0.5;
     greenUpCounter2Box.anchor.y = 0.5;
     greenUpCounter2.text = "0";
@@ -86,7 +86,7 @@ Game.controlMenu2 = function (t) {
     greenDownCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     downButton2 = t.game.input.keyboard.addKey(101);
     downButton2.onDown.add(downSelector2 , t);
-    greenDownCounter2Box = t.game.add.image(49, t.game.camera.view.height - 95, greenDownCounter2);
+    greenDownCounter2Box = t.game.add.image(t.game.camera.view.width - 49, t.game.camera.view.height - 95, greenDownCounter2);
     greenDownCounter2Box.anchor.x = 0.5;
     greenDownCounter2Box.anchor.y = 0.5;
     greenDownCounter2.text = "0";
@@ -95,7 +95,7 @@ Game.controlMenu2 = function (t) {
     greenLeftCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     leftButton2 = t.game.input.keyboard.addKey(100);
     leftButton2.onDown.add(leftSelector2 , t);
-    greenLeftCounter2Box = t.game.add.image(49, t.game.camera.view.height - 70, greenLeftCounter2);
+    greenLeftCounter2Box = t.game.add.image(t.game.camera.view.width - 49, t.game.camera.view.height - 70, greenLeftCounter2);
     greenLeftCounter2Box.anchor.x = 0.5;
     greenLeftCounter2Box.anchor.y = 0.5;
     greenLeftCounter2.text = "0";
@@ -104,7 +104,7 @@ Game.controlMenu2 = function (t) {
     greenRightCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     rightButton2 = t.game.input.keyboard.addKey(102);
     rightButton2.onDown.add(rightSelector2 , t);
-    greenRightCounter2Box = t.game.add.image(49, t.game.camera.view.height - 45, greenRightCounter2);
+    greenRightCounter2Box = t.game.add.image(t.game.camera.view.width - 49, t.game.camera.view.height - 45, greenRightCounter2);
     greenRightCounter2Box.anchor.x = 0.5;
     greenRightCounter2Box.anchor.y = 0.5;
     greenRightCounter2.text = "0";
@@ -114,7 +114,7 @@ Game.controlMenu2 = function (t) {
     yellowUpCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     upButton2 = t.game.input.keyboard.addKey(104);
     upButton2.onDown.add(upSelector2 , t);
-    yellowUpCounter2Box = t.game.add.image(149, t.game.camera.view.height - 120, yellowUpCounter2);
+    yellowUpCounter2Box = t.game.add.image(t.game.camera.view.width - 149, t.game.camera.view.height - 120, yellowUpCounter2);
     yellowUpCounter2Box.anchor.x = 0.5;
     yellowUpCounter2Box.anchor.y = 0.5;
     yellowUpCounter2.text = "0";
@@ -123,7 +123,7 @@ Game.controlMenu2 = function (t) {
     yellowDownCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     downButton2 = t.game.input.keyboard.addKey(101);
     downButton2.onDown.add(downSelector2 , t);
-    yellowDownCounter2Box = t.game.add.image(149, t.game.camera.view.height - 95, yellowDownCounter2);
+    yellowDownCounter2Box = t.game.add.image(t.game.camera.view.width - 149, t.game.camera.view.height - 95, yellowDownCounter2);
     yellowDownCounter2Box.anchor.x = 0.5;
     yellowDownCounter2Box.anchor.y = 0.5;
     yellowDownCounter2.text = "0";
@@ -132,7 +132,7 @@ Game.controlMenu2 = function (t) {
     yellowLeftCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     leftButton2 = t.game.input.keyboard.addKey(100);
     leftButton2.onDown.add(leftSelector2 , t);
-    yellowLeftCounter2Box = t.game.add.image(149, t.game.camera.view.height - 70, yellowLeftCounter2);
+    yellowLeftCounter2Box = t.game.add.image(t.game.camera.view.width - 149, t.game.camera.view.height - 70, yellowLeftCounter2);
     yellowLeftCounter2Box.anchor.x = 0.5;
     yellowLeftCounter2Box.anchor.y = 0.5;
     yellowLeftCounter2.text = "0";
@@ -141,7 +141,7 @@ Game.controlMenu2 = function (t) {
     yellowRightCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     rightButton2 = t.game.input.keyboard.addKey(102);
     rightButton2.onDown.add(rightSelector2 , t);
-    yellowRightCounter2Box = t.game.add.image(149, t.game.camera.view.height - 45, yellowRightCounter2);
+    yellowRightCounter2Box = t.game.add.image(t.game.camera.view.width - 149, t.game.camera.view.height - 45, yellowRightCounter2);
     yellowRightCounter2Box.anchor.x = 0.5;
     yellowRightCounter2Box.anchor.y = 0.5;
     yellowRightCounter2.text = "0";
@@ -151,7 +151,7 @@ Game.controlMenu2 = function (t) {
     redUpCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     upButton2 = t.game.input.keyboard.addKey(104);
     upButton2.onDown.add(upSelector2 , t);
-    redUpCounter2Box = t.game.add.image(249, t.game.camera.view.height - 120, redUpCounter2);
+    redUpCounter2Box = t.game.add.image(t.game.camera.view.width - 249, t.game.camera.view.height - 120, redUpCounter2);
     redUpCounter2Box.anchor.x = 0.5;
     redUpCounter2Box.anchor.y = 0.5;
     redUpCounter2.text = "0";
@@ -160,7 +160,7 @@ Game.controlMenu2 = function (t) {
     redDownCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     downButton2 = t.game.input.keyboard.addKey(101);
     downButton2.onDown.add(downSelector2 , t);
-    redDownCounter2Box = t.game.add.image(249, t.game.camera.view.height - 95, redDownCounter2);
+    redDownCounter2Box = t.game.add.image(t.game.camera.view.width - 249, t.game.camera.view.height - 95, redDownCounter2);
     redDownCounter2Box.anchor.x = 0.5;
     redDownCounter2Box.anchor.y = 0.5;
     redDownCounter2.text = "0";
@@ -169,7 +169,7 @@ Game.controlMenu2 = function (t) {
     redLeftCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     leftButton2 = t.game.input.keyboard.addKey(100);
     leftButton2.onDown.add(leftSelector2 , t);
-    redLeftCounter2Box = t.game.add.image(249, t.game.camera.view.height - 70, redLeftCounter2);
+    redLeftCounter2Box = t.game.add.image(t.game.camera.view.width - 249, t.game.camera.view.height - 70, redLeftCounter2);
     redLeftCounter2Box.anchor.x = 0.5;
     redLeftCounter2Box.anchor.y = 0.5;
     redLeftCounter2.text = "0";
@@ -178,7 +178,7 @@ Game.controlMenu2 = function (t) {
     redRightCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     rightButton2 = t.game.input.keyboard.addKey(102);
     rightButton2.onDown.add(rightSelector2 , t);
-    redRightCounter2Box = t.game.add.image(249, t.game.camera.view.height - 45, redRightCounter2);
+    redRightCounter2Box = t.game.add.image(t.game.camera.view.width - 249, t.game.camera.view.height - 45, redRightCounter2);
     redRightCounter2Box.anchor.x = 0.5;
     redRightCounter2Box.anchor.y = 0.5;
     redRightCounter2.text = "0";
@@ -188,7 +188,7 @@ Game.controlMenu2 = function (t) {
     blueUpCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     upButton2 = t.game.input.keyboard.addKey(104);
     upButton2.onDown.add(upSelector2 , t);
-    blueUpCounter2Box = t.game.add.image(349, t.game.camera.view.height - 120, blueUpCounter2);
+    blueUpCounter2Box = t.game.add.image(t.game.camera.view.width - 349, t.game.camera.view.height - 120, blueUpCounter2);
     blueUpCounter2Box.anchor.x = 0.5;
     blueUpCounter2Box.anchor.y = 0.5;
     blueUpCounter2.text = "0";
@@ -197,7 +197,7 @@ Game.controlMenu2 = function (t) {
     blueDownCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     downButton2 = t.game.input.keyboard.addKey(101);
     downButton2.onDown.add(downSelector2 , t);
-    blueDownCounter2Box = t.game.add.image(349, t.game.camera.view.height - 95, blueDownCounter2);
+    blueDownCounter2Box = t.game.add.image(t.game.camera.view.width - 349, t.game.camera.view.height - 95, blueDownCounter2);
     blueDownCounter2Box.anchor.x = 0.5;
     blueDownCounter2Box.anchor.y = 0.5;
     blueDownCounter2.text = "0";
@@ -206,7 +206,7 @@ Game.controlMenu2 = function (t) {
     blueLeftCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     leftButton2 = t.game.input.keyboard.addKey(100);
     leftButton2.onDown.add(leftSelector2 , t);
-    blueLeftCounter2Box = t.game.add.image(349, t.game.camera.view.height - 70, blueLeftCounter2);
+    blueLeftCounter2Box = t.game.add.image(t.game.camera.view.width - 349, t.game.camera.view.height - 70, blueLeftCounter2);
     blueLeftCounter2Box.anchor.x = 0.5;
     blueLeftCounter2Box.anchor.y = 0.5;
     blueLeftCounter2.text = "0";
@@ -215,14 +215,14 @@ Game.controlMenu2 = function (t) {
     blueRightCounter2 = t.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
     rightButton2 = t.game.input.keyboard.addKey(102);
     rightButton2.onDown.add(rightSelector2 , t);
-    blueRightCounter2Box = t.game.add.image(349, t.game.camera.view.height - 45, blueRightCounter2);
+    blueRightCounter2Box = t.game.add.image(t.game.camera.view.width - 349, t.game.camera.view.height - 45, blueRightCounter2);
     blueRightCounter2Box.anchor.x = 0.5;
     blueRightCounter2Box.anchor.y = 0.5;
     blueRightCounter2.text = "0";
     blueRightCounter2Box.fixedToCamera = true;
 
     ////////////////Control Arrows////////////////
-    greenUpArrow2 = t.game.add.image(73, t.game.camera.view.height - 122, "upArrow")
+    greenUpArrow2 = t.game.add.image(t.game.camera.view.width - 73, t.game.camera.view.height - 122, "upArrow")
     greenUpArrow2.anchor.x = 0.5;
     greenUpArrow2.anchor.y = 0.5;
     greenUpArrow2.scale.x = 0.5;
@@ -230,7 +230,7 @@ Game.controlMenu2 = function (t) {
     greenUpArrow2.fixedToCamera = true;
     greenUpArrow2.smoothed = false;
 
-	greenDownArrow2 = t.game.add.image(73, t.game.camera.view.height - 97, "downArrow")
+	greenDownArrow2 = t.game.add.image(t.game.camera.view.width - 73, t.game.camera.view.height - 97, "downArrow")
     greenDownArrow2.anchor.x = 0.5;
     greenDownArrow2.anchor.y = 0.5;
     greenDownArrow2.scale.x = 0.5;
@@ -238,7 +238,7 @@ Game.controlMenu2 = function (t) {
     greenDownArrow2.fixedToCamera = true;
     greenDownArrow2.smoothed = false;
 
-    greenLeftArrow2 = t.game.add.image(73, t.game.camera.view.height - 72, "leftArrow")
+    greenLeftArrow2 = t.game.add.image(t.game.camera.view.width - 73, t.game.camera.view.height - 72, "leftArrow")
     greenLeftArrow2.anchor.x = 0.5;
     greenLeftArrow2.anchor.y = 0.5;
     greenLeftArrow2.scale.x = 0.5;
@@ -246,7 +246,7 @@ Game.controlMenu2 = function (t) {
     greenLeftArrow2.fixedToCamera = true;
     greenLeftArrow2.smoothed = false;
 
-    greenRightArrow2 = t.game.add.image(73, t.game.camera.view.height - 47, "rightArrow")
+    greenRightArrow2 = t.game.add.image(t.game.camera.view.width - 73, t.game.camera.view.height - 47, "rightArrow")
     greenRightArrow2.anchor.x = 0.5;
     greenRightArrow2.anchor.y = 0.5;
     greenRightArrow2.scale.x = 0.5;
@@ -255,7 +255,7 @@ Game.controlMenu2 = function (t) {
     greenRightArrow2.smoothed = false;
 
 
-    yellowUpArrow2 = t.game.add.image(173, t.game.camera.view.height - 122, "upArrow")
+    yellowUpArrow2 = t.game.add.image(t.game.camera.view.width - 173, t.game.camera.view.height - 122, "upArrow")
     yellowUpArrow2.anchor.x = 0.5;
     yellowUpArrow2.anchor.y = 0.5;
     yellowUpArrow2.scale.x = 0.5;
@@ -263,7 +263,7 @@ Game.controlMenu2 = function (t) {
     yellowUpArrow2.fixedToCamera = true;
     yellowUpArrow2.smoothed = false;
 
-	yellowDownArrow2 = t.game.add.image(173, t.game.camera.view.height - 97, "downArrow")
+	yellowDownArrow2 = t.game.add.image(t.game.camera.view.width - 173, t.game.camera.view.height - 97, "downArrow")
     yellowDownArrow2.anchor.x = 0.5;
     yellowDownArrow2.anchor.y = 0.5;
     yellowDownArrow2.scale.x = 0.5;
@@ -271,7 +271,7 @@ Game.controlMenu2 = function (t) {
     yellowDownArrow2.fixedToCamera = true;
     yellowDownArrow2.smoothed = false;
 
-    yellowLeftArrow2 = t.game.add.image(173, t.game.camera.view.height - 72, "leftArrow")
+    yellowLeftArrow2 = t.game.add.image(t.game.camera.view.width - 173, t.game.camera.view.height - 72, "leftArrow")
     yellowLeftArrow2.anchor.x = 0.5;
     yellowLeftArrow2.anchor.y = 0.5;
     yellowLeftArrow2.scale.x = 0.5;
@@ -279,7 +279,7 @@ Game.controlMenu2 = function (t) {
     yellowLeftArrow2.fixedToCamera = true;
     yellowLeftArrow2.smoothed = false;
 
-    yellowRightArrow2 = t.game.add.image(173, t.game.camera.view.height - 47, "rightArrow")
+    yellowRightArrow2 = t.game.add.image(t.game.camera.view.width - 173, t.game.camera.view.height - 47, "rightArrow")
     yellowRightArrow2.anchor.x = 0.5;
     yellowRightArrow2.anchor.y = 0.5;
     yellowRightArrow2.scale.x = 0.5;
@@ -288,7 +288,7 @@ Game.controlMenu2 = function (t) {
     yellowRightArrow2.smoothed = false;
 
 
-	redUpArrow2 = t.game.add.image(273, t.game.camera.view.height - 122, "upArrow")
+	redUpArrow2 = t.game.add.image(t.game.camera.view.width - 273, t.game.camera.view.height - 122, "upArrow")
     redUpArrow2.anchor.x = 0.5;
     redUpArrow2.anchor.y = 0.5;
     redUpArrow2.scale.x = 0.5;
@@ -296,7 +296,7 @@ Game.controlMenu2 = function (t) {
     redUpArrow2.fixedToCamera = true;
     redUpArrow2.smoothed = false;
 
-	redDownArrow2 = t.game.add.image(273, t.game.camera.view.height - 97, "downArrow")
+	redDownArrow2 = t.game.add.image(t.game.camera.view.width - 273, t.game.camera.view.height - 97, "downArrow")
     redDownArrow2.anchor.x = 0.5;
     redDownArrow2.anchor.y = 0.5;
     redDownArrow2.scale.x = 0.5;
@@ -304,7 +304,7 @@ Game.controlMenu2 = function (t) {
     redDownArrow2.fixedToCamera = true;
     redDownArrow2.smoothed = false;
 
-    redLeftArrow2 = t.game.add.image(273, t.game.camera.view.height - 72, "leftArrow")
+    redLeftArrow2 = t.game.add.image(t.game.camera.view.width - 273, t.game.camera.view.height - 72, "leftArrow")
     redLeftArrow2.anchor.x = 0.5;
     redLeftArrow2.anchor.y = 0.5;
     redLeftArrow2.scale.x = 0.5;
@@ -312,7 +312,7 @@ Game.controlMenu2 = function (t) {
     redLeftArrow2.fixedToCamera = true;
     redLeftArrow2.smoothed = false;
 
-    redRightArrow2 = t.game.add.image(273, t.game.camera.view.height - 47, "rightArrow")
+    redRightArrow2 = t.game.add.image(t.game.camera.view.width - 273, t.game.camera.view.height - 47, "rightArrow")
     redRightArrow2.anchor.x = 0.5;
     redRightArrow2.anchor.y = 0.5;
     redRightArrow2.scale.x = 0.5;
@@ -321,7 +321,7 @@ Game.controlMenu2 = function (t) {
     redRightArrow2.smoothed = false;
 
 
-    blueUpArrow2 = t.game.add.image(373, t.game.camera.view.height - 122, "upArrow")
+    blueUpArrow2 = t.game.add.image(t.game.camera.view.width - 373, t.game.camera.view.height - 122, "upArrow")
     blueUpArrow2.anchor.x = 0.5;
     blueUpArrow2.anchor.y = 0.5;
     blueUpArrow2.scale.x = 0.5;
@@ -329,7 +329,7 @@ Game.controlMenu2 = function (t) {
     blueUpArrow2.fixedToCamera = true;
     blueUpArrow2.smoothed = false;
 
-	blueDownArrow2 = t.game.add.image(373, t.game.camera.view.height - 97, "downArrow")
+	blueDownArrow2 = t.game.add.image(t.game.camera.view.width - 373, t.game.camera.view.height - 97, "downArrow")
     blueDownArrow2.anchor.x = 0.5;
     blueDownArrow2.anchor.y = 0.5;
     blueDownArrow2.scale.x = 0.5;
@@ -337,7 +337,7 @@ Game.controlMenu2 = function (t) {
     blueDownArrow2.fixedToCamera = true;
     blueDownArrow2.smoothed = false;
 
-    blueLeftArrow2 = t.game.add.image(373, t.game.camera.view.height - 72, "leftArrow")
+    blueLeftArrow2 = t.game.add.image(t.game.camera.view.width - 373, t.game.camera.view.height - 72, "leftArrow")
     blueLeftArrow2.anchor.x = 0.5;
     blueLeftArrow2.anchor.y = 0.5;
     blueLeftArrow2.scale.x = 0.5;
@@ -345,7 +345,7 @@ Game.controlMenu2 = function (t) {
     blueLeftArrow2.fixedToCamera = true;
     blueLeftArrow2.smoothed = false;
 
-    blueRightArrow2 = t.game.add.image(373, t.game.camera.view.height - 47, "rightArrow")
+    blueRightArrow2 = t.game.add.image(t.game.camera.view.width - 373, t.game.camera.view.height - 47, "rightArrow")
     blueRightArrow2.anchor.x = 0.5;
     blueRightArrow2.anchor.y = 0.5;
     blueRightArrow2.scale.x = 0.5;
