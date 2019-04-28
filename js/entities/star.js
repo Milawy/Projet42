@@ -1,6 +1,6 @@
 /////////////////////////////////Create/////////////////////////////////
 
-Game.star = function (t, x, y, scaleX, scaleY) {
+Game.star = function (t, x, y, scaleX=0.1, scaleY=0.1) {
 
 	Phaser.Sprite.call(this, t.game, x, y, 'star');
 	this.name = 'star';
@@ -18,7 +18,18 @@ Game.star.prototype = Object.create(Phaser.Sprite.prototype);
 
 Game.star.prototype.update = function(){
 
-	if(this.gameScope.player.overlap(star)){
-		console.log("dab");
+	if(multiplayer && this.gameScope.player2.overlap(star)){
+		this.gameScope.player2.score++;
+		star.destroy();
+	}
+	else if(multiplayer && this.gameScope.player.overlap(star)){
+		this.gameScope.player.score++;
+		star.destroy();		
+	}
+	else if(!multiplayer){
+		if(this.gameScope.player.overlap(star)){
+			this.gameScope.player.score++;
+			star.destroy();
+		}
 	}
 }

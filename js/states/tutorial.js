@@ -57,8 +57,8 @@ Game.Tutorial= function(){
         else{
             greenZone = new Game.colorZones(this, "green", 256, 140, 0.5, 0.5);
         }
-        yellowZone = new Game.colorZones(this, "yellow", 256, 355, 1, 1);
-        redZone = new Game.colorZones(this, "red", 773, 355, 1, 1);
+        yellowZone = new Game.colorZones(this, "yellow", 256, 355, 1, 0.8);
+        redZone = new Game.colorZones(this, "red", 773, 355, 1, 0.8);
 
 
         /////////////////////////////////Exit///////////////////////////////////
@@ -106,7 +106,7 @@ Game.Tutorial= function(){
         }
 
         /////////////////////////////////Star///////////////////////////////////
-        star = new Game.star(this, 300, 200, 1, 1);
+        star = new Game.star(this, 256, 300);
         this.game.physics.arcade.enable(star);
         this.game.add.existing(star);
 
@@ -131,7 +131,6 @@ Game.Tutorial= function(){
 
  
     update : function(){
-
 
         ////////////////////////////////Player1/////////////////////////////////
 

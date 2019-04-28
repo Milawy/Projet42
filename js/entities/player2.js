@@ -9,6 +9,7 @@ Game.Player2 = function (game, x, y) {
   this.red = false;
   this.stop = true;
   this.P2Ready = false;
+  this.score = 0;
 
   this.upVal = 0;
   this.downVal = 0;
