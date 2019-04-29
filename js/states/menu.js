@@ -136,6 +136,7 @@ function launchGame(){
     multiplayer = false;
     this.state.start('Tutorial');
     //this.state.start('Stage1');
+    //this.state.start('ScoreScreen1');
 }
 
 function launchGameMulti(){
