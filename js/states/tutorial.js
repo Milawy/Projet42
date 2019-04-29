@@ -167,7 +167,15 @@ Game.Tutorial= function(){
         }
 
         if(this.player.overlap(exit)){
-            this.game.state.start("Stage1");
+
+            var playerName = prompt("Player 1 Won ! Enter your name", "name");
+            const person = {
+                name : String(playerName),
+                time : String(timer.text),
+            }
+            const id = window.localStorage.length;
+            window.localStorage.setItem(String(id), JSON.stringify(person));
+            this.game.state.start("ScoreScreen1");
         }
 
         ////////////////////////////////Player2/////////////////////////////////
@@ -199,6 +207,8 @@ Game.Tutorial= function(){
             }
 
             if(this.player2.overlap(exit)){
+
+
                 this.game.state.start("Stage1");
             }
 
