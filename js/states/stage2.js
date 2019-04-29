@@ -1,10 +1,10 @@
 
 /////////////////////////////////Global Var/////////////////////////////////
 
-Game.Stage1= function(){
+Game.Stage2= function(){
  
 };
- Game.Stage1.prototype = { 
+ Game.Stage2.prototype = { 
  
  
     preload : function(){ 
@@ -27,7 +27,7 @@ Game.Stage1= function(){
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
         //here the camera size (adapt it for each stage)
-        this.scale.setGameSize(974, 550);
+        this.scale.setGameSize(940, 550);
         this.game.stage.disableVisibilityChange = true;
 
         //Bg color
@@ -36,7 +36,7 @@ Game.Stage1= function(){
 
         /////////////////////////////////Map/////////////////////////////////
         //Load the map
-        this.map = this.add.tilemap('stage1');
+        this.map = this.add.tilemap('stage2');
         this.map.addTilesetImage('tileset','tileset');
         this.map.smoothed = false;
 
@@ -52,35 +52,35 @@ Game.Stage1= function(){
 
         /////////////////////////////////Zones/////////////////////////////////
         if(multiplayer){
-            greenZone = new Game.colorZones(this, "green", 263, 130, 0.5, 1);
+            greenZone = new Game.colorZones(this, "green", 256, 140, 1, 0.5);
         }
         else{
-            greenZone = new Game.colorZones(this, "green", 263, 130, 0.5, 0.5);
+            greenZone = new Game.colorZones(this, "green", 256, 140, 0.5, 0.5);
         }
-        yellowZone = new Game.colorZones(this, "yellow", 800, 130, 0.5, 1);
-        redZone = new Game.colorZones(this, "red", 800, 320, 0.5, 1);
+        yellowZone = new Game.colorZones(this, "yellow", 256, 365, 1, 0.7);
+        redZone = new Game.colorZones(this, "red", 773, 365, 0.7, 1);
 
 
         /////////////////////////////////Exit///////////////////////////////////
-        exit = this.game.add.sprite(263, 320, "blueLight");
-        exit.anchor.setTo(0.5,0.5);
-        exit.scale.setTo(1.3,1.3);
+        exit = this.game.add.sprite(773, 125, "blueLight");
+        exit.anchor.setTo(0.5, 0.5);
+        exit.scale.setTo(1.3, 1.3);
         exit.alpha = 0.5;
 
 
-        /////////////////////////////////Player/////////////////////////////////
+        ////////////////////////////////Player//////////////////////////////////
         if(multiplayer){
-            this.player = new Game.Player(this.game, 263, 110);
+            this.player = new Game.Player(this.game, 235, 140);
             this.game.physics.arcade.enable(this.player);
             this.game.add.existing(this.player);
             this.player.smoothed = false;
-            this.player2 = new Game.Player2(this.game, 263, 150);
+            this.player2 = new Game.Player2(this.game, 275, 140);
             this.game.physics.arcade.enable(this.player2);
             this.game.add.existing(this.player2);
             this.player2.smoothed = false;
         }
         else{
-            this.player = new Game.Player(this.game, 263, 130);
+            this.player = new Game.Player(this.game, 256, 140);
             this.game.physics.arcade.enable(this.player);
             this.game.add.existing(this.player);
             this.player.smoothed = false;
@@ -89,7 +89,8 @@ Game.Stage1= function(){
 
         /////////////////////////////////Camera/////////////////////////////////
         this.game.world.resize(2000, 2000); // create offset limits
-        Game.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+        this.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+
 
         /////////////////////////////////Control Inputs////////////////////////////////
         altKey = this.game.input.keyboard.addKey(18);
@@ -104,8 +105,15 @@ Game.Stage1= function(){
             this.controlMenu2 = new Game.controlMenu2(this);
         }
 
+        /////////////////////////////////Star///////////////////////////////////
+        star = new Game.star(this, 256, 300);
+        this.game.physics.arcade.enable(star);
+        this.game.add.existing(star);
+
+
         /////////////////////////////////Pause Menu////////////////////////////////
         this.pauseMenu = new Game.pauseMenu(this);
+
 
         /////////////////////////////////Ready Icon////////////////////////////////
         readyP1 = this.game.add.sprite(this.game.camera.view.width - 495, this.game.camera.view.height - 55, "readyIcon");
@@ -127,12 +135,11 @@ Game.Stage1= function(){
         timerBox.fixedToCamera = true;
         timer.text = "0"
         this.startingTime = 0;
-
     }, 
 
  
-    update : function(){ 
-        
+    update : function(){
+
         ////////////////////////////////Player1/////////////////////////////////
 
         //Check collisions between the player and walls
@@ -160,14 +167,25 @@ Game.Stage1= function(){
         }
 
         if(this.player.overlap(exit)){
-            this.game.state.start("Stage2");
-        }
 
+            var playerName = prompt("Player 1 Won ! Enter your name", "name");
+            const person = {
+                name : String(playerName),
+                time : String(timer.text),
+            }
+            const id = window.localStorage.length;
+            window.localStorage.setItem(String(id), JSON.stringify(person));
+            this.game.state.start("ScoreScreen1");
+            this.game.state.start("Stage3");
+
+        }
 
         ////////////////////////////////Player2/////////////////////////////////
 
         if(multiplayer){
+
             this.game.physics.arcade.collide(this.player2, this.wallLayer);
+            this.game.physics.arcade.collide(this.player, this.player2);
 
             if(this.player2.overlap(greenZone.zone)){
                 this.player2.green = true;
@@ -191,8 +209,11 @@ Game.Stage1= function(){
             }
 
             if(this.player2.overlap(exit)){
-                this.game.state.start("Stage2");
+
+
+                this.game.state.start("Stage3");
             }
+
             if(this.player.P1Ready && this.player2.P2Ready){
                 this.player.stop = false;
                 this.player.P1Ready = false;
@@ -202,6 +223,7 @@ Game.Stage1= function(){
                 readyP2.visible = true;
                 this.startingTime = this.game.time.time;
             }
+
             if(this.player.P1Ready){
                 readyP1.visible = true;
             }
@@ -224,7 +246,6 @@ Game.Stage1= function(){
         console.log(this.input.activePointer.x, this.input.activePointer.y);
     }
 }
-
 
 function restart(){
     this.game.state.start(this.game.state.current);

@@ -136,6 +136,8 @@ function launchGame(){
     multiplayer = false;
     this.state.start('Tutorial');
     //this.state.start('Stage1');
+    //this.state.start('Stage2');
+    //this.state.start('Stage3');
     //this.state.start('ScoreScreen1');
 }
 
@@ -145,6 +147,8 @@ function launchGameMulti(){
     multiplayer = true;
     this.state.start('Tutorial');
     //this.state.start('Stage1');
+    //this.state.start('Stage2');
+    //this.state.start('Stage3');
 }
 
 function overSoloButton(){
