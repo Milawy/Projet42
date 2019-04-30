@@ -465,12 +465,12 @@ function greenUpPressed(t){
         t.game.time.events.add(200, greenUpArrowScale);
         shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(shiftButton.onDown){
-            if(altKey.isDown && parseInt(greenUpCounter.text) != 0){
-                greenUpCounter.text = (parseInt(greenUpCounter.text) - 10).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(greenUpCounter.text) >= 5){
+                greenUpCounter.text = (parseInt(greenUpCounter.text) - 5).toString();
             }
-            else if(parseInt(greenUpCounter.text) < 10 && !altKey.isDown){
-                greenUpCounter.text = (parseInt(greenUpCounter.text) + 10).toString();
+            else if(parseInt(greenUpCounter.text) <= 5 && !altKey.isDown){
+                greenUpCounter.text = (parseInt(greenUpCounter.text) + 5).toString();
             }
         }
         else{
@@ -490,13 +490,24 @@ function greenDownPressed(t){
         greenDownArrow.scale.x = 0.6;
         greenDownArrow.scale.y = 0.6;
         t.game.time.events.add(200, greenDownArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(greenDownCounter.text) != 0){
-            greenDownCounter.text = (parseInt(greenDownCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(greenDownCounter.text) >= 5){
+                greenDownCounter.text = (parseInt(greenDownCounter.text) - 5).toString();
+            }
+            else if(parseInt(greenDownCounter.text) <= 5 && !altKey.isDown){
+                greenDownCounter.text = (parseInt(greenDownCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(greenDownCounter.text) < 10 && !altKey.isDown){
-            greenDownCounter.text = (parseInt(greenDownCounter.text) + 1).toString();
-    	}
+        else{
+            if(altKey.isDown && parseInt(greenDownCounter.text) != 0){
+                greenDownCounter.text = (parseInt(greenDownCounter.text) - 1).toString();
+            }
+            else if(parseInt(greenDownCounter.text) != 10 && !altKey.isDown){
+                greenDownCounter.text = (parseInt(greenDownCounter.text) + 1).toString();
+            }
+        }
     }
 }
 
@@ -506,12 +517,23 @@ function greenLeftPressed(t){
         greenLeftArrow.scale.x = 0.6;
         greenLeftArrow.scale.y = 0.6;
         t.game.time.events.add(200, greenLeftArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(greenLeftCounter.text) != 0){
-            greenLeftCounter.text = (parseInt(greenLeftCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(greenLeftCounter.text) >= 5){
+                greenLeftCounter.text = (parseInt(greenLeftCounter.text) - 5).toString();
+            }
+            else if(parseInt(greenLeftCounter.text) <= 5 && !altKey.isDown){
+                greenLeftCounter.text = (parseInt(greenLeftCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(greenLeftCounter.text) < 10 && !altKey.isDown){
-            greenLeftCounter.text = (parseInt(greenLeftCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(greenLeftCounter.text) != 0){
+                greenLeftCounter.text = (parseInt(greenLeftCounter.text) - 1).toString();
+            }
+            else if(parseInt(greenLeftCounter.text) != 10 && !altKey.isDown){
+                greenLeftCounter.text = (parseInt(greenLeftCounter.text) + 1).toString();
+            }
         }
     }
 }
@@ -522,12 +544,23 @@ function greenRightPressed(t){
         greenRightArrow.scale.x = 0.6;
         greenRightArrow.scale.y = 0.6;
         t.game.time.events.add(200, greenRightArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(greenRightCounter.text) != 0){
-            greenRightCounter.text = (parseInt(greenRightCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(greenRightCounter.text) >= 5){
+                greenRightCounter.text = (parseInt(greenRightCounter.text) - 5).toString();
+            }
+            else if(parseInt(greenRightCounter.text) <= 5 && !altKey.isDown){
+                greenRightCounter.text = (parseInt(greenRightCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(greenRightCounter.text) < 10 && !altKey.isDown){
-            greenRightCounter.text = (parseInt(greenRightCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(greenRightCounter.text) != 0){
+                greenRightCounter.text = (parseInt(greenRightCounter.text) - 1).toString();
+            }
+            else if(parseInt(greenRightCounter.text) != 10 && !altKey.isDown){
+                greenRightCounter.text = (parseInt(greenRightCounter.text) + 1).toString();
+            }
         }
     }
 }
@@ -539,12 +572,23 @@ function yellowUpPressed(t){
         yellowUpArrow.scale.x = 0.6;
         yellowUpArrow.scale.y = 0.6;
         t.game.time.events.add(200, yellowUpArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(yellowUpCounter.text) != 0){
-            yellowUpCounter.text = (parseInt(yellowUpCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(yellowUpCounter.text) >= 5){
+                yellowUpCounter.text = (parseInt(yellowUpCounter.text) - 5).toString();
+            }
+            else if(parseInt(yellowUpCounter.text) <= 5 && !altKey.isDown){
+                yellowUpCounter.text = (parseInt(yellowUpCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(yellowUpCounter.text) < 10 && !altKey.isDown){
-            yellowUpCounter.text = (parseInt(yellowUpCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(yellowUpCounter.text) != 0){
+                yellowUpCounter.text = (parseInt(yellowUpCounter.text) - 1).toString();
+            }
+            else if(parseInt(yellowUpCounter.text) != 10 && !altKey.isDown){
+                yellowUpCounter.text = (parseInt(yellowUpCounter.text) + 1).toString();
+            }
         }
     }
 }
@@ -555,13 +599,24 @@ function yellowDownPressed(t){
         yellowDownArrow.scale.x = 0.6;
         yellowDownArrow.scale.y = 0.6;
         t.game.time.events.add(200, yellowDownArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(yellowDownCounter.text) != 0){
-            yellowDownCounter.text = (parseInt(yellowDownCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(yellowDownCounter.text) >= 5){
+                yellowDownCounter.text = (parseInt(yellowDownCounter.text) - 5).toString();
+            }
+            else if(parseInt(yellowDownCounter.text) <= 5 && !altKey.isDown){
+                yellowDownCounter.text = (parseInt(yellowDownCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(yellowDownCounter.text) < 10 && !altKey.isDown){
-            yellowDownCounter.text = (parseInt(yellowDownCounter.text) + 1).toString();
-    	}
+        else{
+            if(altKey.isDown && parseInt(yellowDownCounter.text) != 0){
+                yellowDownCounter.text = (parseInt(yellowDownCounter.text) - 1).toString();
+            }
+            else if(parseInt(yellowDownCounter.text) != 10 && !altKey.isDown){
+                yellowDownCounter.text = (parseInt(yellowDownCounter.text) + 1).toString();
+            }
+        }
     }
 }
 
@@ -571,12 +626,23 @@ function yellowLeftPressed(t){
         yellowLeftArrow.scale.x = 0.6;
         yellowLeftArrow.scale.y = 0.6;
         t.game.time.events.add(200, yellowLeftArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(yellowLeftCounter.text) != 0){
-            yellowLeftCounter.text = (parseInt(yellowLeftCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(yellowLeftCounter.text) >= 5){
+                yellowLeftCounter.text = (parseInt(yellowLeftCounter.text) - 5).toString();
+            }
+            else if(parseInt(yellowLeftCounter.text) <= 5 && !altKey.isDown){
+                yellowLeftCounter.text = (parseInt(yellowLeftCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(yellowLeftCounter.text) < 10 && !altKey.isDown){
-            yellowLeftCounter.text = (parseInt(yellowLeftCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(yellowLeftCounter.text) != 0){
+                yellowLeftCounter.text = (parseInt(yellowLeftCounter.text) - 1).toString();
+            }
+            else if(parseInt(yellowLeftCounter.text) != 10 && !altKey.isDown){
+                yellowLeftCounter.text = (parseInt(yellowLeftCounter.text) + 1).toString();
+            }
         }
     }
 }
@@ -587,12 +653,23 @@ function yellowRightPressed(t){
         yellowRightArrow.scale.x = 0.6;
         yellowRightArrow.scale.y = 0.6;
         t.game.time.events.add(200, yellowRightArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(yellowRightCounter.text) != 0){
-            yellowRightCounter.text = (parseInt(yellowRightCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(yellowRightCounter.text) >= 5){
+                yellowRightCounter.text = (parseInt(yellowRightCounter.text) - 5).toString();
+            }
+            else if(parseInt(yellowRightCounter.text) <= 5 && !altKey.isDown){
+                yellowRightCounter.text = (parseInt(yellowRightCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(yellowRightCounter.text) < 10 && !altKey.isDown){
-            yellowRightCounter.text = (parseInt(yellowRightCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(yellowRightCounter.text) != 0){
+                yellowRightCounter.text = (parseInt(yellowRightCounter.text) - 1).toString();
+            }
+            else if(parseInt(yellowRightCounter.text) != 10 && !altKey.isDown){
+                yellowRightCounter.text = (parseInt(yellowRightCounter.text) + 1).toString();
+            }
         }
     }
 }
@@ -604,12 +681,23 @@ function redUpPressed(t){
         redUpArrow.scale.x = 0.6;
         redUpArrow.scale.y = 0.6;
         t.game.time.events.add(200, redUpArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(redUpCounter.text) != 0){
-            redUpCounter.text = (parseInt(redUpCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(redUpCounter.text) >= 5){
+                redUpCounter.text = (parseInt(redUpCounter.text) - 5).toString();
+            }
+            else if(parseInt(redUpCounter.text) <= 5 && !altKey.isDown){
+                redUpCounter.text = (parseInt(redUpCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(redUpCounter.text) < 10 && !altKey.isDown){
-            redUpCounter.text = (parseInt(redUpCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(redUpCounter.text) != 0){
+                redUpCounter.text = (parseInt(redUpCounter.text) - 1).toString();
+            }
+            else if(parseInt(redUpCounter.text) != 10 && !altKey.isDown){
+                redUpCounter.text = (parseInt(redUpCounter.text) + 1).toString();
+            }
         }
     }
 }
@@ -620,13 +708,24 @@ function redDownPressed(t){
         redDownArrow.scale.x = 0.6;
         redDownArrow.scale.y = 0.6;
         t.game.time.events.add(200, redDownArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(redDownCounter.text) != 0){
-            redDownCounter.text = (parseInt(redDownCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(redDownCounter.text) >= 5){
+                redDownCounter.text = (parseInt(redDownCounter.text) - 5).toString();
+            }
+            else if(parseInt(redDownCounter.text) <= 5 && !altKey.isDown){
+                redDownCounter.text = (parseInt(redDownCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(redDownCounter.text) < 10 && !altKey.isDown){
-            redDownCounter.text = (parseInt(redDownCounter.text) + 1).toString();
-    	}
+        else{
+            if(altKey.isDown && parseInt(redDownCounter.text) != 0){
+                redDownCounter.text = (parseInt(redDownCounter.text) - 1).toString();
+            }
+            else if(parseInt(redDownCounter.text) != 10 && !altKey.isDown){
+                redDownCounter.text = (parseInt(redDownCounter.text) + 1).toString();
+            }
+        }
     }
 }
 
@@ -636,12 +735,23 @@ function redLeftPressed(t){
         redLeftArrow.scale.x = 0.6;
         redLeftArrow.scale.y = 0.6;
         t.game.time.events.add(200, redLeftArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(redLeftCounter.text) != 0){
-            redLeftCounter.text = (parseInt(redLeftCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(redLeftCounter.text) >= 5){
+                redLeftCounter.text = (parseInt(redLeftCounter.text) - 5).toString();
+            }
+            else if(parseInt(redLeftCounter.text) <= 5 && !altKey.isDown){
+                redLeftCounter.text = (parseInt(redLeftCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(redLeftCounter.text) < 10 && !altKey.isDown){
-            redLeftCounter.text = (parseInt(redLeftCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(redLeftCounter.text) != 0){
+                redLeftCounter.text = (parseInt(redLeftCounter.text) - 1).toString();
+            }
+            else if(parseInt(redLeftCounter.text) != 10 && !altKey.isDown){
+                redLeftCounter.text = (parseInt(redLeftCounter.text) + 1).toString();
+            }
         }
     }
 }
@@ -652,12 +762,23 @@ function redRightPressed(t){
         redRightArrow.scale.x = 0.6;
         redRightArrow.scale.y = 0.6;
         t.game.time.events.add(200, redRightArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(redRightCounter.text) != 0){
-            redRightCounter.text = (parseInt(redRightCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(redRightCounter.text) >= 5){
+                redRightCounter.text = (parseInt(redRightCounter.text) - 5).toString();
+            }
+            else if(parseInt(redRightCounter.text) <= 5 && !altKey.isDown){
+                redRightCounter.text = (parseInt(redRightCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(redRightCounter.text) < 10 && !altKey.isDown){
-            redRightCounter.text = (parseInt(redRightCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(redRightCounter.text) != 0){
+                redRightCounter.text = (parseInt(redRightCounter.text) - 1).toString();
+            }
+            else if(parseInt(redRightCounter.text) != 10 && !altKey.isDown){
+                redRightCounter.text = (parseInt(redRightCounter.text) + 1).toString();
+            }
         }
     }
 }
@@ -669,12 +790,23 @@ function blueUpPressed(t){
         blueUpArrow.scale.x = 0.6;
         blueUpArrow.scale.y = 0.6;
         t.game.time.events.add(200, blueUpArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(blueUpCounter.text) != 0){
-            blueUpCounter.text = (parseInt(blueUpCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(blueUpCounter.text) >= 5){
+                blueUpCounter.text = (parseInt(blueUpCounter.text) - 5).toString();
+            }
+            else if(parseInt(blueUpCounter.text) <= 5 && !altKey.isDown){
+                blueUpCounter.text = (parseInt(blueUpCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(blueUpCounter.text) < 10 && !altKey.isDown){
-            blueUpCounter.text = (parseInt(blueUpCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(blueUpCounter.text) != 0){
+                blueUpCounter.text = (parseInt(blueUpCounter.text) - 1).toString();
+            }
+            else if(parseInt(blueUpCounter.text) != 10 && !altKey.isDown){
+                blueUpCounter.text = (parseInt(blueUpCounter.text) + 1).toString();
+            }
         }
     }
 }
@@ -685,13 +817,24 @@ function blueDownPressed(t){
         blueDownArrow.scale.x = 0.6;
         blueDownArrow.scale.y = 0.6;
         t.game.time.events.add(200, blueDownArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(blueDownCounter.text) != 0){
-            blueDownCounter.text = (parseInt(blueDownCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(blueDownCounter.text) >= 5){
+                blueDownCounter.text = (parseInt(blueDownCounter.text) - 5).toString();
+            }
+            else if(parseInt(blueDownCounter.text) <= 5 && !altKey.isDown){
+                blueDownCounter.text = (parseInt(blueDownCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(blueDownCounter.text) < 10 && !altKey.isDown){
-            blueDownCounter.text = (parseInt(blueDownCounter.text) + 1).toString();
-    	}
+        else{
+            if(altKey.isDown && parseInt(blueDownCounter.text) != 0){
+                blueDownCounter.text = (parseInt(blueDownCounter.text) - 1).toString();
+            }
+            else if(parseInt(blueDownCounter.text) != 10 && !altKey.isDown){
+                blueDownCounter.text = (parseInt(blueDownCounter.text) + 1).toString();
+            }
+        }
     }
 }
 
@@ -701,12 +844,23 @@ function blueLeftPressed(t){
         blueLeftArrow.scale.x = 0.6;
         blueLeftArrow.scale.y = 0.6;
         t.game.time.events.add(200, blueLeftArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(blueLeftCounter.text) != 0){
-            blueLeftCounter.text = (parseInt(blueLeftCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(blueLeftCounter.text) >= 5){
+                blueLeftCounter.text = (parseInt(blueLeftCounter.text) - 5).toString();
+            }
+            else if(parseInt(blueLeftCounter.text) <= 5 && !altKey.isDown){
+                blueLeftCounter.text = (parseInt(blueLeftCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(blueLeftCounter.text) < 10 && !altKey.isDown){
-            blueLeftCounter.text = (parseInt(blueLeftCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(blueLeftCounter.text) != 0){
+                blueLeftCounter.text = (parseInt(blueLeftCounter.text) - 1).toString();
+            }
+            else if(parseInt(blueLeftCounter.text) != 10 && !altKey.isDown){
+                blueLeftCounter.text = (parseInt(blueLeftCounter.text) + 1).toString();
+            }
         }
     }
 }
@@ -717,12 +871,23 @@ function blueRightPressed(t){
         blueRightArrow.scale.x = 0.6;
         blueRightArrow.scale.y = 0.6;
         t.game.time.events.add(200, blueRightArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(blueRightCounter.text) != 0){
-            blueRightCounter.text = (parseInt(blueRightCounter.text) - 1).toString();
+        if(shiftButton.isDown){
+            if(altKey.isDown && parseInt(blueRightCounter.text) >= 5){
+                blueRightCounter.text = (parseInt(blueRightCounter.text) - 5).toString();
+            }
+            else if(parseInt(blueRightCounter.text) <= 5 && !altKey.isDown){
+                blueRightCounter.text = (parseInt(blueRightCounter.text) + 5).toString();
+            }
         }
-        else if(parseInt(blueRightCounter.text) < 10 && !altKey.isDown){
-            blueRightCounter.text = (parseInt(blueRightCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(blueRightCounter.text) != 0){
+                blueRightCounter.text = (parseInt(blueRightCounter.text) - 1).toString();
+            }
+            else if(parseInt(blueRightCounter.text) != 10 && !altKey.isDown){
+                blueRightCounter.text = (parseInt(blueRightCounter.text) + 1).toString();
+            }
         }
     }
 }
