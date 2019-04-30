@@ -1,7 +1,7 @@
-Game.ScoreScreen1 = function(){
+Game.ScoreScreen2 = function(){
  
 };
- Game.ScoreScreen1.prototype = { 
+ Game.ScoreScreen2.prototype = { 
  
  
     preload : function(){ 
@@ -49,7 +49,7 @@ Game.ScoreScreen1 = function(){
 
         var j = 0;
 		for(var i = 0; i < window.localStorage.length; i++){
-            if(result[2][i] == "tutorial"){
+            if(result[2][i] == "stage1"){
         		scoreTab[i] = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
             	scoreTabBox[i] = this.game.add.image(650, (225 + 75*j), scoreTab[i]);
             	scoreTabBox[i].anchor.setTo(0.5,1);
@@ -76,7 +76,7 @@ Game.ScoreScreen1 = function(){
 
         // Press space to play
         this.playKey = this.game.input.keyboard.addKey(32);
-        this.playKey.onDown.add(nextLevel , this);
+        this.playKey.onDown.add(nextLevel2 , this);
     	
     },
 
@@ -84,8 +84,8 @@ Game.ScoreScreen1 = function(){
     },
 };
 
-function nextLevel(){
-    this.state.start('Stage1');
+function nextLevel2(){
+    this.state.start('Stage2');
 }
 
 function resetLocalStorage(){

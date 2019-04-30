@@ -1,7 +1,7 @@
-Game.ScoreScreen1 = function(){
+Game.ScoreScreen3 = function(){
  
 };
- Game.ScoreScreen1.prototype = { 
+ Game.ScoreScreen3.prototype = { 
  
  
     preload : function(){ 
@@ -49,7 +49,7 @@ Game.ScoreScreen1 = function(){
 
         var j = 0;
 		for(var i = 0; i < window.localStorage.length; i++){
-            if(result[2][i] == "tutorial"){
+            if(result[2][i] == "stage2"){
         		scoreTab[i] = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
             	scoreTabBox[i] = this.game.add.image(650, (225 + 75*j), scoreTab[i]);
             	scoreTabBox[i].anchor.setTo(0.5,1);
@@ -73,20 +73,12 @@ Game.ScoreScreen1 = function(){
             rankTabBox[i].scale.setTo(2.5,2.5);
             rankTab[i].text = String(i + 1);
         }
-
-        // Press space to play
-        this.playKey = this.game.input.keyboard.addKey(32);
-        this.playKey.onDown.add(nextLevel , this);
     	
     },
 
     update : function(){
     },
 };
-
-function nextLevel(){
-    this.state.start('Stage1');
-}
 
 function resetLocalStorage(){
 	window.localStorage.clear();

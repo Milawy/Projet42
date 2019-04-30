@@ -12,7 +12,7 @@ Game.Stage2 = function(){
     }, 
  
     create : function(){
-
+        console.log("g")
 
         /////////////////////////////////Scaling & Render/////////////////////
         //Scaling time
@@ -184,11 +184,12 @@ Game.Stage2 = function(){
             var playerName = prompt("Player 1 Won ! Enter your name", "name");
             const person = {
                 name : String(playerName),
+                stage : "stage2",
                 time : String(timer.text),
             }
             const id = window.localStorage.length;
             window.localStorage.setItem(String(id), JSON.stringify(person));
-            restart();
+            this.state.start('ScoreScreen3');
         }
 
         ////////////////////////////////Player2/////////////////////////////////
@@ -220,7 +221,15 @@ Game.Stage2 = function(){
             }
 
             if(this.player2.overlap(exit)){
-                restart();
+                var playerName = prompt("Player 2 Won ! Enter your name", "name");
+                const person = {
+                    name : String(playerName),
+                    stage : "stage2",
+                    time : String(timer.text),
+                }
+                const id = window.localStorage.length;
+                window.localStorage.setItem(String(id), JSON.stringify(person));
+                this.state.start('ScoreScreen3');
             }
 
             if(this.player.P1Ready && this.player2.P2Ready){
