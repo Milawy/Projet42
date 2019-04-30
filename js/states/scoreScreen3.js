@@ -74,11 +74,18 @@ Game.ScoreScreen3 = function(){
             rankTab[i].text = String(i + 1);
         }
     	
+        // Press space to play
+        this.playKey = this.game.input.keyboard.addKey(32);
+        this.playKey.onDown.add(nextLevel3 , this);
     },
 
     update : function(){
     },
 };
+
+function nextLevel3(){
+    this.state.start('Menu');
+}
 
 function resetLocalStorage(){
 	window.localStorage.clear();
