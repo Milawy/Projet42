@@ -18,18 +18,18 @@ Game.star.prototype = Object.create(Phaser.Sprite.prototype);
 
 Game.star.prototype.update = function(){
 
-	if(multiplayer && this.gameScope.player2.overlap(star)){
+	if(multiplayer && this.gameScope.player2.overlap(this)){
 		this.gameScope.player2.score++;
-		star.destroy();
+		this.destroy();
 	}
-	else if(multiplayer && this.gameScope.player.overlap(star)){
+	else if(multiplayer && this.gameScope.player.overlap(this)){
 		this.gameScope.player.score++;
-		star.destroy();		
+		this.destroy();		
 	}
 	else if(!multiplayer){
-		if(this.gameScope.player.overlap(star)){
+		if(this.gameScope.player.overlap(this)){
 			this.gameScope.player.score++;
-			star.destroy();
+		this.destroy();
 		}
 	}
 }

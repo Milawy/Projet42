@@ -10,6 +10,8 @@ Game.ScoreScreen1 = function(){
  
     create : function(){
 
+        this.scale.setGameSize(1410, 825);   
+
     	rank = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
         rankBox = this.game.add.image(250, 150, rank);
         rankBox.anchor.setTo(0.5,1);
@@ -38,29 +40,39 @@ Game.ScoreScreen1 = function(){
 
     	for(var i = 0; i < window.localStorage.length; i++){
     		localStorageTab[i] = JSON.parse(window.localStorage.getItem(String(i)));
-
-    		rankTab[i] = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        	rankTabBox[i] = this.game.add.image(250, (225 + 75*i), rankTab[i]);
-        	rankTabBox[i].anchor.setTo(0.5,1);
-        	rankTabBox[i].scale.setTo(2.5,2.5);
-        	rankTab[i].text = String(i + 1);
     	}
+
+        console.log(window.localStorage);
+        console.log(localStorageTab);
 
 		var result = sort(localStorageTab);
 
+        var j = 0;
 		for(var i = 0; i < window.localStorage.length; i++){
-    		scoreTab[i] = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        	scoreTabBox[i] = this.game.add.image(650, (225 + 75*i), scoreTab[i]);
-        	scoreTabBox[i].anchor.setTo(0.5,1);
-        	scoreTabBox[i].scale.setTo(2.5,2.5);
-        	scoreTab[i].text = String(result[0][i]);
+            if(result[2][i] == "tutorial"){
+        		scoreTab[i] = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
+            	scoreTabBox[i] = this.game.add.image(650, (225 + 75*j), scoreTab[i]);
+            	scoreTabBox[i].anchor.setTo(0.5,1);
+            	scoreTabBox[i].scale.setTo(2.5,2.5);
+            	scoreTab[i].text = String(result[0][i]);
 
-    		nameTab[i] = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
-        	nameTabBox[i] = this.game.add.image(1100, (225 + 75*i), nameTab[i]);
-        	nameTabBox[i].anchor.setTo(0.5,1);
-        	nameTabBox[i].scale.setTo(2.5,2.5);
-        	nameTab[i].text = String(result[1][i]);        	
+        		nameTab[i] = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
+            	nameTabBox[i] = this.game.add.image(1100, (225 + 75*j), nameTab[i]);
+            	nameTabBox[i].anchor.setTo(0.5,1);
+            	nameTabBox[i].scale.setTo(2.5,2.5);
+            	nameTab[i].text = String(result[1][i]);
+
+                j++;
+            }
 		}
+
+        for(var i = 0; i < j; i++){
+            rankTab[i] = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
+            rankTabBox[i] = this.game.add.image(250, (225 + 75*i), rankTab[i]);
+            rankTabBox[i].anchor.setTo(0.5,1);
+            rankTabBox[i].scale.setTo(2.5,2.5);
+            rankTab[i].text = String(i + 1);
+        }
     	
     },
 
@@ -76,11 +88,13 @@ function sort(T){
 
     var scoreTab = new Array(window.localStorage.length);
     var nameTab = new Array(window.localStorage.length);
+    var stageTab = new Array(window.localStorage.length);
     j = 0;
 
     T.forEach(function(v) {
   		scoreTab[j] = parseFloat(v.time);
   		nameTab[j] = v.name;
+        stageTab[j] = v.stage;
   		j++;
 	});
 
@@ -92,13 +106,16 @@ function sort(T){
 	    	done = false;
 	    	var tmp = scoreTab[i - 1];
 	    	var tmp2 = nameTab[i - 1];
+            var tmp3 = stageTab[i - 1];
 	    	scoreTab[i - 1] = scoreTab[i];
 	    	nameTab[i - 1] = nameTab[i];
+            stageTab[i - 1] = stageTab[i];
 	    	scoreTab[i] = tmp;
 	    	nameTab[i] = tmp2;
+            stageTab[i] = tmp3;
 	    }
 	  }
  	}
 
- 	return [scoreTab, nameTab];
+ 	return [scoreTab, nameTab, stageTab];
 }
