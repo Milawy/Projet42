@@ -36,7 +36,7 @@ Game.Stage2 = function(){
 
         /////////////////////////////////Map/////////////////////////////////
         //Load the map
-        this.map = this.add.tilemap('stage3');
+        this.map = this.add.tilemap('stage2');
         this.map.addTilesetImage('tileset','tileset');
         this.map.smoothed = false;
 
