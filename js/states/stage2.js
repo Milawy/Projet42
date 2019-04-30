@@ -1,7 +1,7 @@
 
 /////////////////////////////////Global Var/////////////////////////////////
 
-Game.Stage2= function(){
+Game.Stage2 = function(){
  
 };
  Game.Stage2.prototype = { 
@@ -36,7 +36,7 @@ Game.Stage2= function(){
 
         /////////////////////////////////Map/////////////////////////////////
         //Load the map
-        this.map = this.add.tilemap('stage2');
+        this.map = this.add.tilemap('stage3');
         this.map.addTilesetImage('tileset','tileset');
         this.map.smoothed = false;
 
@@ -175,9 +175,7 @@ Game.Stage2= function(){
             }
             const id = window.localStorage.length;
             window.localStorage.setItem(String(id), JSON.stringify(person));
-            this.game.state.start("ScoreScreen1");
-            this.game.state.start("Stage3");
-
+            restart();
         }
 
         ////////////////////////////////Player2/////////////////////////////////
@@ -209,9 +207,7 @@ Game.Stage2= function(){
             }
 
             if(this.player2.overlap(exit)){
-
-
-                this.game.state.start("Stage3");
+                restart();
             }
 
             if(this.player.P1Ready && this.player2.P2Ready){
@@ -243,7 +239,7 @@ Game.Stage2= function(){
         }
 
         //mouse pointer coord for placing zones
-        console.log(this.input.activePointer.x, this.input.activePointer.y);
+        //console.log(this.input.activePointer.x, this.input.activePointer.y);
     }
 }
 
