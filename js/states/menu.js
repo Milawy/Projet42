@@ -127,7 +127,7 @@ function launchGame(){
     this.state.start('Tutorial');
     //this.state.start('Stage1');
     //this.state.start('Stage2');
-    //this.state.start('ScoreScreen2');
+    //this.state.start('ScoreScreen3');
 }
 
 function launchGameMulti(){
@@ -137,6 +137,7 @@ function launchGameMulti(){
     this.state.start('Tutorial');
     //this.state.start('Stage1');
     //this.state.start('Stage2');
+    //this.state.start('Stage3');
 }
 
 function overSoloButton(){
