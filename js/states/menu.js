@@ -134,10 +134,10 @@ function launchGame(){
 
     //mainTheme.stop();
     multiplayer = false;
-    //this.state.start('Tutorial');
+    this.state.start('Tutorial');
     //this.state.start('Stage1');
     //this.state.start('Stage2');
-    this.state.start('ScoreScreen2');
+    //this.state.start('ScoreScreen2');
 }
 
 function launchGameMulti(){
