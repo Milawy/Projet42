@@ -177,7 +177,6 @@ Game.Tutorial= function(){
             const id = window.localStorage.length;
             window.localStorage.setItem(String(id), JSON.stringify(person));
             this.game.state.start("ScoreScreen1");
-            //this.game.state.start("Stage1");
         }
 
         ////////////////////////////////Player2/////////////////////////////////
@@ -219,7 +218,6 @@ Game.Tutorial= function(){
                 const id = window.localStorage.length;
                 window.localStorage.setItem(String(id), JSON.stringify(person));
                 this.game.state.start("ScoreScreen1");
-                //this.game.state.start("Stage1");
             }
 
             if(this.player.P1Ready && this.player2.P2Ready){
@@ -251,7 +249,9 @@ Game.Tutorial= function(){
         }
 
         //mouse pointer coord for placing zones
-        //console.log(this.input.activePointer.x, this.input.activePointer.y);
+        if(this.game.input.activePointer.isDown){
+            console.log(this.input.activePointer.x, this.input.activePointer.y);
+        }
     }
 }
 

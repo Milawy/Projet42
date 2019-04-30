@@ -55,7 +55,7 @@ Game.Stage3 = function(){
         if(multiplayer){
             greenZone = new Game.colorZones(this, "green", 120, 955, 1, 0.5);
             greenZone2 = new Game.colorZones(this, "green", 565, 580, 1, 0.7);
-            greenZone3 = new Game.colorZones(this, "green", 1145, 130, 1, 1);
+            //greenZone3 = new Game.colorZones(this, "green", 1145, 130, 1, 1);
         }
         else{
             greenZone = new Game.colorZones(this, "green", 120, 955, 0.5, 0.5);
@@ -67,6 +67,7 @@ Game.Stage3 = function(){
         redZone = new Game.colorZones(this, "red", 850, 980, 1, 0.8);
         redZone2 = new Game.colorZones(this, "red", 720, 470, 0.8, 0.5);
         blueZone = new Game.colorZones(this, "blue", 855, 125, 0.5, 1);
+        blueZone2 = new Game.colorZones(this, "blue", 1145, 130, 1, 1);
 
 
         /////////////////////////////////Exit///////////////////////////////////
@@ -74,10 +75,10 @@ Game.Stage3 = function(){
         exit.anchor.setTo(0.5, 0.5);
         exit.scale.setTo(1.3, 1.3);
         exit.alpha = 0.5;
-        exit2 = this.game.add.sprite(1500, 128, "blueLight");
+        /*exit2 = this.game.add.sprite(1500, 128, "blueLight");
         exit2.anchor.setTo(0.5, 0.5);
         exit2.scale.setTo(1.3, 1.3);
-        exit2.alpha = 0.5;
+        exit2.alpha = 0.5;*/
 
 
         ////////////////////////////////Player//////////////////////////////////
@@ -160,7 +161,7 @@ Game.Stage3 = function(){
         //Check collisions between the player and walls
         this.game.physics.arcade.collide(this.player, this.wallLayer);
 
-        if(this.player.overlap(greenZone.zone) || this.player.overlap(greenZone2.zone) || this.player.overlap(greenZone3.zone)){
+        if(this.player.overlap(greenZone.zone) || this.player.overlap(greenZone2.zone)){
             this.player.green = true;
         }
         else{
@@ -181,14 +182,14 @@ Game.Stage3 = function(){
             this.player.red = false;
         }
 
-        if(this.player.overlap(blueZone.zone)){
+        if(this.player.overlap(blueZone.zone) || this.player.overlap(blueZone2.zone)){
             this.player.blue = true;
         }
         else{
             this.player.blue = false;
         }
 
-        if(this.player.overlap(exit) || this.player.overlap(exit2)){
+        if(this.player.overlap(exit)){
 
             var playerName = prompt("Player 1 Won ! Enter your name", "name");
             const person = {
@@ -208,7 +209,7 @@ Game.Stage3 = function(){
             this.game.physics.arcade.collide(this.player2, this.wallLayer);
             this.game.physics.arcade.collide(this.player, this.player2);
 
-            if(this.player2.overlap(greenZone.zone)){
+            if(this.player2.overlap(greenZone.zone) || this.player2.overlap(greenZone2.zone)){
                 this.player2.green = true;
             }
             else{
@@ -222,14 +223,21 @@ Game.Stage3 = function(){
                 this.player2.yellow = false;
             }
 
-            if(this.player2.overlap(redZone.zone)){
+            if(this.player2.overlap(redZone.zone) || this.player2.overlap(redZone2.zone)){
                 this.player2.red = true;
             }
             else{
                 this.player2.red = false;
             }
 
-            if(this.player2.overlap(exit) || this.player2.overlap(exit2)){
+            if(this.player2.overlap(blueZone.zone) || this.player2.overlap(blueZone2.zone)){
+                this.player2.blue = true;
+            }
+            else{
+                this.player2.blue = false;
+            }
+
+            if(this.player2.overlap(exit)){
                 var playerName = prompt("Player 2 Won ! Enter your name", "name");
                 const person = {
                     name : String(playerName),
@@ -270,7 +278,9 @@ Game.Stage3 = function(){
         }
 
         //mouse pointer coord for placing zones
-        console.log(this.input.activePointer.x, this.input.activePointer.y);
+        if(this.game.input.activePointer.isDown){
+            console.log(this.input.activePointer.x, this.input.activePointer.y);
+        }
     }
 }
 

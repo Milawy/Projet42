@@ -26,7 +26,7 @@ Game.controlMenu = function (t) {
 
 	////////////////Menu Font////////////////
     greenMenu = t.game.add.image(65, t.game.camera.view.height - 85, "greenMenu");
-    greenMenu.smoothed = false; //nota : green pos (65,85)
+    greenMenu.smoothed = false; //note : green pos (65,85)
     greenMenu.anchor.x = 0.5;
     greenMenu.anchor.y = 0.5;
     greenMenu.scale.y = 1.2
@@ -38,7 +38,7 @@ Game.controlMenu = function (t) {
     this.greenMenuContour.visible = true;
 
     yellowMenu = t.game.add.image(165, t.game.camera.view.height - 85, "yellowMenu");
-    yellowMenu.smoothed = false; //nota : yellow pos (165,85)
+    yellowMenu.smoothed = false; //note : yellow pos (165,85)
     yellowMenu.anchor.x = 0.5;
     yellowMenu.anchor.y = 0.5;
     yellowMenu.scale.y = 1.2
@@ -50,7 +50,7 @@ Game.controlMenu = function (t) {
     this.yellowMenuContour.visible = false;
 
     redMenu = t.game.add.image(265, t.game.camera.view.height - 85, "redMenu");
-    redMenu.smoothed = false; //nota : red pos (165,85)
+    redMenu.smoothed = false; //note : red pos (165,85)
     redMenu.anchor.x = 0.5;
     redMenu.anchor.y = 0.5;
     redMenu.scale.y = 1.2
@@ -62,7 +62,7 @@ Game.controlMenu = function (t) {
     this.redMenuContour.visible = false;
 
     blueMenu = t.game.add.image(365, t.game.camera.view.height - 85, "blueMenu");
-    blueMenu.smoothed = false; //nota : blue pos (165,85)
+    blueMenu.smoothed = false; //note : blue pos (165,85)
     blueMenu.anchor.x = 0.5;
     blueMenu.anchor.y = 0.5;
     blueMenu.scale.y = 1.2
@@ -463,12 +463,23 @@ function greenUpPressed(t){
         greenUpArrow.scale.x = 0.6;
         greenUpArrow.scale.y = 0.6;
         t.game.time.events.add(200, greenUpArrowScale);
+        shiftButton = t.game.input.keyboard.addKey(16);
 
-        if(altKey.isDown && parseInt(greenUpCounter.text) != 0){
-            greenUpCounter.text = (parseInt(greenUpCounter.text) - 1).toString();
+        if(shiftButton.onDown){
+            if(altKey.isDown && parseInt(greenUpCounter.text) != 0){
+                greenUpCounter.text = (parseInt(greenUpCounter.text) - 10).toString();
+            }
+            else if(parseInt(greenUpCounter.text) < 10 && !altKey.isDown){
+                greenUpCounter.text = (parseInt(greenUpCounter.text) + 10).toString();
+            }
         }
-        else if(parseInt(greenUpCounter.text) < 10 && !altKey.isDown){
-            greenUpCounter.text = (parseInt(greenUpCounter.text) + 1).toString();
+        else{
+            if(altKey.isDown && parseInt(greenUpCounter.text) != 0){
+                greenUpCounter.text = (parseInt(greenUpCounter.text) - 1).toString();
+            }
+            else if(parseInt(greenUpCounter.text) < 10 && !altKey.isDown){
+                greenUpCounter.text = (parseInt(greenUpCounter.text) + 1).toString();
+            }
         }
     }
 }

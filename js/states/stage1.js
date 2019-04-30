@@ -206,7 +206,7 @@ Game.Stage1 = function(){
                 this.player2.green = false;
             }
  
-            if(this.player2.overlap(yellowZone.zone)){
+            if(this.player2.overlap(yellowZone.zone) || this.player.overlap(yellowZone2.zone)){
                 this.player2.yellow = true;
             }
             else{
@@ -261,7 +261,9 @@ Game.Stage1 = function(){
         }
  
         //mouse pointer coord for placing zones
-        console.log(this.input.activePointer.x, this.input.activePointer.y);
+        if(this.game.input.activePointer.isDown){
+            console.log(this.input.activePointer.x, this.input.activePointer.y);
+        }
     }
 }
  
