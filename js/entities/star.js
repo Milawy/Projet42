@@ -29,7 +29,7 @@ Game.star.prototype.update = function(){
 	else if(!multiplayer){
 		if(this.gameScope.player.overlap(this)){
 			this.gameScope.player.score++;
-		this.destroy();
+			this.destroy();
 		}
 	}
 }

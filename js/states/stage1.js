@@ -27,7 +27,8 @@ Game.Stage1= function(){
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
         //here the camera size (adapt it for each stage)
-        this.scale.setGameSize(940, 550);
+        //this.scale.setGameSize(940, 550);
+        this.scale.setGameSize(1367, 800);
         this.game.stage.disableVisibilityChange = true;
 
         //Bg color
@@ -52,17 +53,19 @@ Game.Stage1= function(){
 
         /////////////////////////////////Zones/////////////////////////////////
         if(multiplayer){
-            greenZone = new Game.colorZones(this, "green", 256, 140, 1, 0.5);
+            greenZone = new Game.colorZones(this, "green", 120, 250, 1, 0.5);
         }
         else{
-            greenZone = new Game.colorZones(this, "green", 256, 140, 0.5, 0.5);
+            greenZone = new Game.colorZones(this, "green", 120, 250, 0.5, 0.5);
         }
-        yellowZone = new Game.colorZones(this, "yellow", 256, 365, 1, 0.7);
-        redZone = new Game.colorZones(this, "red", 773, 365, 0.7, 1);
+        yellowZone = new Game.colorZones(this, "yellow", 400, 110, 1, 0.7);
+        yellowZone2 = new Game.colorZones(this, "yellow", 650, 450, 1.5, 0.7);
+        redZone = new Game.colorZones(this, "red", 830, 300, 0.5, 1);
+        blueZone = new Game.colorZones(this, "blue", 700, 600, 1, 0.5);
 
 
         /////////////////////////////////Exit///////////////////////////////////
-        exit = this.game.add.sprite(773, 125, "blueLight");
+        exit = this.game.add.sprite(400, 460, "blueLight");
         exit.anchor.setTo(0.5, 0.5);
         exit.scale.setTo(1.3, 1.3);
         exit.alpha = 0.5;
@@ -70,17 +73,17 @@ Game.Stage1= function(){
 
         ////////////////////////////////Player//////////////////////////////////
         if(multiplayer){
-            this.player = new Game.Player(this.game, 235, 140);
+            this.player = new Game.Player(this.game, 120, 250);
             this.game.physics.arcade.enable(this.player);
             this.game.add.existing(this.player);
             this.player.smoothed = false;
-            this.player2 = new Game.Player2(this.game, 275, 140);
+            this.player2 = new Game.Player2(this.game, 120, 250);
             this.game.physics.arcade.enable(this.player2);
             this.game.add.existing(this.player2);
             this.player2.smoothed = false;
         }
         else{
-            this.player = new Game.Player(this.game, 256, 140);
+            this.player = new Game.Player(this.game, 120, 250);
             this.game.physics.arcade.enable(this.player);
             this.game.add.existing(this.player);
             this.player.smoothed = false;
@@ -106,9 +109,12 @@ Game.Stage1= function(){
         }
 
         /////////////////////////////////Star///////////////////////////////////
-        star = new Game.star(this, 256, 300);
+        star = new Game.star(this, 470, 110);
         this.game.physics.arcade.enable(star);
         this.game.add.existing(star);
+        star2 = new Game.star(this, 620, 600);
+        this.game.physics.arcade.enable(star2);
+        this.game.add.existing(star2);
 
 
         /////////////////////////////////Pause Menu////////////////////////////////
@@ -152,7 +158,7 @@ Game.Stage1= function(){
             this.player.green = false;
         }
 
-        if(this.player.overlap(yellowZone.zone)){
+        if(this.player.overlap(yellowZone.zone) || this.player.overlap(yellowZone2.zone)){
             this.player.yellow = true;
         }
         else{
@@ -164,6 +170,13 @@ Game.Stage1= function(){
         }
         else{
             this.player.red = false;
+        }
+
+        if(this.player.overlap(blueZone.zone)){
+            this.player.blue = true;
+        }
+        else{
+            this.player.blue = false;
         }
 
         if(this.player.overlap(exit)){
@@ -240,7 +253,7 @@ Game.Stage1= function(){
         }
 
         //mouse pointer coord for placing zones
-        //console.log(this.input.activePointer.x, this.input.activePointer.y);
+        console.log(this.input.activePointer.x, this.input.activePointer.y);
     }
 }
 
