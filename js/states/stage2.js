@@ -27,8 +27,7 @@ Game.Stage2 = function(){
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
         //here the camera size (adapt it for each stage)
-        //this.scale.setGameSize(940, 550);
-        this.scale.setGameSize(1367, 800);
+        this.scale.setGameSize(1020, 600);
         this.game.stage.disableVisibilityChange = true;
 
         //Bg color

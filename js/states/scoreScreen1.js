@@ -16,19 +16,19 @@ Game.ScoreScreen1 = function(){
         rankBox = this.game.add.image(250, 150, rank);
         rankBox.anchor.setTo(0.5,1);
         rankBox.scale.setTo(3,3);
-        rank.text = "rank";
+        rank.text = "Rank";
 
     	scores = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
         scoresBox = this.game.add.image(650, 150, scores);
         scoresBox.anchor.setTo(0.5,1);
         scoresBox.scale.setTo(3,3);
-        scores.text = "score";
+        scores.text = "Score";
 
     	names = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
         namesBox = this.game.add.image(1100, 150, names);
         namesBox.anchor.setTo(0.5,1);
         namesBox.scale.setTo(3,3);
-        names.text = "name";
+        names.text = "Name";
 
     	var localStorageTab = new Array(window.localStorage.length);
     	var rankTab = new Array(window.localStorage.length);
@@ -49,7 +49,7 @@ Game.ScoreScreen1 = function(){
 
         var j = 0;
 		for(var i = 0; i < window.localStorage.length; i++){
-            if(result[2][i] == "tutorial"){
+            if(result[2][i] == "Tutorial"){
         		scoreTab[i] = this.game.add.retroFont('basicFont', 16, 16, " !§\"$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ", 16, 0, 0);
             	scoreTabBox[i] = this.game.add.image(650, (225 + 75*j), scoreTab[i]);
             	scoreTabBox[i].anchor.setTo(0.5,1);

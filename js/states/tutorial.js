@@ -171,7 +171,7 @@ Game.Tutorial= function(){
             var playerName = prompt("Player 1 Won ! Enter your name", "name");
             const person = {
                 name : String(playerName),
-                stage : "tutorial",
+                stage : "Tutorial",
                 time : String(timer.text),
             }
             const id = window.localStorage.length;
@@ -212,7 +212,7 @@ Game.Tutorial= function(){
                 var playerName = prompt("Player 2 Won ! Enter your name", "name");
                 const person = {
                     name : String(playerName),
-                    stage : "tutorial",
+                    stage : "Tutorial",
                     time : String(timer.text),
                 }
                 const id = window.localStorage.length;

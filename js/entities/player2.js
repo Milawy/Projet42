@@ -115,10 +115,10 @@ Game.Player2.prototype.markovBot2 = function(){
 
   brain2 = [this.upVal2, this.downVal2, this.leftVal2, this.rightVal2];
 
-  this.up2 = 25 + brain2[0]*7 - (1/3)*(brain2[1]*7) - (1/3)*(brain2[2]*7) - (1/3)*(brain2[3]*7);
-  this.down2 = 25 + brain2[1]*7 - (1/3)*(brain2[0]*7) - (1/3)*(brain2[2]*7) - (1/3)*(brain2[3]*7);
-  this.left2 = 25 + brain2[2]*7 - (1/3)*(brain2[0]*7) - (1/3)*(brain2[1]*7) - (1/3)*(brain2[3]*7);
-  this.right2 = 25 + brain2[3]*7 - (1/3)*(brain2[0]*7) - (1/3)*(brain2[1]*7) - (1/3)*(brain2[2]*7);
+  this.up2 = 25 + brain2[0]*7.5 - (1/3)*(brain2[1]*7.5) - (1/3)*(brain2[2]*7.5) - (1/3)*(brain2[3]*7.5);
+  this.down2 = 25 + brain2[1]*7.5 - (1/3)*(brain2[0]*7.5) - (1/3)*(brain2[2]*7.5) - (1/3)*(brain2[3]*7.5);
+  this.left2 = 25 + brain2[2]*7.5 - (1/3)*(brain2[0]*7.5) - (1/3)*(brain2[1]*7.5) - (1/3)*(brain2[3]*7.5);
+  this.right2 = 25 + brain2[3]*7.5 - (1/3)*(brain2[0]*7.5) - (1/3)*(brain2[1]*7.5) - (1/3)*(brain2[2]*7.5);
 
   this.moveProb2 = [this.up2, this.down2, this.left2, this.right2];
 
