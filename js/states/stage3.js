@@ -71,14 +71,12 @@ Game.Stage3 = function(){
 
 
         /////////////////////////////////Exit///////////////////////////////////
-        exit = this.game.add.sprite(630, 110, "blueLight");
+        exit = this.game.add.sprite(630, 110, "exitFlag");
         exit.anchor.setTo(0.5, 0.5);
-        exit.scale.setTo(1.3, 1.3);
-        exit.alpha = 0.5;
-        /*exit2 = this.game.add.sprite(1500, 128, "blueLight");
-        exit2.anchor.setTo(0.5, 0.5);
-        exit2.scale.setTo(1.3, 1.3);
-        exit2.alpha = 0.5;*/
+        exit.scale.setTo(0.2, 0.3);
+        /*exit2 = this.game.add.sprite(1500, 128, "exitFlag");
+        exit.anchor.setTo(0.5, 0.5);
+        exit.scale.setTo(0.2, 0.3);*/
 
 
         ////////////////////////////////Player//////////////////////////////////
@@ -254,8 +252,8 @@ Game.Stage3 = function(){
                 this.player.P1Ready = false;
                 this.player2.stop = false;
                 this.player2.P2Ready = false;
-                readyP1.visible = true;
-                readyP2.visible = true;
+                readyP1.visible = false;
+                readyP2.visible = false;
                 this.startingTime = this.game.time.time;
             }
 
@@ -269,7 +267,7 @@ Game.Stage3 = function(){
         else if(this.player.P1Ready){
             this.player.stop = false;
             this.player.P1Ready = false;
-            readyP1.visible = true;
+            //readyP1.visible = true;
             this.startingTime = this.game.time.time;
         }
 

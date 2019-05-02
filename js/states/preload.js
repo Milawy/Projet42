@@ -38,6 +38,8 @@ Game.Preload = {
   this.load.spritesheet('bot', 'assets/sprites/robot_full.png', 36, 39);
   this.load.spritesheet('bot2', 'assets/sprites/robot_full_red.png', 36, 39);
   this.load.spritesheet('star', 'assets/img/star.png', 240, 256);
+  this.load.spritesheet('screen', 'assets/img/EcranEcritures.png', 2580, 34);
+  this.load.spritesheet('panel', 'assets/img/PanneauLeds.png', 903, 32);
 
 
   // Image
@@ -56,7 +58,7 @@ Game.Preload = {
   this.load.image('blueMenu', 'assets/img/blue_panel.png');
   this.load.image('greenZone', 'assets/img/greenZone.png');
   this.load.image('greyContour', 'assets/img/grey_contour.png');
-  this.load.image('blueLight', 'assets/img/blueLight.png');
+  this.load.image('exitFlag', 'assets/img/exitFlag.png');
   this.load.image('pauseIcon', 'assets/img/pauseIcon.png');
   this.load.image('soundOn', 'assets/img/soundOn.png');
   this.load.image('soundOff', 'assets/img/soundOff.png');
