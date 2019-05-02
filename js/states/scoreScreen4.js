@@ -76,14 +76,14 @@ Game.ScoreScreen4 = function(){
     	
         // Press space to play
         this.playKey = this.game.input.keyboard.addKey(32);
-        this.playKey.onDown.add(nextLevel3 , this);
+        this.playKey.onDown.add(nextLevel4 , this);
     },
 
     update : function(){
     },
 };
 
-function nextLevel3(){
+function nextLevel4(){
     this.state.start('Menu');
 }
 

@@ -53,7 +53,7 @@ Game.Stage3 = function(){
 
         /////////////////////////////////Zones/////////////////////////////////
         if(multiplayer){
-            greenZone = new Game.colorZones(this, "green", 120, 955, 1, 0.5);
+            greenZone = new Game.colorZones(this, "green", 120, 965, 0.5, 1);
             greenZone2 = new Game.colorZones(this, "green", 565, 580, 1, 0.7);
             //greenZone3 = new Game.colorZones(this, "green", 1145, 130, 1, 1);
         }
@@ -83,11 +83,11 @@ Game.Stage3 = function(){
 
         ////////////////////////////////Player//////////////////////////////////
         if(multiplayer){
-            this.player = new Game.Player(this.game, 120, 955);
+            this.player = new Game.Player(this.game, 120, 940);
             this.game.physics.arcade.enable(this.player);
             this.game.add.existing(this.player);
             this.player.smoothed = false;
-            this.player2 = new Game.Player2(this.game, 120, 955);
+            this.player2 = new Game.Player2(this.game, 120, 985);
             this.game.physics.arcade.enable(this.player2);
             this.game.add.existing(this.player2);
             this.player2.smoothed = false;

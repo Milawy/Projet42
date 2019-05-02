@@ -72,11 +72,11 @@ Game.Stage2 = function(){
 
         ////////////////////////////////Player//////////////////////////////////
         if(multiplayer){
-            this.player = new Game.Player(this.game, 385, 120);
+            this.player = new Game.Player(this.game, 360, 120);
             this.game.physics.arcade.enable(this.player);
             this.game.add.existing(this.player);
             this.player.smoothed = false;
-            this.player2 = new Game.Player2(this.game, 385, 120);
+            this.player2 = new Game.Player2(this.game, 410, 120);
             this.game.physics.arcade.enable(this.player2);
             this.game.add.existing(this.player2);
             this.player2.smoothed = false;

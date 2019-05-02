@@ -51,13 +51,13 @@ Game.Stage1 = function(){
  
         /////////////////////////////////Zones/////////////////////////////////
         if(multiplayer){
-            greenZone = new Game.colorZones(this, "green", 120, 250, 1, 0.5);
+            greenZone = new Game.colorZones(this, "green", 120, 230, 0.5, 1);
         }
         else{
             greenZone = new Game.colorZones(this, "green", 120, 250, 0.5, 0.5);
         }
         yellowZone = new Game.colorZones(this, "yellow", 400, 110, 1, 0.7);
-        yellowZone2 = new Game.colorZones(this, "yellow", 650, 450, 1.5, 0.7);
+        yellowZone2 = new Game.colorZones(this, "yellow", 650, 445, 1.5, 0.5);
         redZone = new Game.colorZones(this, "red", 830, 300, 0.5, 1);
         blueZone = new Game.colorZones(this, "blue", 700, 600, 1, 0.5);
  
@@ -75,7 +75,7 @@ Game.Stage1 = function(){
             this.game.physics.arcade.enable(this.player);
             this.game.add.existing(this.player);
             this.player.smoothed = false;
-            this.player2 = new Game.Player2(this.game, 120, 250);
+            this.player2 = new Game.Player2(this.game, 120, 200);
             this.game.physics.arcade.enable(this.player2);
             this.game.add.existing(this.player2);
             this.player2.smoothed = false;

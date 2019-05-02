@@ -84,7 +84,7 @@ Game.ScoreScreen3 = function(){
 };
 
 function nextLevel3(){
-    this.state.start('Stage3');
+    this.state.start("Stage3");
 }
 
 function resetLocalStorage(){
