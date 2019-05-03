@@ -63,9 +63,10 @@ Game.Stage1 = function(){
  
  
         /////////////////////////////////Exit///////////////////////////////////
-        exit = this.game.add.sprite(400, 460, "exitFlag");
+        exit = this.game.add.sprite(405, 465, "exitFlag");
         exit.anchor.setTo(0.5, 0.5);
-        exit.scale.setTo(0.2, 0.3);
+        exit.scale.setTo(0.8, 0.8);
+        exit.alpha = 0.8;
  
  
         ////////////////////////////////Player//////////////////////////////////

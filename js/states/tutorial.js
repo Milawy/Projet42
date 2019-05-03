@@ -50,18 +50,18 @@ Game.Tutorial= function(){
         this.map.setCollisionBetween(0, 999, true, this.wallLayer);
 
         //Panels and Screens
-        /*panel1 = this.game.add.sprite(100, 100, "panel");
-        panel1.animations.add("workingPanel",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],36,false);
+        panel1 = this.game.add.sprite(100, 100, "panel");
+        panel1.animations.add("workingPanel",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],36,true);
         panel1.animations.play("workingPanel");
         panel1.anchor.setTo(0.5, 0.5);
         panel1.scale.setTo(1.3, 1.3);
         panel1.alpha = 0.5;
         screen1 = this.game.add.sprite(100, 200, "screen");
-        screen1.animations.add("workingScreen",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59],34,false);
+        screen1.animations.add("workingScreen",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59],34,true);
         screen1.animations.play("workingScreen");
         screen1.anchor.setTo(0.5, 0.5);
         screen1.scale.setTo(1.3, 1.3);
-        screen1.alpha = 0.5;*/
+        screen1.alpha = 0.5;
 
         /////////////////////////////////Zones/////////////////////////////////
         if(multiplayer){
@@ -75,9 +75,10 @@ Game.Tutorial= function(){
 
 
         /////////////////////////////////Exit///////////////////////////////////
-        exit = this.game.add.sprite(773, 125, "exitFlag");
+        exit = this.game.add.sprite(768, 125, "exitFlag");
         exit.anchor.setTo(0.5, 0.5);
-        exit.scale.setTo(0.2, 0.3);
+        exit.scale.setTo(1, 1);
+        exit.alpha = 0.8;
 
 
         ////////////////////////////////Player//////////////////////////////////
