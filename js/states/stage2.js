@@ -49,6 +49,28 @@ Game.Stage2 = function(){
         //Allow collisions with walls
         this.map.setCollisionBetween(0, 999, true, this.wallLayer);
 
+        //Panels and Screens
+        panel1 = this.game.add.sprite(473, 287, "panel");
+        panel1.animations.add("workingPanel",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],36,true);
+        panel1.animations.play("workingPanel");
+        panel1.anchor.setTo(0.5, 0.5);
+        panel1.scale.setTo(1.3, 1.3);
+        panel1.angle = 90;
+        panel2 = this.game.add.sprite(573, 454, "panel");
+        panel2.animations.add("workingPanel",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],36,true);
+        panel2.animations.play("workingPanel");
+        panel2.anchor.setTo(0.5, 0.5);
+        panel2.scale.setTo(1.3, 1.3);
+        screen1 = this.game.add.sprite(382, 36, "screen");
+        screen1.animations.add("workingScreen",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59],34,true);
+        screen1.animations.play("workingScreen");
+        screen1.anchor.setTo(0.5, 0.5);
+        screen1.scale.setTo(1.3, 1.3);
+        screen2 = this.game.add.sprite(450, 665, "screen");
+        screen2.animations.add("workingScreen",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59],34,true);
+        screen2.animations.play("workingScreen");
+        screen2.anchor.setTo(0.5, 0.5);
+        screen2.scale.setTo(-1.3, -1.3);
 
         /////////////////////////////////Zones/////////////////////////////////
         if(multiplayer){
