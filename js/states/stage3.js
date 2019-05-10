@@ -223,23 +223,15 @@ Game.Stage3 = function(){
 
         if(this.player.overlap(exit)){
 
-            this.mainTheme = document.createElement("AUDIO");
-            this.mainTheme.src = './assets/sound/win.mp3';
-            this.mainTheme.play();
-
-            this.game.time.events.add(2500, function f1() {
-
-                var playerName = prompt("Player 1 Won ! Enter your name", "name");
-                const person = {
-                    name : String(playerName),
-                    stage : "stage3",
-                    time : String(timer.text - this.player.score*5),
-                }
-                const id = window.localStorage.length;
-                window.localStorage.setItem(String(id), JSON.stringify(person));
-                this.state.start('ScoreScreen4');
-
-            }, this);
+            var playerName = prompt("Player 1 Won ! Enter your name", "name");
+            const person = {
+                name : String(playerName),
+                stage : "stage3",
+                time : String(timer.text - this.player.score*7),
+            }
+            const id = window.localStorage.length;
+            window.localStorage.setItem(String(id), JSON.stringify(person));
+            this.state.start('ScoreScreen4');
         }
 
         ////////////////////////////////Player2/////////////////////////////////
@@ -279,23 +271,16 @@ Game.Stage3 = function(){
 
             if(this.player2.overlap(exit)){
 
-                this.mainTheme = document.createElement("AUDIO");
-                this.mainTheme.src = './assets/sound/win.mp3';
-                this.mainTheme.play();
+                var playerName = prompt("Player 2 Won ! Enter your name", "name");
+                const person = {
+                    name : String(playerName),
+                    stage : "stage3",
+                    time : String(timer.text - this.player2.score*7),
+                }
+                const id = window.localStorage.length;
+                window.localStorage.setItem(String(id), JSON.stringify(person));
+                this.state.start('ScoreScreen4');
 
-                this.game.time.events.add(2500, function f1() {
-
-                    var playerName = prompt("Player 2 Won ! Enter your name", "name");
-                    const person = {
-                        name : String(playerName),
-                        stage : "stage3",
-                        time : String(timer.text - this.player2.score*5),
-                    }
-                    const id = window.localStorage.length;
-                    window.localStorage.setItem(String(id), JSON.stringify(person));
-                    this.state.start('ScoreScreen4');
-
-                }, this);
             }
 
             if(this.player.P1Ready && this.player2.P2Ready){
