@@ -69,7 +69,11 @@ Game.Preload = {
   this.load.image('keyboardP1', 'assets/img/keyboardP1.png');
   this.load.image('title', 'assets/img/title.png');
 
+
   // Audio
+  this.load.audio('maintheme', 'assets/sound/moderator-funk-for-food.mp3');
+  this.load.audio('starSound', 'assets/sound/portal.mp3');
+  this.load.audio('win', 'assets/sound/win.mp3');
 
 
   this.load.start();

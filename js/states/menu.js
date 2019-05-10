@@ -86,6 +86,11 @@ Game.Menu.prototype = {
         this.mainTitle.anchor.setTo(0.5,0.5);
         this.mainTitle.scale.setTo(0.65,0.65);
 
+        ////Audio////
+        this.mainTheme = document.createElement("AUDIO");
+        this.mainTheme.src = './assets/sound/moderator-funk-for-food.mp3';
+        this.mainTheme.play();
+
     }, 
 
     update : function(){

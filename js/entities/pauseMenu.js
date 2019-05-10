@@ -56,12 +56,6 @@ Game.pauseMenu = function (t) {
     soundOff.events.onInputDown.add(switchSoundOn, t);
 
 
-    ////Audio////
-    this.mainTheme = document.createElement("AUDIO");
-    this.mainTheme.src = './assets/sound/happy_valley.mp3';
-    this.mainTheme.play();
-
-
     ////StoneBoard////
     stoneBoard = t.game.add.image(240, 305, "stoneBoard");
     stoneBoard.anchor.setTo(0.5,0.5);
