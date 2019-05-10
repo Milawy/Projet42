@@ -79,10 +79,10 @@ Game.Stage2 = function(){
         else{
             greenZone = new Game.colorZones(this, "green", 385, 120, 0.5, 0.5);
         }
-        yellowZone = new Game.colorZones(this, "yellow", 260, 300, 1, 0.5);
+        yellowZone = new Game.colorZones(this, "yellow", 260, 275, 1, 1);
         yellowZone2 = new Game.colorZones(this, "yellow", 900, 450, 1, 1);
-        redZone = new Game.colorZones(this, "red", 470, 590, 0.9, 0.8);
-        blueZone = new Game.colorZones(this, "blue", 130, 100, 1, 0.5);
+        redZone = new Game.colorZones(this, "red", 130, 100, 1, 0.5);
+        blueZone = new Game.colorZones(this, "blue", 470, 590, 0.9, 0.8);
 
 
         /////////////////////////////////Exit///////////////////////////////////
