@@ -77,6 +77,8 @@ Game.ScoreScreen1 = function(){
         // Press space to play
         this.playKey = this.game.input.keyboard.addKey(32);
         this.playKey.onDown.add(nextLevel , this);
+
+        //resetLocalStorage();
     	
     },
 

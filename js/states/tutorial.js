@@ -189,7 +189,7 @@ Game.Tutorial= function(){
             const person = {
                 name : String(playerName),
                 stage : "Tutorial",
-                time : String(timer.text - this.player.score*2),
+                time : String((timer.text - this.player.score*2).toFixed(2)),
             }
             const id = window.localStorage.length;
             window.localStorage.setItem(String(id), JSON.stringify(person));
@@ -230,7 +230,7 @@ Game.Tutorial= function(){
             const person = {
                 name : String(playerName),
                 stage : "Tutorial",
-                time : String(timer.text - this.player2.score*2),
+                time : String((timer.text - this.player2.score*2).toFixed(2)),
             }
             const id = window.localStorage.length;
             window.localStorage.setItem(String(id), JSON.stringify(person));

@@ -204,7 +204,7 @@ Game.Stage1 = function(){
             const person = {
                 name : String(playerName),
                 stage : "stage1",
-                time : String(timer.text - this.player.score*7),
+                time : String((timer.text - this.player.score*7).toFixed(2)),
             }
             const id = window.localStorage.length;
             window.localStorage.setItem(String(id), JSON.stringify(person));
@@ -253,7 +253,7 @@ Game.Stage1 = function(){
                 const person = {
                     name : String(playerName),
                     stage : "stage1",
-                    time : String(timer.text - this.player2.score*7),
+                    time : String((timer.text - this.player2.score*7).toFixed(2)),
                 }
                 const id = window.localStorage.length;
                 window.localStorage.setItem(String(id), JSON.stringify(person));
