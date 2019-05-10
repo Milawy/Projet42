@@ -26,8 +26,7 @@ Game.Stage1 = function(){
         this.physics.startSystem(Phaser.Physics.ARCADE);
  
         //here the camera size (adapt it for each stage)
-        //this.scale.setGameSize(940, 550);
-        this.scale.setGameSize(1367, 800);
+        this.scale.setGameSize(1020, 600);
         this.game.stage.disableVisibilityChange = true;
  
         //Bg color
@@ -49,25 +48,46 @@ Game.Stage1 = function(){
         //Allow collisions with walls
         this.map.setCollisionBetween(0, 999, true, this.wallLayer);
  
- 
+        //Panels and Screens
+        panel1 = this.game.add.sprite(801, 36, "panel");
+        panel1.animations.add("workingPanel",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],36,true);
+        panel1.animations.play("workingPanel");
+        panel1.anchor.setTo(0.5, 0.5);
+        panel1.scale.setTo(1.3, 1.3);
+        panel2 = this.game.add.sprite(670, 390, "panel");
+        panel2.animations.add("workingPanel",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],36,true);
+        panel2.animations.play("workingPanel");
+        panel2.anchor.setTo(0.5, 0.5);
+        panel2.scale.setTo(1.3, 1.3);
+        screen1 = this.game.add.sprite(542, 36, "screen");
+        screen1.animations.add("workingScreen",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59],34,true);
+        screen1.animations.play("workingScreen");
+        screen1.anchor.setTo(0.5, 0.5);
+        screen1.scale.setTo(1.3, 1.3);
+        screen2 = this.game.add.sprite(484, 392, "screen");
+        screen2.animations.add("workingScreen",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59],34,true);
+        screen2.animations.play("workingScreen");
+        screen2.anchor.setTo(0.5, 0.5);
+        screen2.scale.setTo(1.3, 1.3);
+
         /////////////////////////////////Zones/////////////////////////////////
         if(multiplayer){
-            greenZone = new Game.colorZones(this, "green", 120, 250, 1, 0.5);
+            greenZone = new Game.colorZones(this, "green", 120, 230, 0.5, 1);
         }
         else{
             greenZone = new Game.colorZones(this, "green", 120, 250, 0.5, 0.5);
         }
         yellowZone = new Game.colorZones(this, "yellow", 400, 110, 1, 0.7);
-        yellowZone2 = new Game.colorZones(this, "yellow", 650, 450, 1.5, 0.7);
+        yellowZone2 = new Game.colorZones(this, "yellow", 650, 445, 1.5, 0.5);
         redZone = new Game.colorZones(this, "red", 830, 300, 0.5, 1);
         blueZone = new Game.colorZones(this, "blue", 700, 600, 1, 0.5);
  
  
         /////////////////////////////////Exit///////////////////////////////////
-        exit = this.game.add.sprite(400, 460, "blueLight");
+        exit = this.game.add.sprite(405, 465, "exitFlag");
         exit.anchor.setTo(0.5, 0.5);
-        exit.scale.setTo(1.3, 1.3);
-        exit.alpha = 0.5;
+        exit.scale.setTo(0.8, 0.8);
+        exit.alpha = 0.8;
  
  
         ////////////////////////////////Player//////////////////////////////////
@@ -76,7 +96,7 @@ Game.Stage1 = function(){
             this.game.physics.arcade.enable(this.player);
             this.game.add.existing(this.player);
             this.player.smoothed = false;
-            this.player2 = new Game.Player2(this.game, 120, 250);
+            this.player2 = new Game.Player2(this.game, 120, 200);
             this.game.physics.arcade.enable(this.player2);
             this.game.add.existing(this.player2);
             this.player2.smoothed = false;
@@ -220,6 +240,13 @@ Game.Stage1 = function(){
                 this.player2.red = false;
             }
  
+            if(this.player2.overlap(blueZone.zone)){
+                this.player2.blue = true;
+            }
+            else{
+                this.player2.blue = false;
+            }
+
             if(this.player2.overlap(exit)){
                 var playerName = prompt("Player 2 Won ! Enter your name", "name");
                 const person = {
@@ -237,8 +264,8 @@ Game.Stage1 = function(){
                 this.player.P1Ready = false;
                 this.player2.stop = false;
                 this.player2.P2Ready = false;
-                readyP1.visible = true;
-                readyP2.visible = true;
+                readyP1.visible = false;
+                readyP2.visible = false;
                 this.startingTime = this.game.time.time;
             }
  
@@ -252,7 +279,7 @@ Game.Stage1 = function(){
         else if(this.player.P1Ready){
             this.player.stop = false;
             this.player.P1Ready = false;
-            readyP1.visible = true;
+            //readyP1.visible = true;
             this.startingTime = this.game.time.time;
         }
  

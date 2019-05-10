@@ -116,17 +116,17 @@ Game.Player.prototype.markovBot = function(){
 
   brain = [this.upVal, this.downVal, this.leftVal, this.rightVal];
 
-  up = 25 + brain[0]*7 - (1/3)*(brain[1]*7) - (1/3)*(brain[2]*7) - (1/3)*(brain[3]*7);
-  down = 25 + brain[1]*7 - (1/3)*(brain[0]*7) - (1/3)*(brain[2]*7) - (1/3)*(brain[3]*7);
-  left = 25 + brain[2]*7 - (1/3)*(brain[0]*7) - (1/3)*(brain[1]*7) - (1/3)*(brain[3]*7);
-  right = 25 + brain[3]*7 - (1/3)*(brain[0]*7) - (1/3)*(brain[1]*7) - (1/3)*(brain[2]*7);
+  up = 25 + brain[0]*7.5 - (1/3)*(brain[1]*7.5) - (1/3)*(brain[2]*7.5) - (1/3)*(brain[3]*7.5);
+  down = 25 + brain[1]*7.5 - (1/3)*(brain[0]*7.5) - (1/3)*(brain[2]*7.5) - (1/3)*(brain[3]*7.5);
+  left = 25 + brain[2]*7.5 - (1/3)*(brain[0]*7.5) - (1/3)*(brain[1]*7.5) - (1/3)*(brain[3]*7.5);
+  right = 25 + brain[3]*7.5 - (1/3)*(brain[0]*7.5) - (1/3)*(brain[1]*7.5) - (1/3)*(brain[2]*7.5);
 
   moveProb = [up, down, left, right];
 
   dice = getRandomInt(99) + 1;
 
-  //console.log(dice)
-  //console.log(moveProb)
+  //console.log("dice : " + dice)
+  //console.log("moveProb : " + moveProb)
 
   if(up > dice){
     this.prevDir = "up"
