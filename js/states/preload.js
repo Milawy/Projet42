@@ -67,6 +67,7 @@ Game.Preload = {
   this.load.image('restartFont', 'assets/img/restartFont.png');
   this.load.image('readyIcon', 'assets/img/ready.png');
   this.load.image('keyboardP1', 'assets/img/keyboardP1.png');
+  this.load.image('keyboardP2', 'assets/img/keyboardP2.png');
   this.load.image('title', 'assets/img/title.png');
 
 

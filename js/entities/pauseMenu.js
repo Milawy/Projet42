@@ -55,41 +55,34 @@ Game.pauseMenu = function (t) {
     soundOff.inputEnabled = true;
     soundOff.events.onInputDown.add(switchSoundOn, t);
 
-
-    ////StoneBoard////
-    stoneBoard = t.game.add.image(240, 305, "stoneBoard");
-    stoneBoard.anchor.setTo(0.5,0.5);
-    stoneBoard.scale.setTo(0.6,0.6);
-    stoneBoard.visible = false;
-
-
     ////Text////
     var style = { font: "20px Times New Roman", fill: "#fff"};
     var style25 = { font: "25px Times New Roman", fill: "#fff"};
-    controls = t.game.add.text(t.game.camera.view.width/4 + 15, 190, "Contrôles", style);
+    controls = t.game.add.text(t.game.camera.view.width/4 + 15, 190, " ", style);
     controls.anchor.setTo(0.5,0.5);
     controls.visible = false;
-    text1 = t.game.add.text(42, 235, "- Attribuez des points à la couleur sélectionnée \navec ZQSD, changez de couleur avec Tabulation", style);
-    text1.anchor.setTo(0,0.5);
-    text1.visible = false;
-    text2 = t.game.add.text(42, 295, "- Plus le nombre de points dans une direction est \nélevé, plus Toby ira dans cette direction", style);
-    text2.anchor.setTo(0,0.5);
-    text2.visible = false;
-    text3 = t.game.add.text(40, 350, "- Quand Toby passe sur une zone de couleur il se \ndéplacera selon les points attribué à cette couleur", style);
-    text3.anchor.setTo(0,0.5);
-    text3.visible = false;
-    text4 = t.game.add.text(40, 400, "- Gagnez en atteignant le portail de fin !", style);
-    text4.anchor.setTo(0,0.5);
-    text4.visible = false;
-
 
     ////KeyboardP1////
-    keyboardP1 = t.game.add.image(750, 150, "keyboardP1");
-    keyboardP1.anchor.setTo(0.5,0.5);
-    keyboardP1.scale.setTo(1.3,1.3);
-    keyboardP1.visible = false;    
+    
+    if(multiplayer){
 
+        keyboardP1 = t.game.add.image(200, 300, "keyboardP1");
+        keyboardP1.anchor.setTo(0.5,0.5);
+        keyboardP1.scale.setTo(1.3,1.3);
+        keyboardP1.visible = false;
 
+        keyboardP2 = t.game.add.image(750, 300, "keyboardP2");
+        keyboardP2.anchor.setTo(0.5,0.5);
+        keyboardP2.scale.setTo(1.3,1.3);
+        keyboardP2.visible = false;
+
+    }
+    else {
+        keyboardP1 = t.game.add.image(600, 450, "keyboardP1");
+        keyboardP1.anchor.setTo(0.5,0.5);
+        keyboardP1.scale.setTo(1.3,1.3);
+        keyboardP1.visible = false;
+    }
 }
 
 function pause(){
@@ -101,13 +94,9 @@ function pause(){
         soundOff.visible = false;
         soundOn.visible = false;
         exitIcon.visible = false;
-        stoneBoard.visible = false;
         controls.visible = false;
-        text1.visible = false;
-        text2.visible = false;
-        text3.visible = false;
-        text4.visible = false;
         keyboardP1.visible = false;
+        keyboardP2.visible = false;
         restartFont.visible = false;
         restartText.visible = false;
     }
@@ -116,13 +105,9 @@ function pause(){
         this.game.paused = true;
         pauseIcon.visible = true;
         exitIcon.visible = true;
-        stoneBoard.visible = true;
         controls.visible = true;
-        text1.visible = true;
-        text2.visible = true;
-        text3.visible = true;
-        text4.visible = true;
         keyboardP1.visible = true;
+        keyboardP2.visible = true;
         restartFont.visible = true;
         restartText.visible = true;
 
@@ -151,6 +136,5 @@ function returnToMenu(){
 	this.game.paused = false;
 	this.pauseMenu.mainTheme.pause();
 	this.scale.setGameSize(1366, 768);
-    this.state.start('Menu');
+    this.state.start("Menu");
 }
-
