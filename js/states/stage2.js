@@ -228,7 +228,7 @@ Game.Stage2 = function(){
                 this.player2.green = false;
             }
 
-            if(this.player2.overlap(yellowZone.zone) || this.player.overlap(yellowZone2.zone)){
+            if(this.player2.overlap(yellowZone.zone) || this.player2.overlap(yellowZone2.zone)){
                 this.player2.yellow = true;
             }
             else{

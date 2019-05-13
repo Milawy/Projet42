@@ -13,6 +13,11 @@ Game.Menu.prototype = {
     }, 
  
     create : function(){
+
+        ////Audio////
+        this.mainTheme = document.createElement("AUDIO");
+        this.mainTheme.src = './assets/sound/moderator-funk-for-food.mp3';
+        this.mainTheme.play();
     	
         // Add background
     	bg = this.game.add.image(0 , 0, 'mainTitle');
@@ -85,11 +90,6 @@ Game.Menu.prototype = {
         this.mainTitle = this.game.add.image(this.game.width/2, 150, "title");
         this.mainTitle.anchor.setTo(0.5,0.5);
         this.mainTitle.scale.setTo(0.65,0.65);
-
-        ////Audio////
-        this.mainTheme = document.createElement("AUDIO");
-        this.mainTheme.src = './assets/sound/moderator-funk-for-food.mp3';
-        this.mainTheme.play();
 
     }, 
 
